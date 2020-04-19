@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:robobunny="http://robobunny.com">
+    <PreferenceCategory android:title="General MODs" >
+        <PreferenceScreen android:key="privacy" >
+            <PreferenceCategory android:title="General" >
+                <SwitchPreference  android:key="hideseen" />
+                <SwitchPreference  android:key="bor" />
+                <SwitchPreference  android:key="ar" />
+                <SwitchPreference  android:key="hidefwd" />
+                <SwitchPreference  android:key="hidestatus" />
+            </PreferenceCategory>
+            <PreferenceCategory android:title="Contacts" >
+                <SwitchPreference android:key="C_hideread" />
+                <SwitchPreference android:key="C_hidereceipt" />
+                <SwitchPreference android:key="C_hideplay" />
+                <SwitchPreference android:key="C_hidetype" />
+                <SwitchPreference android:key="C_hiderecord" />
+            </PreferenceCategory>
+            <PreferenceCategory android:title="Groups" >
+                <SwitchPreference android:key="G_hideread" />
+                <SwitchPreference android:key="G_hidereceipt" />
+                <SwitchPreference android:key="G_hideplay" />
+                <SwitchPreference android:key="G_hidetype" />
+                <SwitchPreference android:key="G_hiderecord" />
+            </PreferenceCategory>
+            <PreferenceCategory android:title="Reset">
+                <Preference android:key="reset" />
+            </PreferenceCategory>
+        </PreferenceScreen>
+        <com.whatsapp.BackupPref android:key="backup" />
+    </PreferenceCategory>
+</PreferenceScreen>
