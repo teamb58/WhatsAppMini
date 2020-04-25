@@ -1,7 +1,18 @@
 package x;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.SharedPreferences;
+import android.view.Menu;
+import android.view.MenuItem;
+import android.view.View;
+import android.widget.EditText;
+
+import com.b58works.whatsapp.MainActivity;
+import com.b58works.whatsapp.R;
+import com.whatsapp.SettingsPreference;
 
 public class Main {
 
@@ -94,5 +105,38 @@ public class Main {
         }
         return !getPrivacyB(jid + Constant.cstatus);
     }
+
+    static Intent OpenChat(String str, Context homeActivity) {
+        try {
+            return new Intent(homeActivity, MainActivity.class).putExtra("jid", str).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        } catch (Exception e) {
+            return null;
+        }
+    }
+
+    public static void addMenu(Context homeActivity, MenuItem menuItem) {
+        if (menuItem.getItemId() == R.id.privacy) {
+            homeActivity.startActivity(new Intent(homeActivity, SettingsPreference.class));
+        }
+        if (menuItem.getItemId() == R.id.chat) {
+            AlertDialog.Builder builder = new AlertDialog.Builder(homeActivity);
+            builder.setTitle(Constant.newchat);
+            builder.setMessage(Constant.enternum);
+            EditText editText = new EditText(homeActivity);
+            builder.setView(editText);
+            builder.setPositiveButton(Constant.message,  new NewChat(editText, homeActivity));
+            builder.setNegativeButton(Constant.cancel,  new Cancel());
+            builder.show();
+        }
+    }
+
+    public static void setMenuC(Menu menu) {
+        menu.add(1, R.id.chat, 0, Constant.newchat);
+    }
+
+    public static void setMenuP(Menu menu) {
+        menu.add(1, R.id.privacy, 0, Constant.mods);
+    }
+
 
 }

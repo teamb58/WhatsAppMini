@@ -53,6 +53,12 @@ public class Constant {
     static String hs = Main.value("^_Z[i[[d");
     static String hst = Main.value("^_Z[ijWjki");
 
+    static String newchat = Main.value("D[m\u00169^Wj");
+    static String enternum = Main.value(";dj[h\u0016DkcX[h");
+    static String message = Main.value("C[iiW][\u0017");
+    static String cancel = Main.value("9WdY[b");
+    static String mods = Main.value("CeZi");
+
 
 
 
