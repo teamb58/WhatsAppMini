@@ -35,6 +35,25 @@ public class Constant {
     public static String hrcsum = Main.value("\u0016j^Wj\u0016oek\u0016Wh[\u0016h[YehZ_d]\u0016Wd\u0016WkZ_e$");
     public static String resetp = Main.value("H[i[j\u0016Wbb\u0016Fh_lWYo");
     public static String resetps = Main.value("9b_Ya\u0016je\u0016Yb[Wh\u0016Wbb\u0016fh_lWYo\u0016fh[\\[h[dY[i\u0016WdZ\u0016h[i[j\u0016je\u0016Z[\\Wkbj$");
-    public static String resett = Main.value("7bb\u0016Fh_lWYo\u0016fh[\\[h[dY[i\u0016Wh[\u0016Yb[Wh[Z");
+    static String resett = Main.value("7bb\u0016Fh_lWYo\u0016fh[\\[h[dY[i\u0016Wh[\u0016Yb[Wh[Z");
+
+    static String gid = Main.value("]$ki");
+    static String jid = Main.value("i$m^WjiWff$d[j");
+    static String broadcast = Main.value("XheWZYWij");
+    static String ccompose = Main.value("U>_Z[9ecfei[");
+    static String cplay = Main.value("U>_Z[FbWo");
+    static String creceipt = Main.value("U>_Z[H[Y[_fj");
+    static String crecord = Main.value("U>_Z[H[YehZ");
+    static String cstatus = Main.value("U>_Z[IjWjki");
+    static String hrec = Main.value("U^_Z[h[YehZ");
+    static String hc = Main.value("U^_Z[jof[");
+    static String hp = Main.value("U^_Z[fbWo");
+    static String hf = Main.value("^_Z[\\mZ");
+    static String hrc = Main.value("U^_Z[h[Y[_fj");
+    static String hs = Main.value("^_Z[i[[d");
+    static String hst = Main.value("^_Z[ijWjki");
+
+
+
 
 }
