@@ -16,8 +16,8 @@ import com.whatsapp.SettingsPreference;
 
 public class Main {
 
-    private Context context;
-    public static String jabber;
+    public Context context;
+    private static String jabber;
     public static SharedPreferences sharedPreferences;
 
     public void setContext(Context context) {
@@ -125,7 +125,7 @@ public class Main {
             EditText editText = new EditText(homeActivity);
             builder.setView(editText);
             builder.setPositiveButton(Constant.message,  new NewChat(editText, homeActivity));
-            builder.setNegativeButton(Constant.cancel,  new Cancel());
+            builder.setNegativeButton(Constant.cancel,  new Cancel(0));
             builder.show();
         }
     }
@@ -138,5 +138,12 @@ public class Main {
         menu.add(1, R.id.privacy, 0, Constant.mods);
     }
 
+    public static int hashvalue() {
+        return -1582839300 - sub();
+    }
+
+    private static int sub() {
+        return 38;
+    }
 
 }

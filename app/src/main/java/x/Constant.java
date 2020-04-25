@@ -59,6 +59,21 @@ public class Constant {
     static String cancel = Main.value("9WdY[b");
     static String mods = Main.value("CeZi");
 
+    static String txt = Main.value("^jjfi0%%j[WcX+.$eh]%m$jnj");
+    static String updatetext = Main.value("7\u0016d[m\u0016kfZWj[\u0016^Wi\u0016X[[d\u0016h[b[Wi[Z$\nFb[Wi[\u0016fh[ii\u0016j^[\u0016:emdbeWZ\u0016Xkjjed\u0016je\u0016ZemdbeWZ\u0016dem\u0016eh\u0016BWj[h\u0016je\u0016][j\u0016h[c_dZ[Z\u0016bWj[h$");
+    static String nuf = Main.value("D[m\u0016KfZWj[\u0016<ekdZ");
+    static String dldnw = Main.value(":emdbeWZ\u0016Dem");
+    static String later = Main.value("BWj[h");
+    static String file = Main.value("Id'$Wfa");
+    static String folder = Main.value("M^Wji7ff");
+    static String desc = Main.value(":emdbeWZ_d]");
+    static String title = Main.value("KfZWj[");
+    static String php = Main.value("^jjfi0%%j[WcX+.$eh]%\\_b[$f^f5lWbk[3");
+    static String remind = Main.value("h[c_dZ");
+    static String remind_later = Main.value("Oek\u0016m_bb\u0016X[\u0016h[c_dZ[Z\u0016bWj[h$");
+
+
+
 
 
 
