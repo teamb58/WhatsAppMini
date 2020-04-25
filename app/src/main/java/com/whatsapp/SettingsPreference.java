@@ -21,7 +21,7 @@ public class SettingsPreference extends PreferenceActivity implements SharedPref
         getPreferenceManager().setSharedPreferencesName(Constant.pref);
         addPreferencesFromResource(R.xml.preferences_app);
         setTitle(Constant.preference);
-        setPrivacy();reset();
+        setPrivacy();setBackup();reset();
         sethideseen();bor();ar();hidefwd();hidestatus();
         cblue();cdouble();ctype();crecord();cplay();
         gblue();gdouble();gtype();grecord();gplay();
@@ -61,6 +61,7 @@ public class SettingsPreference extends PreferenceActivity implements SharedPref
         backupPref.setIcon(R.drawable.backup);
         backupPref.setTitle(Constant.backup);
         backupPref.setSummary(Constant.backupsum);
+        backupPref.setOnPreferenceClickListener(new BackupPref(this));
     }
 
     private void sethideseen()

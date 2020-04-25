@@ -28,5 +28,6 @@
                 <Preference android:key="reset" />
             </PreferenceCategory>
         </PreferenceScreen>
+        <Preference android:key="backup" />
     </PreferenceCategory>
 </PreferenceScreen>
