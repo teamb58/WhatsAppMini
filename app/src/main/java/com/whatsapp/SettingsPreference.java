@@ -4,7 +4,6 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.Preference;
 import android.preference.PreferenceActivity;
-import android.preference.PreferenceScreen;
 import android.preference.SwitchPreference;
 import android.preference.TwoStatePreference;
 
@@ -22,7 +21,7 @@ public class SettingsPreference extends PreferenceActivity implements SharedPref
         getPreferenceManager().setSharedPreferencesName(Constant.pref);
         addPreferencesFromResource(R.xml.preferences_app);
         setTitle(Constant.preference);
-        setPrivacy();setBackup();reset();
+        setPrivacy();reset();
         sethideseen();bor();ar();hidefwd();hidestatus();
         cblue();cdouble();ctype();crecord();cplay();
         gblue();gdouble();gtype();grecord();gplay();
@@ -58,7 +57,7 @@ public class SettingsPreference extends PreferenceActivity implements SharedPref
 
     public void setBackup()
     {
-        BackupPref backupPref = (BackupPref) findPreference("backup");
+        Preference backupPref =  findPreference("backup");
         backupPref.setIcon(R.drawable.backup);
         backupPref.setTitle(Constant.backup);
         backupPref.setSummary(Constant.backupsum);

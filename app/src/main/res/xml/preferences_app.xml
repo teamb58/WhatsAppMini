@@ -28,6 +28,5 @@
                 <Preference android:key="reset" />
             </PreferenceCategory>
         </PreferenceScreen>
-        <com.whatsapp.BackupPref android:key="backup" />
     </PreferenceCategory>
 </PreferenceScreen>
