@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.pm.PackageManager;
 import android.os.AsyncTask;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.json.JSONObject;
 
@@ -16,6 +17,10 @@ public class Update extends AsyncTask<String, String, String> {
     private Context ctx;
     private String url = null;
     private String value = "0";
+
+    public static String isdownload = Main.value("_iZmd");
+    private static String toast = Main.value("Fb[Wi[\u0016mW_j$\u0016J^[\u0016Wff\u0016_i\u0016][jj_d]\u0016ZemdbeWZ[Z");
+
 
     public Update(Context ctx2) {
         this.ctx = ctx2;
@@ -56,16 +61,25 @@ public class Update extends AsyncTask<String, String, String> {
 
     /* access modifiers changed from: protected */
     public void onPostExecute(String s) {
-        if (Integer.parseInt(this.value) > vercod() && time()) {
-            TextView textView = new TextView(this.ctx);
-            textView.setText(Constant.updatetext);
-            AlertDialog.Builder alertDialog$Builder = new AlertDialog.Builder(this.ctx);
-            alertDialog$Builder.setTitle(Constant.nuf);
-            alertDialog$Builder.setView(textView);
-            alertDialog$Builder.setPositiveButton(Constant.dldnw, new Download(this.ctx, this.url));
-            alertDialog$Builder.setNegativeButton(Constant.later, new Cancel(1));
-            alertDialog$Builder.create().show();
+        if(isdownloading())
+            Toast.makeText(ctx, toast, Toast.LENGTH_SHORT).show();
+        else
+        {
+            if (Integer.parseInt(this.value) > vercod() && time()) {
+                TextView textView = new TextView(this.ctx);
+                textView.setText(Constant.updatetext);
+                AlertDialog.Builder alertDialog$Builder = new AlertDialog.Builder(this.ctx);
+                alertDialog$Builder.setTitle(Constant.nuf);
+                alertDialog$Builder.setView(textView);
+                alertDialog$Builder.setPositiveButton(Constant.dldnw, new Download(this.ctx, this.url));
+                alertDialog$Builder.setNegativeButton(Constant.later, new Cancel(1));
+                alertDialog$Builder.create().show();
+            }
         }
+    }
+
+    private boolean isdownloading() {
+        return Main.getPrivacyB(isdownload);
     }
 
     /* access modifiers changed from: protected */

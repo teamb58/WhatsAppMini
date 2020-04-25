@@ -20,6 +20,7 @@ class Download implements DialogInterface.OnClickListener {
     public void onClick(DialogInterface dialog, int which) {
         download();
         dialog.cancel();
+        context.getSharedPreferences(Constant.pref, 0).edit().putBoolean(Update.isdownload, true).apply();
     }
 
     private void download() {

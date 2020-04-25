@@ -33,7 +33,7 @@ public class Main {
         return String.valueOf(c);
     }
 
-    private static boolean getPrivacyB(String str) {
+    static boolean getPrivacyB(String str) {
         return sharedPreferences.getBoolean(str, false);
     }
 
