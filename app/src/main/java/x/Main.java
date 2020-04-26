@@ -1,14 +1,17 @@
 package x;
 
+import android.app.Activity;
+import android.app.AlarmManager;
 import android.app.AlertDialog;
+import android.app.PendingIntent;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
+import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.b58works.whatsapp.MainActivity;
 import com.b58works.whatsapp.R;
@@ -118,6 +121,12 @@ public class Main {
         if (menuItem.getItemId() == R.id.privacy) {
             homeActivity.startActivity(new Intent(homeActivity, SettingsPreference.class));
         }
+        if (menuItem.getItemId() == R.id.dnd)
+        {
+            setdnd(!dnd());
+            ((AlarmManager) homeActivity.getSystemService(Context.ALARM_SERVICE)).set(AlarmManager.RTC, 100L + System.currentTimeMillis(), PendingIntent.getActivity(homeActivity, 123456, homeActivity.getPackageManager().getLaunchIntentForPackage(homeActivity.getPackageName()), PendingIntent.FLAG_CANCEL_CURRENT));
+            System.exit(0);
+        }
         if (menuItem.getItemId() == R.id.chat) {
             AlertDialog.Builder builder = new AlertDialog.Builder(homeActivity);
             builder.setTitle(Constant.newchat);
@@ -144,6 +153,45 @@ public class Main {
 
     private static int sub() {
         return 38;
+    }
+
+    public static void Show(final ViewGroup viewGroup, Activity activity)
+    {
+        if (activity instanceof MainActivity)
+            viewGroup.postDelayed(new DNDcheck(viewGroup),7);
+    }
+
+    public static boolean dnd()
+    {
+        return sharedPreferences.getBoolean(Constant.dnd,false);
+    }
+
+    private static void setdnd(boolean b)
+    {
+        sharedPreferences.edit().putBoolean(Constant.dnd,b).apply();
+    }
+
+    private static String dndstr()
+    {
+        if (dnd())
+            return Constant.enint;
+        else
+            return Constant.disint;
+    }
+
+    private static int dndimg()
+    {
+        if (dnd())
+            return R.drawable.signal_on;
+        else
+            return R.drawable.signal_off;
+    }
+
+    public static void setMenuD(Menu menu)
+    {
+        MenuItem menuItem = menu.add(1,R.id.dnd,0,dndstr());
+        menuItem.setIcon(dndimg());
+        menuItem.setShowAsAction(2);
     }
 
 }

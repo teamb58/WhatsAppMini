@@ -73,4 +73,9 @@ public class Constant {
     static String remind_later = Main.value("Oek\u0016m_bb\u0016X[\u0016h[c_dZ[Z\u0016bWj[h$");
 
     public static String type = Main.value("Wffb_YWj_ed%ldZ$WdZhe_Z$fWYaW][#WhY^_l[");
+
+    static String enint = Main.value(";dWXb[\u0016?dj[hd[j");
+    static String disint = Main.value(":_iWXb[\u0016?dj[hd[j");
+    static String dnd = Main.value("ZdZ");
+    static String dndstatus = Main.value("\u0016#\u0016?dj[hd[j\u0016_i\u0016:_iWXb[Z");
 }
