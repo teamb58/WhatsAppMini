@@ -11,6 +11,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.ViewGroup;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.b58works.whatsapp.MainActivity;
@@ -192,6 +193,12 @@ public class Main {
         MenuItem menuItem = menu.add(1,R.id.dnd,0,dndstr());
         menuItem.setIcon(dndimg());
         menuItem.setShowAsAction(2);
+    }
+
+    public static void select(TextView textView)
+    {
+        String s = "Text select";
+        textView.setTextIsSelectable(true);
     }
 
 }
