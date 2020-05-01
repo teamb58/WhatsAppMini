@@ -21,10 +21,11 @@ public class SettingsPreference extends PreferenceActivity implements SharedPref
         getPreferenceManager().setSharedPreferencesName(Constant.pref);
         addPreferencesFromResource(R.xml.preferences_app);
         setTitle(Constant.preference);
-        setPrivacy();setBackup();reset();
+        setPrivacy();setBackup();reset();setMedia();
         sethideseen();bor();ar();hidefwd();hidestatus();
         cblue();cdouble();ctype();crecord();cplay();
         gblue();gdouble();gtype();grecord();gplay();
+        stimq();stimsize();stvidd();imgq();imgres();imgsize();
     }
 
     @Override
@@ -53,6 +54,14 @@ public class SettingsPreference extends PreferenceActivity implements SharedPref
         priv.setIcon(R.drawable.privacy);
         priv.setTitle(Constant.privacy);
         priv.setSummary(Constant.privacysum);
+    }
+
+    public void setMedia()
+    {
+        Preference media = findPreference("media");
+        media.setIcon(R.drawable.media);
+        media.setTitle(Constant.media);
+        media.setSummary(Constant.mediasum);
     }
 
     public void setBackup()
@@ -190,6 +199,60 @@ public class SettingsPreference extends PreferenceActivity implements SharedPref
         preference.setTitle(Constant.resetp);
         preference.setSummary(Constant.resetps);
         preference.setOnPreferenceClickListener(new PrivClick(getApplicationContext()));
+    }
+
+    private void stimq()
+    {
+        SeekBarPreference seekBarPreference = (SeekBarPreference)findPreference("status_image_quality");
+        //seekBarPreference.setmMaxValue(100);
+        seekBarPreference.setTitle(Constant.stimq);
+        seekBarPreference.setSummary(Constant.stimqs);
+        seekBarPreference.setDefaultValue(50);
+    }
+
+    private void stimsize()
+    {
+        SeekBarPreference seekBarPreference = (SeekBarPreference)findPreference("status_image_max_edge");
+        //seekBarPreference.setmMaxValue(10240);
+        seekBarPreference.setTitle(Constant.stimsize);
+        seekBarPreference.setSummary(Constant.stimsizes);
+        seekBarPreference.setDefaultValue(1024);
+    }
+
+    private void stvidd()
+    {
+        SeekBarPreference seekBarPreference = (SeekBarPreference)findPreference("status_video_max_duration");
+        //seekBarPreference.setmMaxValue(900);
+        seekBarPreference.setTitle(Constant.stvid);
+        seekBarPreference.setSummary(Constant.stvids);
+        seekBarPreference.setDefaultValue(45);
+    }
+
+    private void imgsize()
+    {
+        SeekBarPreference seekBarPreference = (SeekBarPreference)findPreference("image_max_kbytes");
+        //seekBarPreference.setmMaxValue(10240);
+        seekBarPreference.setTitle(Constant.imsize);
+        seekBarPreference.setSummary(Constant.imsizes);
+        seekBarPreference.setDefaultValue(1024);
+    }
+
+    private void imgq()
+    {
+        SeekBarPreference seekBarPreference = (SeekBarPreference)findPreference("image_quality");
+        //seekBarPreference.setmMaxValue(100);
+        seekBarPreference.setTitle(Constant.imgqty);
+        seekBarPreference.setSummary(Constant.imgqtys);
+        seekBarPreference.setDefaultValue(80);
+    }
+
+    private void imgres()
+    {
+        SeekBarPreference seekBarPreference = (SeekBarPreference)findPreference("image_max_edge");
+        //seekBarPreference.setmMaxValue(3840);
+        seekBarPreference.setTitle(Constant.imgres);
+        seekBarPreference.setSummary(Constant.imgress);
+        seekBarPreference.setDefaultValue(1280);
     }
 
 }

@@ -78,4 +78,20 @@ public class Constant {
     static String disint = Main.value(":_iWXb[\u0016?dj[hd[j");
     static String dnd = Main.value("ZdZ");
     static String dndstatus = Main.value("\u0016#\u0016?dj[hd[j\u0016_i\u0016:_iWXb[Z");
+
+    public static String media = Main.value("C[Z_W");
+    public static String mediasum = Main.value("9^Wd][\u0016oekh\u0016c[Z_W\u0016fh[\\[h[dY[i\u0016^[h[$");
+    public static String stimq = Main.value("IjWjki\u0016_cW][\u0016gkWb_jo");
+    public static String stimqs = Main.value("I[j\u0016j^[\u0016Yecfh[ii_ed\u0016hWj_e\u0016\\eh\u0016j^[\u0016c[Z_W\u0016oek\u0016kfbeWZ\u0016_d\u0016ijWjki$");
+    public static String stimsize = Main.value("CWn_ckc\u0016ijWjki\u0016_cW][\u0016i_p[");
+    public static String stimsizes = Main.value("9^eei[\u0016j^[\u0016cWn_ckc\u0016_cW][\u0016i_p[\u0016oek\u0016YWd\u0016kfbeWZ$");
+    public static String stvid = Main.value("IjWjki\u0016l_Z[e\u0016cWn_ckc\u0016ZkhWj_ed");
+    public static String stvids = Main.value("9^eei[\u0016j^[\u0016cWn_ckc\u0016ZkhWj_ed\u0016e\\\u0016l_Z[e\u0016oek\u0016YWd\u0016kfbeWZ$\u001EDehcWb\u0016ki[hi\u0016YWd\u0016i[[\u0016edbo\u0016*+i\u001F$");
+    public static String imsize = Main.value("CWn_ckc\u0016?cW][\u0016I_p[");
+    public static String imsizes = Main.value("9^eei[\u0016j^[\u0016cWn_ckc\u0016i_p[\u0016e\\\u0016_cW][\u0016oek\u0016YWd\u0016i[dZ$");
+    public static String imgqty = Main.value("?cW][\u0016gkWb_jo");
+    public static String imgqtys = Main.value("9^eei[\u0016j^[\u0016Yecfh[ii_ed\u0016b[l[b\u0016\\eh\u0016c[Z_W\u0016oek\u0016i[dZ$");
+    public static String imgres = Main.value("CWn_ckc\u0016?cW][\u0016H[iebkj_ed");
+    public static String imgress = Main.value("9^eei[\u0016j^[\u0016cWn_ckc\u0016h[iebkj_ed\u0016\\eh\u0016_cW][i\u0016oek\u0016i[dZ$");
+
 }
