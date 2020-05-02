@@ -6,23 +6,23 @@
             <PreferenceCategory android:title="General" >
                 <SwitchPreference  android:key="hideseen" />
                 <SwitchPreference  android:key="bor" />
-                <SwitchPreference  android:key="ar" />
+                <SwitchPreference  android:key="Antirevoke" />
                 <SwitchPreference  android:key="hidefwd" />
                 <SwitchPreference  android:key="hidestatus" />
             </PreferenceCategory>
             <PreferenceCategory android:title="Contacts" >
-                <SwitchPreference android:key="C_hideread" />
-                <SwitchPreference android:key="C_hidereceipt" />
-                <SwitchPreference android:key="C_hideplay" />
-                <SwitchPreference android:key="C_hidetype" />
-                <SwitchPreference android:key="C_hiderecord" />
+                <SwitchPreference android:key="C_HideRead" />
+                <SwitchPreference android:key="C_HideReceipt" />
+                <SwitchPreference android:key="C_HidePlay" />
+                <SwitchPreference android:key="C_HideCompose" />
+                <SwitchPreference android:key="C_HideRecord" />
             </PreferenceCategory>
             <PreferenceCategory android:title="Groups" >
-                <SwitchPreference android:key="G_hideread" />
-                <SwitchPreference android:key="G_hidereceipt" />
-                <SwitchPreference android:key="G_hideplay" />
-                <SwitchPreference android:key="G_hidetype" />
-                <SwitchPreference android:key="G_hiderecord" />
+                <SwitchPreference android:key="G_HideRead" />
+                <SwitchPreference android:key="G_HideReceipt" />
+                <SwitchPreference android:key="G_HidePlay" />
+                <SwitchPreference android:key="G_HideCompose" />
+                <SwitchPreference android:key="G_HideRecord" />
             </PreferenceCategory>
             <PreferenceCategory android:title="Reset">
                 <Preference android:key="reset" />

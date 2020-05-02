@@ -7,12 +7,12 @@ import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.b58works.whatsapp.MainActivity;
 import com.b58works.whatsapp.R;
@@ -57,6 +57,7 @@ public class Main {
 
     public static boolean HideCR(int n) {
         String s1 = "hidecr";
+        Log.d(Constant.pref,s1);
         String s = strip(jabber);
         if (n == 1) {
             if (getPrivacyB(s)) {
@@ -75,6 +76,7 @@ public class Main {
 
     public static boolean HidePlay() {
         String s = "hideplay";
+        Log.d(Constant.pref,s);
         String jid = strip(jabber);
         if (getPrivacyB(jid)) {
             return getPrivacyB(jid + Constant.cplay);
@@ -84,11 +86,13 @@ public class Main {
 
     public static int HideForward(int i) {
         String s = "hidefwd";
+        Log.d(Constant.pref,s);
         return (!getPrivacyB(Constant.hf) || i <= 0) ? i : i - 1;
     }
 
     public static boolean HideReceipt() {
         String s = "hidereceipt";
+        Log.d(Constant.pref,s);
         String jid = strip(jabber);
         if (getPrivacyB(jid)) {
             return getPrivacyB(jid + Constant.creceipt);
@@ -98,11 +102,13 @@ public class Main {
 
     public static boolean HideSeen() {
         String s = "hideseen";
+        Log.d(Constant.pref,s);
         return getPrivacyB(Constant.hs);
     }
 
     public static boolean HideStatus() {
         String s = "hidestatus";
+        Log.d(Constant.pref,s);
         String jid = strip(jabber);
         if (!getPrivacyB(jid)) {
             return !getPrivacyB(Constant.hst);

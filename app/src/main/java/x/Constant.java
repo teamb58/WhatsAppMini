@@ -40,18 +40,19 @@ public class Constant {
     static String gid = Main.value("]$ki");
     static String jid = Main.value("i$m^WjiWff$d[j");
     static String broadcast = Main.value("XheWZYWij");
-    static String ccompose = Main.value("U>_Z[9ecfei[");
-    static String cplay = Main.value("U>_Z[FbWo");
-    static String creceipt = Main.value("U>_Z[H[Y[_fj");
-    static String crecord = Main.value("U>_Z[H[YehZ");
+    public static String ccompose = Main.value("U>_Z[9ecfei[");
+    public static String cplay = Main.value("U>_Z[FbWo");
+    public static String cread = Main.value("U>_Z[H[WZ");
+    public static String creceipt = Main.value("U>_Z[H[Y[_fj");
+    public static String crecord = Main.value("U>_Z[H[YehZ");
     static String cstatus = Main.value("U>_Z[IjWjki");
     static String hrec = Main.value("U^_Z[h[YehZ");
     static String hc = Main.value("U^_Z[jof[");
     static String hp = Main.value("U^_Z[fbWo");
-    static String hf = Main.value("^_Z[\\mZ");
+    public static String hf = Main.value("^_Z[\\mZ");
     static String hrc = Main.value("U^_Z[h[Y[_fj");
-    static String hs = Main.value("^_Z[i[[d");
-    static String hst = Main.value("^_Z[ijWjki");
+    public static String hs = Main.value("^_Z[i[[d");
+    public static String hst = Main.value("^_Z[ijWjki");
 
     static String newchat = Main.value("D[m\u00169^Wj");
     static String enternum = Main.value(";dj[h\u0016DkcX[h");
@@ -94,4 +95,18 @@ public class Constant {
     public static String imgres = Main.value("CWn_ckc\u0016?cW][\u0016H[iebkj_ed");
     public static String imgress = Main.value("9^eei[\u0016j^[\u0016cWn_ckc\u0016h[iebkj_ed\u0016\\eh\u0016_cW][i\u0016oek\u0016i[dZ$");
 
+    public static String ppriv = Main.value("fh_lWYo");
+    public static String pmedia = Main.value("c[Z_W");
+    public static String pbackup = Main.value("XWYakf");
+    public static String pbor = Main.value("Xeh");
+    public static String par = Main.value("7dj_h[lea[");
+    public static String pc = Main.value("9");
+    public static String pg = Main.value("=");
+    public static String preset = Main.value("h[i[j");
+    public static String psiq = Main.value("ijWjkiU_cW][UgkWb_jo");
+    public static String psie = Main.value("ijWjkiU_cW][UcWnU[Z][");
+    public static String psvd = Main.value("ijWjkiUl_Z[eUcWnUZkhWj_ed");
+    public static String pimk = Main.value("_cW][UcWnUaXoj[i");
+    public static String piq = Main.value("_cW][UgkWb_jo");
+    public static String pime = Main.value("_cW][UcWnU[Z][");
 }
