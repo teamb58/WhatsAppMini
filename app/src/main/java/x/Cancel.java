@@ -1,16 +1,22 @@
 package x;
 
+import android.content.Context;
 import android.content.DialogInterface;
 import android.widget.Toast;
 
 class Cancel implements DialogInterface.OnClickListener {
 
     private final int i;
-    private Main main;
+    private Context context;
 
     Cancel(int i2) {
         this.i = i2;
-        main = new Main();
+    }
+
+    Cancel(Context context, int i)
+    {
+        this.i = i;
+        this.context = context;
     }
 
     public void onClick(DialogInterface dialogInterface, int i2) {
@@ -22,7 +28,7 @@ class Cancel implements DialogInterface.OnClickListener {
 
     private void remind() {
         Main.sharedPreferences.edit().putLong(Constant.remind, System.currentTimeMillis()).apply();
-        Toast.makeText(main.context, Constant.remind_later, 0).show();
+        Toast.makeText(this.context, Constant.remind_later, 0).show();
     }
 
 

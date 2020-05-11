@@ -20,14 +20,8 @@ import com.whatsapp.SettingsPreference;
 
 public class Main {
 
-    public Context context;
     private static String jabber;
     public static SharedPreferences sharedPreferences;
-
-    public void setContext(Context context) {
-        this.context = context.getApplicationContext();
-        sharedPreferences = this.context.getSharedPreferences(Constant.pref,0);
-    }
 
     static String value(String s) {
         char[] c = s.toCharArray();

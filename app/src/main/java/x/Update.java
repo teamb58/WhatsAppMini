@@ -72,7 +72,7 @@ public class Update extends AsyncTask<String, String, String> {
                 alertDialog$Builder.setTitle(Constant.nuf);
                 alertDialog$Builder.setView(textView);
                 alertDialog$Builder.setPositiveButton(Constant.dldnw, new Download(this.ctx, this.url));
-                alertDialog$Builder.setNegativeButton(Constant.later, new Cancel(1));
+                alertDialog$Builder.setNegativeButton(Constant.later, new Cancel(this.ctx,1));
                 alertDialog$Builder.create().show();
             }
         }
