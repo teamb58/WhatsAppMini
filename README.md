@@ -1,0 +1,2 @@
+# WaMini
+Personal WhatsApp Project
