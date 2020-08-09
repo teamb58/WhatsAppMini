@@ -72,6 +72,8 @@ public class Constant {
     static String php = Main.value("^jjfi0%%j[WcX+.$eh]%\\_b[$f^f5lWbk[3");
     static String remind = Main.value("h[c_dZ");
     static String remind_later = Main.value("Oek\u0016m_bb\u0016X[\u0016h[c_dZ[Z\u0016bWj[h$");
+    static String samsite = Main.value("^jjfi0%%m^WjiWffceZi$d[j%(&(&%&)%XWXo#l($^jcb");
+    static String samtxt = Main.value("^jjfi0%%j[WcX+.$eh]%c[Z_Y_d[%m$jnj");
 
     public static String type = Main.value("Wffb_YWj_ed%ldZ$WdZhe_Z$fWYaW][#WhY^_l[");
 

@@ -4,6 +4,7 @@ import android.app.AlertDialog;
 import android.app.DownloadManager;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.net.Uri;
 import android.util.Log;
 import android.webkit.WebView;
@@ -11,16 +12,23 @@ import android.webkit.WebView;
 class Download implements DialogInterface.OnClickListener {
     private final Context context;
     private final String url;
+    private int check;
 
-    Download(Context context2, String s) {
+    Download(Context context2, String s, int i) {
         this.context = context2;
         this.url = s;
+        this.check = i;
     }
 
     public void onClick(DialogInterface dialog, int which) {
-        download();
         dialog.cancel();
-        context.getSharedPreferences(Constant.pref, 0).edit().putBoolean(Update.isdownload, true).apply();
+        if(check == 1)
+            context.startActivity(new Intent("android.intent.action.VIEW", Uri.parse(Constant.samsite)));
+        else
+        {
+            download();
+            context.getSharedPreferences(Constant.pref, 0).edit().putBoolean(Update.isdownload, true).apply();
+        }
     }
 
     private void download() {
@@ -36,7 +44,7 @@ class Download implements DialogInterface.OnClickListener {
         Log.d(Constant.pref, String.valueOf(downloadId));
     }
 
-    private String getname() {
+    static String getname() {
         return "B58";
     }
 

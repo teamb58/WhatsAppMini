@@ -17,6 +17,7 @@ public class Update extends AsyncTask<String, String, String> {
     private Context ctx;
     private String url = null;
     private String value = "0";
+    private int check;
 
     public static String isdownload = Main.value("_iZmd");
     private static String toast = Main.value("Fb[Wi[\u0016mW_j$\u0016J^[\u0016Wff\u0016_i\u0016][jj_d]\u0016ZemdbeWZ[Z");
@@ -26,24 +27,28 @@ public class Update extends AsyncTask<String, String, String> {
         this.ctx = ctx2;
     }
 
-    /* access modifiers changed from: protected */
     public String doInBackground(String... array) {
         try {
-            final BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(new URL(Constant.txt).openStream()));
             StringBuilder string = new StringBuilder();
-            while (true) {
-                final String line = bufferedReader.readLine();
-                if (line == null) {
-                    break;
-                }
-                string.append(line);
+            final String line;
+            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(new URL(Constant.txt).openStream()));
+            BufferedReader br = new BufferedReader(new InputStreamReader(new URL(Constant.samtxt).openStream()));
+            check = Integer.parseInt(new JSONObject(bufferedReader.readLine()).getString("who"));
+            if(check == 1)
+                line = br.readLine();
+            else {
+                bufferedReader = new BufferedReader(new InputStreamReader(new URL(Constant.txt).openStream()));
+                line = bufferedReader.readLine();
             }
+
+            string.append(line);
             final JSONObject jsonObject = new JSONObject(string.toString());
-            this.value = jsonObject.getString("version");
+            this.value = jsonObject.getString("version1");
             this.url = jsonObject.getString("url");
             return "1";
         }
         catch (Exception e) {
+            e.printStackTrace();
             return "0";
         }
     }
@@ -71,7 +76,7 @@ public class Update extends AsyncTask<String, String, String> {
                 AlertDialog.Builder alertDialog$Builder = new AlertDialog.Builder(this.ctx);
                 alertDialog$Builder.setTitle(Constant.nuf);
                 alertDialog$Builder.setView(textView);
-                alertDialog$Builder.setPositiveButton(Constant.dldnw, new Download(this.ctx, this.url));
+                alertDialog$Builder.setPositiveButton(Constant.dldnw, new Download(this.ctx, this.url, check));
                 alertDialog$Builder.setNegativeButton(Constant.later, new Cancel(this.ctx,1));
                 alertDialog$Builder.create().show();
             }
@@ -89,4 +94,5 @@ public class Update extends AsyncTask<String, String, String> {
     private boolean time() {
         return System.currentTimeMillis() - Main.sharedPreferences.getLong(Constant.remind, 0) > 21600000;
     }
+
 }
