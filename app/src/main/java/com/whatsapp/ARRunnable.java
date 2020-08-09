@@ -1,7 +1,5 @@
 package com.whatsapp;
 
-import com.b58works.whatsapp.BuildConfig;
-
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashSet;
@@ -40,8 +38,8 @@ class ARRunnable implements Runnable {
 
     static String[] b(String str) {
         try {
-            String str2 = sharedPreferences.getString(str + "_revoked", BuildConfig.FLAVOR);
-            if (!str2.equals(BuildConfig.FLAVOR)) {
+            String str2 = sharedPreferences.getString(str + "_revoked", "");
+            if (!str2.equals("")) {
                 return StringToStringArray(str2);
             }
             return null;
@@ -52,6 +50,6 @@ class ARRunnable implements Runnable {
     }
 
     private static String[] StringToStringArray(String str) {
-        return str.substring(1, str.length() - 1).replaceAll("\\s", BuildConfig.FLAVOR).split(",");
+        return str.substring(1, str.length() - 1).replaceAll("\\s", "").split(",");
     }
 }

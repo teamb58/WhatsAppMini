@@ -13,7 +13,7 @@ public class WhatsApp {
 
     private static HashSet<String> b = null;
     private static Activity activity;
-    private static String contains;
+    public static String contains;
     static String jabber;
     static SharedPreferences sharedPreferences;
 
@@ -65,12 +65,12 @@ public class WhatsApp {
                         Collections.addAll(hashSet, ba);
                     }
 
-                    activity1.startActivity(activity1.getIntent());
-                    activity1.overridePendingTransition(0, 0);
-                    activity1.getWindow().getDecorView().findViewById(android.R.id.content).postInvalidate();
-                } else {
+                    //activity1.startActivity(activity1.getIntent());
+                    //activity1.overridePendingTransition(0, 0);
+                    //activity1.getWindow().getDecorView().findViewById(android.R.id.content).postInvalidate();
+                } /*else {
                     activity.runOnUiThread(new ARRunnable3(activity1));
-                }
+                }*/
             }
         }
         return b2;

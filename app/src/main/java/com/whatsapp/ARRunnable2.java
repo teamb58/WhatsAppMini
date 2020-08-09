@@ -8,7 +8,7 @@ import android.widget.TextView;
 
 import com.b58works.whatsapp.R;
 
-public class ARRunnable2 implements Runnable {
+class ARRunnable2 implements Runnable {
 
     private final Context context;
     private final TextView textView;
@@ -23,23 +23,23 @@ public class ARRunnable2 implements Runnable {
 
     @Override
     public void run() {
-        textView.setCompoundDrawablesWithIntrinsicBounds(c(context, R.drawable.message_got_receipt_revoked), (Drawable) null, (Drawable) null, (Drawable) null);
+        textView.setCompoundDrawablesWithIntrinsicBounds(c(context), (Drawable) null, (Drawable) null, (Drawable) null);
     }
 
-    private static Drawable c(Context context, int i) {
+    private static Drawable c(Context context) {
         int i2;
         int i22 = Build.VERSION.SDK_INT;
         if (i22 >= 21) {
-            return context.getDrawable(i);
+            return context.getDrawable(R.drawable.message_got_receipt_revoked);
         }
         if (i22 >= 16) {
-            return context.getResources().getDrawable(i);
+            return context.getResources().getDrawable(R.drawable.message_got_receipt_revoked);
         }
         synchronized (a) {
             if (b1 == null) {
                 b1 = new TypedValue();
             }
-            context.getResources().getValue(i, b1, true);
+            context.getResources().getValue(R.drawable.message_got_receipt_revoked, b1, true);
             i2 = b1.resourceId;
         }
         return context.getResources().getDrawable(i2);
