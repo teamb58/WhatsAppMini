@@ -118,34 +118,47 @@ public class Main {
         }
     }
 
-    public static void addMenu(Context homeActivity, MenuItem menuItem) {
-        if (menuItem.getItemId() == R.id.privacy) {
-            homeActivity.startActivity(new Intent(homeActivity, SettingsPreference.class));
-        }
-        if (menuItem.getItemId() == R.id.dnd)
+    public static void addMenu(Activity homeActivity, MenuItem menuItem) {
+        if (homeActivity instanceof MainActivity)
         {
-            setdnd(!dnd());
-            ((AlarmManager) homeActivity.getSystemService(Context.ALARM_SERVICE)).set(AlarmManager.RTC, 100L + System.currentTimeMillis(), PendingIntent.getActivity(homeActivity, 123456, homeActivity.getPackageManager().getLaunchIntentForPackage(homeActivity.getPackageName()), PendingIntent.FLAG_CANCEL_CURRENT));
-            System.exit(0);
-        }
-        if (menuItem.getItemId() == R.id.chat) {
-            AlertDialog.Builder builder = new AlertDialog.Builder(homeActivity);
-            builder.setTitle(Constant.newchat);
-            builder.setMessage(Constant.enternum);
-            EditText editText = new EditText(homeActivity);
-            builder.setView(editText);
-            builder.setPositiveButton(Constant.message,  new NewChat(editText, homeActivity));
-            builder.setNegativeButton(Constant.cancel,  new Cancel(0));
-            builder.show();
+            if (menuItem.getItemId() == R.id.privacy) {
+                homeActivity.startActivity(new Intent(homeActivity, SettingsPreference.class));
+            }
+            if (menuItem.getItemId() == R.id.dnd)
+            {
+                setdnd(!dnd());
+                ((AlarmManager) homeActivity.getSystemService(Context.ALARM_SERVICE)).set(AlarmManager.RTC, 100L + System.currentTimeMillis(), PendingIntent.getActivity(homeActivity, 123456, homeActivity.getPackageManager().getLaunchIntentForPackage(homeActivity.getPackageName()), PendingIntent.FLAG_CANCEL_CURRENT));
+                System.exit(0);
+            }
+            if (menuItem.getItemId() == R.id.chat) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(homeActivity);
+                builder.setTitle(Constant.newchat);
+                builder.setMessage(Constant.enternum);
+                EditText editText = new EditText(homeActivity);
+                builder.setView(editText);
+                builder.setPositiveButton(Constant.message,  new NewChat(editText, homeActivity));
+                builder.setNegativeButton(Constant.cancel,  new Cancel(0));
+                builder.show();
+            }
         }
     }
 
-    public static void setMenuC(Menu menu) {
-        menu.add(1, R.id.chat, 0, Constant.newchat);
+    public static void Update(Activity activity)
+    {
+        if (activity instanceof MainActivity)
+            new Update(activity).execute();
     }
 
-    public static void setMenuP(Menu menu) {
-        menu.add(1, R.id.privacy, 0, Constant.mods);
+    public static void setMenu(Activity homeActivity, Menu menu)
+    {
+        if (homeActivity instanceof MainActivity)
+        {
+            menu.add(1, R.id.privacy, 0, Constant.privacy);
+            menu.add(1, R.id.chat, 0, Constant.newchat);
+            MenuItem menuItem = menu.add(1,R.id.dnd,0,dndstr());
+            menuItem.setIcon(dndimg());
+            menuItem.setShowAsAction(2);
+        }
     }
 
     public static int hashvalue() {
@@ -188,17 +201,14 @@ public class Main {
             return R.drawable.signal_off;
     }
 
-    public static void setMenuD(Menu menu)
-    {
-        MenuItem menuItem = menu.add(1,R.id.dnd,0,dndstr());
-        menuItem.setIcon(dndimg());
-        menuItem.setShowAsAction(2);
-    }
-
     public static void select(TextView textView)
     {
         String s = "Text select";
         textView.setTextIsSelectable(true);
+
     }
 
+    public static void setJabber(String jabber) {
+        Main.jabber = jabber;
+    }
 }
