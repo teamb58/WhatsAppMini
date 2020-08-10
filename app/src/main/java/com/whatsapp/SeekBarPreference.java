@@ -84,7 +84,7 @@ public class SeekBarPreference extends Preference implements SeekBar.OnSeekBarCh
     protected View onCreateView(ViewGroup parent) {
         super.onCreateView(parent);
         try {
-            return LayoutInflater.from(this.getContext()).inflate(R.layout.seek_bar_preference, parent, false);
+            return LayoutInflater.from(this.getContext()).inflate(getLayout(), parent, false);
         }
         catch (Exception ex) {
             Log.e(this.TAG, "Error creating seek bar preference", ex);
@@ -98,7 +98,7 @@ public class SeekBarPreference extends Preference implements SeekBar.OnSeekBarCh
 
         try {
             ViewParent oldContainer = mSeekBar.getParent();
-            ViewGroup newContainer = view.findViewById(R.id.seekBarPrefBarContainer);
+            ViewGroup newContainer = view.findViewById(getID("seekBarPrefBarContainer"));
 
             if (oldContainer != newContainer) {
                 if (oldContainer != null) {
@@ -127,17 +127,17 @@ public class SeekBarPreference extends Preference implements SeekBar.OnSeekBarCh
     private void updateView(View view) {
 
         try {
-            mStatusText = view.findViewById(R.id.seekBarPrefValue);
+            mStatusText = view.findViewById(getID("seekBarPrefValue"));
 
             mStatusText.setText(String.valueOf(mCurrentValue));
             mStatusText.setMinimumWidth(30);
 
             mSeekBar.setProgress(mCurrentValue - mMinValue);
 
-            TextView unitsRight = view.findViewById(R.id.seekBarPrefUnitsRight);
+            TextView unitsRight = view.findViewById(getID("seekBarPrefUnitsRight"));
             unitsRight.setText(mUnitsRight);
 
-            TextView unitsLeft = view.findViewById(R.id.seekBarPrefUnitsLeft);
+            TextView unitsLeft = view.findViewById(getID("seekBarPrefUnitsLeft"));
             unitsLeft.setText(mUnitsLeft);
 
         }
@@ -223,6 +223,16 @@ public class SeekBarPreference extends Preference implements SeekBar.OnSeekBarCh
         {
             mSeekBar.setEnabled(!disableDependent);
         }
+    }
+
+    private int getLayout()
+    {
+        return getContext().getResources().getIdentifier("seek_bar_preference", "layout", getContext().getPackageName());
+    }
+
+    private int getID(String name)
+    {
+        return getContext().getResources().getIdentifier(name, "id", getContext().getPackageName());
     }
 }
 

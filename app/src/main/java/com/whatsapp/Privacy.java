@@ -41,15 +41,15 @@ public class Privacy extends LinearLayout implements View.OnClickListener {
 
     public void onClick(final View view) {
         this.dialog.setTitle( "Set Custom Privacy");
-        this.dialog.setContentView(R.layout.custom_privacy);
-        final SwitchCompat switchCompat =  this.dialog.findViewById(R.id.tb);
-        final SwitchCompat switchCompat2 = this.dialog.findViewById(R.id.tb1);
-        final SwitchCompat switchCompat3 = this.dialog.findViewById(R.id.tb2);
-        final SwitchCompat switchCompat4 = this.dialog.findViewById(R.id.tb3);
-        final SwitchCompat switchCompat5 = this.dialog.findViewById(R.id.tb4);
-        final SwitchCompat switchCompat6 = this.dialog.findViewById(R.id.tb5);
-        final SwitchCompat switchCompat7 = this.dialog.findViewById(R.id.tb6);
-        final SwitchCompat switchCompat8 = this.dialog.findViewById(R.id.tb7);
+        this.dialog.setContentView(getLayout());
+        final SwitchCompat switchCompat =  this.dialog.findViewById(getID("tb"));
+        final SwitchCompat switchCompat2 = this.dialog.findViewById(getID("tb1"));
+        final SwitchCompat switchCompat3 = this.dialog.findViewById(getID("tb2"));
+        final SwitchCompat switchCompat4 = this.dialog.findViewById(getID("tb3"));
+        final SwitchCompat switchCompat5 = this.dialog.findViewById(getID("tb4"));
+        final SwitchCompat switchCompat6 = this.dialog.findViewById(getID("tb5"));
+        final SwitchCompat switchCompat7 = this.dialog.findViewById(getID("tb6"));
+        final SwitchCompat switchCompat8 = this.dialog.findViewById(getID("tb7"));
         //final SwitchCompat switchCompat9 = this.dialog.findViewById(R.id.tb8);
         switchCompat.setChecked(WhatsApp.getPrivacyB(ARRunnable.strip(WhatsApp.jabber)));
         switchCompat.setOnCheckedChangeListener(new MainSwitch(switchCompat2, switchCompat3, switchCompat4, switchCompat5, switchCompat6, switchCompat7, switchCompat8));
@@ -196,5 +196,15 @@ public class Privacy extends LinearLayout implements View.OnClickListener {
             Privacy.this.edit.putBoolean(ARRunnable.strip(WhatsApp.jabber) + "_AR", b);
             Privacy.this.edit.apply();
         }
+    }
+
+    private int getID(String name)
+    {
+        return getContext().getResources().getIdentifier(name, "id", getContext().getPackageName());
+    }
+
+    private int getLayout()
+    {
+        return getContext().getResources().getIdentifier("custom_privacy", "layout", getContext().getPackageName());
     }
 }

@@ -61,7 +61,8 @@ public class SettingsPreference extends PreferenceActivity implements SharedPref
     public void setPrivacy()
     {
         Preference priv = findPreference(Constant.ppriv);
-        priv.setIcon(R.drawable.privacy);
+        //priv.setIcon(R.drawable.privacy);
+        priv.setIcon(getResID("privacy"));
         priv.setTitle(Constant.privacy);
         priv.setSummary(Constant.privacysum);
     }
@@ -69,7 +70,8 @@ public class SettingsPreference extends PreferenceActivity implements SharedPref
     public void setMedia()
     {
         Preference media = findPreference(Constant.pmedia);
-        media.setIcon(R.drawable.media);
+        //media.setIcon(R.drawable.media);
+        media.setIcon(getResID("media"));
         media.setTitle(Constant.media);
         media.setSummary(Constant.mediasum);
     }
@@ -77,7 +79,8 @@ public class SettingsPreference extends PreferenceActivity implements SharedPref
     public void setBackup()
     {
         Preference backupPref =  findPreference(Constant.pbackup);
-        backupPref.setIcon(R.drawable.backup);
+        //backupPref.setIcon(R.drawable.backup);
+        backupPref.setIcon(getResID("backup"));
         backupPref.setTitle(Constant.backup);
         backupPref.setSummary(Constant.backupsum);
         backupPref.setOnPreferenceClickListener(new BackupPref(this));
@@ -86,7 +89,8 @@ public class SettingsPreference extends PreferenceActivity implements SharedPref
     private void sethideseen()
     {
         Preference preference = findPreference(Constant.hs);
-        preference.setIcon(R.drawable.message_unsent);
+        //preference.setIcon(R.drawable.message_unsent);
+        preference.setIcon(getResID("message_unsent"));
         preference.setTitle(Constant.hideseen);
         preference.setSummary(Constant.hideseensum);
     }
@@ -94,7 +98,8 @@ public class SettingsPreference extends PreferenceActivity implements SharedPref
     private void bor()
     {
         Preference preference = findPreference(Constant.pbor);
-        preference.setIcon(R.drawable.message_got_read_receipt_from_target);
+        //preference.setIcon(R.drawable.message_got_read_receipt_from_target);
+        preference.setIcon(getResID("message_got_read_receipt_from_target"));
         preference.setTitle(Constant.bor);
         preference.setSummary(Constant.borsum);
     }
@@ -102,7 +107,8 @@ public class SettingsPreference extends PreferenceActivity implements SharedPref
     private void ar()
     {
         Preference preference = findPreference(Constant.par);
-        preference.setIcon(R.drawable.message_got_receipt_revoked);
+        //preference.setIcon(R.drawable.message_got_receipt_revoked);
+        preference.setIcon(getResID("message_got_receipt_revoked"));
         preference.setTitle(Constant.ar);
         preference.setSummary(Constant.arsum);
     }
@@ -110,7 +116,8 @@ public class SettingsPreference extends PreferenceActivity implements SharedPref
     private void hidefwd()
     {
         Preference preference = findPreference(Constant.hf);
-        preference.setIcon(R.drawable.ic_forward_message);
+        //preference.setIcon(R.drawable.ic_forward_message);
+        preference.setIcon(getResID("ic_forward_message"));
         preference.setTitle(Constant.hideforward);
         preference.setSummary(Constant.hideforwardsum);
     }
@@ -118,7 +125,8 @@ public class SettingsPreference extends PreferenceActivity implements SharedPref
     private void hidestatus()
     {
         Preference preference = findPreference(Constant.hst);
-        preference.setIcon(R.drawable.design_ic_visibility);
+        //preference.setIcon(R.drawable.design_ic_visibility);
+        preference.setIcon(getResID("design_ic_visibility"));
         preference.setTitle(Constant.hidestatus);
         preference.setSummary(Constant.hidestatussum);
     }
@@ -126,7 +134,8 @@ public class SettingsPreference extends PreferenceActivity implements SharedPref
     private void cblue()
     {
         Preference preference = findPreference(Constant.pc + Constant.cread);
-        preference.setIcon(R.drawable.message_got_read_receipt_from_target);
+        //preference.setIcon(R.drawable.message_got_read_receipt_from_target);
+        preference.setIcon(getResID("message_got_read_receipt_from_target"));
         preference.setTitle(Constant.hideblue);
         preference.setSummary(Constant.dt + Constant.contact + Constant.hbcsum);
     }
@@ -134,7 +143,8 @@ public class SettingsPreference extends PreferenceActivity implements SharedPref
     private void cdouble()
     {
         Preference preference = findPreference(Constant.pc + Constant.creceipt);
-        preference.setIcon(R.drawable.message_got_receipt_from_target);
+        //preference.setIcon(R.drawable.message_got_receipt_from_target);
+        preference.setIcon(getResID("message_got_receipt_from_target"));
         preference.setTitle(Constant.hidedouble);
         preference.setSummary(Constant.dt + Constant.contact + Constant.hdcsum);
     }
@@ -142,7 +152,8 @@ public class SettingsPreference extends PreferenceActivity implements SharedPref
     private void cplay()
     {
         Preference preference = findPreference(Constant.pc + Constant.cplay);
-        preference.setIcon(R.drawable.mic_played);
+        //preference.setIcon(R.drawable.mic_played);
+        preference.setIcon(getResID("mic_played"));
         preference.setTitle(Constant.hideplay);
         preference.setSummary(Constant.dt + Constant.contact + Constant.hpcsum);
     }
@@ -150,7 +161,8 @@ public class SettingsPreference extends PreferenceActivity implements SharedPref
     private void ctype()
     {
         Preference preference = findPreference(Constant.pc + Constant.ccompose);
-        preference.setIcon(R.drawable.type);
+        //preference.setIcon(R.drawable.type);
+        preference.setIcon(getResID("type"));
         preference.setTitle(Constant.hidetype);
         preference.setSummary(Constant.dt + Constant.contact + Constant.htcsum);
     }
@@ -158,7 +170,8 @@ public class SettingsPreference extends PreferenceActivity implements SharedPref
     private void crecord()
     {
         Preference preference = findPreference(Constant.pc + Constant.crecord);
-        preference.setIcon(R.drawable.mic_new);
+        //preference.setIcon(R.drawable.mic_new);
+        preference.setIcon(getResID("mic_new"));
         preference.setTitle(Constant.hiderecord);
         preference.setSummary(Constant.dt + Constant.contact + Constant.hrcsum);
     }
@@ -166,7 +179,8 @@ public class SettingsPreference extends PreferenceActivity implements SharedPref
     private void gblue()
     {
         Preference preference = findPreference(Constant.pg + Constant.cread);
-        preference.setIcon(R.drawable.message_got_read_receipt_from_target);
+        //preference.setIcon(R.drawable.message_got_read_receipt_from_target);
+        preference.setIcon(getResID("message_got_read_receipt_from_target"));
         preference.setTitle(Constant.hideblue);
         preference.setSummary(Constant.dt + Constant.group + Constant.hbcsum);
     }
@@ -174,7 +188,8 @@ public class SettingsPreference extends PreferenceActivity implements SharedPref
     private void gdouble()
     {
         Preference preference = findPreference(Constant.pg + Constant.creceipt);
-        preference.setIcon(R.drawable.message_got_receipt_from_target);
+        //preference.setIcon(R.drawable.message_got_receipt_from_target);
+        preference.setIcon(getResID("message_got_receipt_from_target"));
         preference.setTitle(Constant.hidedouble);
         preference.setSummary(Constant.dt + Constant.group + Constant.hdcsum);
     }
@@ -182,7 +197,8 @@ public class SettingsPreference extends PreferenceActivity implements SharedPref
     private void gplay()
     {
         Preference preference = findPreference(Constant.pg + Constant.cplay);
-        preference.setIcon(R.drawable.mic_played);
+        //preference.setIcon(R.drawable.mic_played);
+        preference.setIcon(getResID("mic_played"));
         preference.setTitle(Constant.hideplay);
         preference.setSummary(Constant.dt + Constant.group + Constant.hpcsum);
     }
@@ -190,7 +206,8 @@ public class SettingsPreference extends PreferenceActivity implements SharedPref
     private void gtype()
     {
         Preference preference = findPreference(Constant.pg + Constant.ccompose);
-        preference.setIcon(R.drawable.type);
+        //preference.setIcon(R.drawable.type);
+        preference.setIcon(getResID("type"));
         preference.setTitle(Constant.hidetype);
         preference.setSummary(Constant.dt + Constant.group + Constant.htcsum);
     }
@@ -198,7 +215,8 @@ public class SettingsPreference extends PreferenceActivity implements SharedPref
     private void grecord()
     {
         Preference preference = findPreference(Constant.pg + Constant.crecord);
-        preference.setIcon(R.drawable.mic_new);
+        //preference.setIcon(R.drawable.mic_new);
+        preference.setIcon(getResID("mic_new"));
         preference.setTitle(Constant.hiderecord);
         preference.setSummary(Constant.dt + Constant.group + Constant.hrcsum);
     }
@@ -263,6 +281,11 @@ public class SettingsPreference extends PreferenceActivity implements SharedPref
         seekBarPreference.setTitle(Constant.imgres);
         seekBarPreference.setSummary(Constant.imgress);
         seekBarPreference.setDefaultValue(1280);
+    }
+
+    private int getResID(String name)
+    {
+        return getResources().getIdentifier(name,"drawable",getPackageName());
     }
 
 }

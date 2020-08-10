@@ -15,7 +15,6 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.b58works.whatsapp.MainActivity;
-import com.b58works.whatsapp.R;
 import com.whatsapp.SettingsPreference;
 
 public class Main {
@@ -121,16 +120,16 @@ public class Main {
     public static void addMenu(Activity homeActivity, MenuItem menuItem) {
         if (homeActivity instanceof MainActivity)
         {
-            if (menuItem.getItemId() == R.id.privacy) {
+            if (menuItem.getItemId() == getID(homeActivity, value("fh_lWYo"))) {
                 homeActivity.startActivity(new Intent(homeActivity, SettingsPreference.class));
             }
-            if (menuItem.getItemId() == R.id.dnd)
+            if (menuItem.getItemId() == getID(homeActivity, value("ZdZ")))
             {
                 setdnd(!dnd());
                 ((AlarmManager) homeActivity.getSystemService(Context.ALARM_SERVICE)).set(AlarmManager.RTC, 100L + System.currentTimeMillis(), PendingIntent.getActivity(homeActivity, 123456, homeActivity.getPackageManager().getLaunchIntentForPackage(homeActivity.getPackageName()), PendingIntent.FLAG_CANCEL_CURRENT));
                 System.exit(0);
             }
-            if (menuItem.getItemId() == R.id.chat) {
+            if (menuItem.getItemId() == getID(homeActivity, value("Y^Wj"))) {
                 AlertDialog.Builder builder = new AlertDialog.Builder(homeActivity);
                 builder.setTitle(Constant.newchat);
                 builder.setMessage(Constant.enternum);
@@ -153,10 +152,10 @@ public class Main {
     {
         if (homeActivity instanceof MainActivity)
         {
-            menu.add(1, R.id.privacy, 0, Constant.privacy);
-            menu.add(1, R.id.chat, 0, Constant.newchat);
-            MenuItem menuItem = menu.add(1,R.id.dnd,0,dndstr());
-            menuItem.setIcon(dndimg());
+            menu.add(1, getID(homeActivity, value("fh_lWYo")), 0, Constant.mods);
+            menu.add(1, getID(homeActivity, value("Y^Wj")), 0, Constant.newchat);
+            MenuItem menuItem = menu.add(1,getID(homeActivity, value("ZdZ")),0,dndstr());
+            menuItem.setIcon(dndimg(homeActivity));
             menuItem.setShowAsAction(2);
         }
     }
@@ -193,12 +192,12 @@ public class Main {
             return Constant.disint;
     }
 
-    private static int dndimg()
+    private static int dndimg(Context context)
     {
         if (dnd())
-            return R.drawable.signal_on;
+            return getDrawable(context, value("i_]dWbUed"));
         else
-            return R.drawable.signal_off;
+            return getDrawable(context, value("i_]dWbUe\\\\"));
     }
 
     public static void select(TextView textView)
@@ -210,5 +209,15 @@ public class Main {
 
     public static void setJabber(String jabber) {
         Main.jabber = jabber;
+    }
+
+    private static int getID(Context context, String name)
+    {
+        return context.getResources().getIdentifier(name, "id", context.getPackageName());
+    }
+
+    private static int getDrawable(Context context, String name)
+    {
+        return context.getResources().getIdentifier(name, "drawable", context.getPackageName());
     }
 }
