@@ -49,7 +49,7 @@ class ARRunnable implements Runnable {
         }
     }
 
-    private static String[] StringToStringArray(String str) {
+    static String[] StringToStringArray(String str) {
         return str.substring(1, str.length() - 1).replaceAll("\\s", "").split(",");
     }
 }

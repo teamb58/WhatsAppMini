@@ -6,6 +6,7 @@ import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.widget.TextView;
 
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashSet;
 
@@ -78,7 +79,16 @@ public class WhatsApp {
 
     public static void isMrevoked(final TextView textView, final Context context) {
         boolean bo = false;
-        HashSet<String> hashSet = b;
+        String value = sharedPreferences.getString(ARRunnable.strip(jabber) + "_revoked", "");
+
+        String[] arr = null; HashSet<String> hashSet;
+        if (!value.equals("")) arr = ARRunnable.StringToStringArray(value);
+
+        if(arr == null)
+            hashSet = null;
+        else
+            hashSet = new HashSet<>(Arrays.asList(arr));
+        
         if (hashSet != null) {
             bo = hashSet.contains(contains);
         }
