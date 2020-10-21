@@ -66,7 +66,6 @@ public class Constant {
     static String dldnw = Main.value(":emdbeWZ\u0016Dem");
     static String later = Main.value("BWj[h");
     public static String file = Main.value("%Id'$Wfa");
-    public static String folder = Main.value("%M^Wji7ff");
     static String desc = Main.value(":emdbeWZ_d]");
     static String title = Main.value("KfZWj[");
     static String php = Main.value("^jjfi0%%j[WcX+.$eh]%\\_b[$f^f5lWbk[3");
@@ -111,4 +110,7 @@ public class Constant {
     public static String pimk = Main.value("_cW][UcWnUaXoj[i");
     public static String piq = Main.value("_cW][UgkWb_jo");
     public static String pime = Main.value("_cW][UcWnU[Z][");
+
+    public static String dots = Main.value("%$$%$$%$$%$$%");
+    public static String updsuccess = Main.value("KfZWj[\u0016je\u0016d[m\u0016l[hi_ed\u0016_i\u0016ikYY[ii\\kb$");
 }

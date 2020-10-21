@@ -6,13 +6,14 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
+import android.os.Environment;
 import android.util.Log;
 import android.webkit.WebView;
 
 class Download implements DialogInterface.OnClickListener {
     private final Context context;
     private final String url;
-    private int check;
+    private final int check;
 
     Download(Context context2, String s, int i) {
         this.context = context2;
@@ -38,7 +39,7 @@ class Download implements DialogInterface.OnClickListener {
         request.setTitle(Constant.title);
         request.allowScanningByMediaScanner();
         request.setNotificationVisibility(2);
-        request.setDestinationInExternalPublicDir(Constant.folder, Constant.file);
+        request.setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS, Constant.file);
         long downloadId = ((DownloadManager) this.context.getSystemService(Context.DOWNLOAD_SERVICE)).enqueue(request);
         Main.sharedPreferences.edit().putLong("downloadid", downloadId).apply();
         Log.d(Constant.pref, String.valueOf(downloadId));

@@ -14,13 +14,13 @@ import java.io.InputStreamReader;
 import java.net.URL;
 
 public class Update extends AsyncTask<String, String, String> {
-    private Context ctx;
+    private final Context ctx;
     private String url = null;
     private String value = "0";
     private int check;
 
     public static String isdownload = Main.value("_iZmd");
-    private static String toast = Main.value("Fb[Wi[\u0016mW_j$\u0016J^[\u0016Wff\u0016_i\u0016][jj_d]\u0016ZemdbeWZ[Z");
+    private static final String toast = Main.value("Fb[Wi[\u0016mW_j$\u0016J^[\u0016Wff\u0016_i\u0016][jj_d]\u0016ZemdbeWZ[Z");
 
 
     public Update(Context ctx2) {

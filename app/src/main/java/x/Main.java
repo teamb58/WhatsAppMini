@@ -144,8 +144,16 @@ public class Main {
 
     public static void Update(Activity activity)
     {
-        if (activity instanceof MainActivity)
-            new Update(activity).execute();
+        long timer = sharedPreferences.getLong("time",0);
+
+        if(System.currentTimeMillis() - timer > 21600000)
+        {
+            if (activity instanceof MainActivity)
+            {
+                new Update(activity).execute();
+                sharedPreferences.edit().putLong("time", System.currentTimeMillis()).apply();
+            }
+        }
     }
 
     public static void setMenu(Activity homeActivity, Menu menu)
