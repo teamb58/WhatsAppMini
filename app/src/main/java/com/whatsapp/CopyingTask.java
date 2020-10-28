@@ -1,4 +1,4 @@
-package x;
+package com.whatsapp;
 
 import android.app.ProgressDialog;
 import android.content.Context;
@@ -12,12 +12,12 @@ import java.io.IOException;
 
 public class CopyingTask extends AsyncTask<File, Integer, Integer> {
     private Context ctx;
-    private ProgressDialog dialog;
+    private final ProgressDialog dialog;
     private boolean done = false;
     private int i = 0;
     private int max = 0;
-    private File sourceLocation;
-    private File targetLocation;
+    private final File sourceLocation;
+    private final File targetLocation;
 
     public CopyingTask(Context context, File file, File file2) {
         this.ctx = context;
@@ -25,8 +25,8 @@ public class CopyingTask extends AsyncTask<File, Integer, Integer> {
         this.dialog.setProgressStyle(1);
         this.dialog.setCancelable(false);
         this.dialog.setIndeterminate(false);
-        this.dialog.setTitle(Constant.backup);
-        this.dialog.setMessage(Constant.backupm);
+        this.dialog.setTitle(getString("backup"));
+        this.dialog.setMessage(context.getString(getString("backupm")));
         this.sourceLocation = file;
         this.targetLocation = file2;
     }
@@ -52,7 +52,7 @@ public class CopyingTask extends AsyncTask<File, Integer, Integer> {
 
 
     private void copyDirectory(File file, File file2) throws IOException{
-        file.getPath();
+        String path = file.getPath();
         if (file.isDirectory()) {
             if (!file2.exists()) {
                 file2.mkdir();
@@ -96,9 +96,9 @@ public class CopyingTask extends AsyncTask<File, Integer, Integer> {
     public void onPostExecute(Integer num) {
         this.dialog.dismiss();
         if (this.done) {
-            Toast.makeText(this.ctx, Constant.backups, Toast.LENGTH_SHORT).show();
+            Toast.makeText(this.ctx, getString("backups"), Toast.LENGTH_SHORT).show();
         } else {
-            Toast.makeText(this.ctx, Constant.backupf, Toast.LENGTH_SHORT).show();
+            Toast.makeText(this.ctx, getString("backupf"), Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -110,5 +110,10 @@ public class CopyingTask extends AsyncTask<File, Integer, Integer> {
 
     public void onProgressUpdate(Integer... numArr) {
         this.dialog.setProgress(numArr[0]);
+    }
+
+    private int getString(String name)
+    {
+        return this.ctx.getResources().getIdentifier(name, "string", this.ctx.getPackageName());
     }
 }

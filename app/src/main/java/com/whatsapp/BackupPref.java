@@ -6,8 +6,6 @@ import android.preference.Preference;
 
 import java.io.File;
 
-import x.CopyingTask;
-
 public class BackupPref extends Preference implements Preference.OnPreferenceClickListener {
 
     private Context context;

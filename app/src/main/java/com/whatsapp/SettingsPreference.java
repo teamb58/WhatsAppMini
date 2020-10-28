@@ -8,33 +8,29 @@ import android.preference.PreferenceManager;
 import android.preference.SwitchPreference;
 import android.preference.TwoStatePreference;
 
-import com.b58works.whatsapp.R;
-
-import x.Constant;
 import x.Main;
-import x.PrivClick;
 
 public class SettingsPreference extends PreferenceActivity implements SharedPreferences.OnSharedPreferenceChangeListener{
 
     @Override
     public void onCreate(Bundle b) {
         super.onCreate(b);
-        getPreferenceManager().setSharedPreferencesName(Constant.pref);
-        addPreferencesFromResource(R.xml.preferences_app);
-        setTitle(Constant.preference);
+        getPreferenceManager().setSharedPreferencesName("B58");
+        addPreferencesFromResource(getResID("preferences_app", "xml"));
+        setTitle(getResID("setting", "string"));
         setPrivacy();setBackup();reset();setMedia();
         sethideseen();bor();ar();hidefwd();hidestatus();
         cblue();cdouble();ctype();crecord();cplay();
         gblue();gdouble();gtype();grecord();gplay();
         stimq();stimsize();stvidd();imgq();imgres();imgsize();
-        getPreferenceManager().setSharedPreferencesName(Constant.pref);
+
     }
 
     @Override
     public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
         Preference p = findPreference(key);
         if ((p instanceof SwitchPreference))
-            Main.sharedPreferences.edit().putBoolean(key, ((TwoStatePreference) p).isChecked()).apply();
+            WhatsApp.sharedPreferences.edit().putBoolean(key, ((TwoStatePreference) p).isChecked()).apply();
         else if ((p instanceof SeekBarPreference))
             PreferenceManager.getDefaultSharedPreferences(getApplicationContext()).edit().putInt(key,((SeekBarPreference) p).getmCurrentValue()).apply();
         onStart();
@@ -60,232 +56,232 @@ public class SettingsPreference extends PreferenceActivity implements SharedPref
 
     public void setPrivacy()
     {
-        Preference priv = findPreference(Constant.ppriv);
+        Preference priv = findPreference("privacy");
         //priv.setIcon(R.drawable.privacy);
-        priv.setIcon(getResID("privacy"));
-        priv.setTitle(Constant.privacy);
-        priv.setSummary(Constant.privacysum);
+        priv.setIcon(getResID("privacy", "drawable"));
+        priv.setTitle(getResID("priv", "string"));
+        priv.setSummary(getResID("privsum", "string"));
     }
 
     public void setMedia()
     {
-        Preference media = findPreference(Constant.pmedia);
+        Preference media = findPreference("media");
         //media.setIcon(R.drawable.media);
-        media.setIcon(getResID("media"));
-        media.setTitle(Constant.media);
-        media.setSummary(Constant.mediasum);
+        media.setIcon(getResID("media", "drawable"));
+        media.setTitle(getResID("media", "string"));
+        media.setSummary(getResID("mediasum", "string"));
     }
 
     public void setBackup()
     {
-        Preference backupPref =  findPreference(Constant.pbackup);
+        Preference backupPref =  findPreference("backup");
         //backupPref.setIcon(R.drawable.backup);
-        backupPref.setIcon(getResID("backup"));
-        backupPref.setTitle(Constant.backup);
-        backupPref.setSummary(Constant.backupsum);
+        backupPref.setIcon(getResID("backup", "string"));
+        backupPref.setTitle(getResID("backup", "string"));
+        backupPref.setSummary(getResID("backupsum", "string"));
         backupPref.setOnPreferenceClickListener(new BackupPref(this));
     }
 
     private void sethideseen()
     {
-        Preference preference = findPreference(Constant.hs);
+        Preference preference = findPreference("hideseen");
         //preference.setIcon(R.drawable.message_unsent);
-        preference.setIcon(getResID("message_unsent"));
-        preference.setTitle(Constant.hideseen);
-        preference.setSummary(Constant.hideseensum);
+        preference.setIcon(getResID("message_unsent", "drawable"));
+        preference.setTitle(getResID("hseen", "string"));
+        preference.setSummary(getResID("hseensum", "string"));
     }
 
     private void bor()
     {
-        Preference preference = findPreference(Constant.pbor);
+        Preference preference = findPreference("bor");
         //preference.setIcon(R.drawable.message_got_read_receipt_from_target);
-        preference.setIcon(getResID("message_got_read_receipt_from_target"));
-        preference.setTitle(Constant.bor);
-        preference.setSummary(Constant.borsum);
+        preference.setIcon(getResID("message_got_read_receipt_from_target", "drawable"));
+        preference.setTitle(getResID("bor", "string"));
+        preference.setSummary(getResID("borsum", "string"));
     }
 
     private void ar()
     {
-        Preference preference = findPreference(Constant.par);
+        Preference preference = findPreference("Antirevoke");
         //preference.setIcon(R.drawable.message_got_receipt_revoked);
-        preference.setIcon(getResID("message_got_receipt_revoked"));
-        preference.setTitle(Constant.ar);
-        preference.setSummary(Constant.arsum);
+        preference.setIcon(getResID("message_got_receipt_revoked", "drawable"));
+        preference.setTitle(getResID("ar", "string"));
+        preference.setSummary(getResID("arsum", "string"));
     }
 
     private void hidefwd()
     {
-        Preference preference = findPreference(Constant.hf);
+        Preference preference = findPreference("hidefwd");
         //preference.setIcon(R.drawable.ic_forward_message);
-        preference.setIcon(getResID("ic_forward_message"));
-        preference.setTitle(Constant.hideforward);
-        preference.setSummary(Constant.hideforwardsum);
+        preference.setIcon(getResID("ic_forward_message", "drawable"));
+        preference.setTitle(getResID("hfwd", "string"));
+        preference.setSummary(getResID("hfwdsum", "string"));
     }
 
     private void hidestatus()
     {
-        Preference preference = findPreference(Constant.hst);
+        Preference preference = findPreference("hidestatus");
         //preference.setIcon(R.drawable.design_ic_visibility);
-        preference.setIcon(getResID("design_ic_visibility"));
-        preference.setTitle(Constant.hidestatus);
-        preference.setSummary(Constant.hidestatussum);
+        preference.setIcon(getResID("design_ic_visibility", "drawable"));
+        preference.setTitle(getResID("hstatus", "string"));
+        preference.setSummary(getResID("hstatussum", "string"));
     }
 
     private void cblue()
     {
-        Preference preference = findPreference(Constant.pc + Constant.cread);
+        Preference preference = findPreference("C_HideRead");
         //preference.setIcon(R.drawable.message_got_read_receipt_from_target);
-        preference.setIcon(getResID("message_got_read_receipt_from_target"));
-        preference.setTitle(Constant.hideblue);
-        preference.setSummary(Constant.dt + Constant.contact + Constant.hbcsum);
+        preference.setIcon(getResID("message_got_read_receipt_from_target", "drawable"));
+        preference.setTitle(getResID("hread", "string"));
+        preference.setSummary(getResID("hreadsum", "string"));
     }
 
     private void cdouble()
     {
-        Preference preference = findPreference(Constant.pc + Constant.creceipt);
+        Preference preference = findPreference("C_HideReceipt");
         //preference.setIcon(R.drawable.message_got_receipt_from_target);
-        preference.setIcon(getResID("message_got_receipt_from_target"));
-        preference.setTitle(Constant.hidedouble);
-        preference.setSummary(Constant.dt + Constant.contact + Constant.hdcsum);
+        preference.setIcon(getResID("message_got_receipt_from_target", "drawable"));
+        preference.setTitle(getResID("hreceipt", "string"));
+        preference.setSummary(getResID("hreceiptsum", "string"));
     }
 
     private void cplay()
     {
-        Preference preference = findPreference(Constant.pc + Constant.cplay);
+        Preference preference = findPreference("C_HidePlay");
         //preference.setIcon(R.drawable.mic_played);
-        preference.setIcon(getResID("mic_played"));
-        preference.setTitle(Constant.hideplay);
-        preference.setSummary(Constant.dt + Constant.contact + Constant.hpcsum);
+        preference.setIcon(getResID("mic_played", "drawable"));
+        preference.setTitle(getResID("hplay", "string"));
+        preference.setSummary(getResID("hplaysum", "string"));
     }
 
     private void ctype()
     {
-        Preference preference = findPreference(Constant.pc + Constant.ccompose);
+        Preference preference = findPreference("C_HideCompose");
         //preference.setIcon(R.drawable.type);
-        preference.setIcon(getResID("type"));
-        preference.setTitle(Constant.hidetype);
-        preference.setSummary(Constant.dt + Constant.contact + Constant.htcsum);
+        preference.setIcon(getResID("type", "drawable"));
+        preference.setTitle(getResID("htype", "string"));
+        preference.setSummary(getResID("htypesum", "string"));
     }
 
     private void crecord()
     {
-        Preference preference = findPreference(Constant.pc + Constant.crecord);
+        Preference preference = findPreference("C_HideRecord");
         //preference.setIcon(R.drawable.mic_new);
-        preference.setIcon(getResID("mic_new"));
-        preference.setTitle(Constant.hiderecord);
-        preference.setSummary(Constant.dt + Constant.contact + Constant.hrcsum);
+        preference.setIcon(getResID("mic_new", "drawable"));
+        preference.setTitle(getResID("hrec", "string"));
+        preference.setSummary(getResID("hrecsum", "string"));
     }
 
     private void gblue()
     {
-        Preference preference = findPreference(Constant.pg + Constant.cread);
+        Preference preference = findPreference("G_HideRead");
         //preference.setIcon(R.drawable.message_got_read_receipt_from_target);
-        preference.setIcon(getResID("message_got_read_receipt_from_target"));
-        preference.setTitle(Constant.hideblue);
-        preference.setSummary(Constant.dt + Constant.group + Constant.hbcsum);
+        preference.setIcon(getResID("message_got_read_receipt_from_target", "drawable"));
+        preference.setTitle(getResID("hblue", "string"));
+        preference.setSummary(getResID("hbluesum", "string"));
     }
 
     private void gdouble()
     {
-        Preference preference = findPreference(Constant.pg + Constant.creceipt);
+        Preference preference = findPreference("G_HideReceipt");
         //preference.setIcon(R.drawable.message_got_receipt_from_target);
-        preference.setIcon(getResID("message_got_receipt_from_target"));
-        preference.setTitle(Constant.hidedouble);
-        preference.setSummary(Constant.dt + Constant.group + Constant.hdcsum);
+        preference.setIcon(getResID("message_got_receipt_from_target", "drawable"));
+        preference.setTitle(getResID("hdouble", "string"));
+        preference.setSummary(getResID("hdoublesum", "string"));
     }
 
     private void gplay()
     {
-        Preference preference = findPreference(Constant.pg + Constant.cplay);
+        Preference preference = findPreference("G_HidePlay");
         //preference.setIcon(R.drawable.mic_played);
-        preference.setIcon(getResID("mic_played"));
-        preference.setTitle(Constant.hideplay);
-        preference.setSummary(Constant.dt + Constant.group + Constant.hpcsum);
+        preference.setIcon(getResID("mic_played", "drawable"));
+        preference.setTitle(getResID("hplay", "string"));
+        preference.setSummary(getResID("hplaysum", "string"));
     }
 
     private void gtype()
     {
-        Preference preference = findPreference(Constant.pg + Constant.ccompose);
+        Preference preference = findPreference("G_HideCompose");
         //preference.setIcon(R.drawable.type);
-        preference.setIcon(getResID("type"));
-        preference.setTitle(Constant.hidetype);
-        preference.setSummary(Constant.dt + Constant.group + Constant.htcsum);
+        preference.setIcon(getResID("type", "drawable"));
+        preference.setTitle(getResID("htype", "string"));
+        preference.setSummary(getResID("htypesum", "string"));
     }
 
     private void grecord()
     {
-        Preference preference = findPreference(Constant.pg + Constant.crecord);
+        Preference preference = findPreference("G_HideRecord");
         //preference.setIcon(R.drawable.mic_new);
-        preference.setIcon(getResID("mic_new"));
-        preference.setTitle(Constant.hiderecord);
-        preference.setSummary(Constant.dt + Constant.group + Constant.hrcsum);
+        preference.setIcon(getResID("mic_new", "drawable"));
+        preference.setTitle(getResID("hrec", "string"));
+        preference.setSummary(getResID("hrecsum", "string"));
     }
 
     private void reset()
     {
-        Preference preference = findPreference(Constant.preset);
-        preference.setTitle(Constant.resetp);
-        preference.setSummary(Constant.resetps);
+        Preference preference = findPreference("reset");
+        preference.setTitle(getResID("resetp", "string"));
+        preference.setSummary(getResID("resetpsum", "string"));
         preference.setOnPreferenceClickListener(new PrivClick(getApplicationContext()));
     }
 
     private void stimq()
     {
-        SeekBarPreference seekBarPreference = (SeekBarPreference)findPreference(Constant.psiq);
+        SeekBarPreference seekBarPreference = (SeekBarPreference)findPreference("status_image_quality");
         //seekBarPreference.setmMaxValue(100);
-        seekBarPreference.setTitle(Constant.stimq);
-        seekBarPreference.setSummary(Constant.stimqs);
+        seekBarPreference.setTitle(getResID("stimq", "string"));
+        seekBarPreference.setSummary(getResID("stimqsum", "string"));
         seekBarPreference.setDefaultValue(50);
     }
 
     private void stimsize()
     {
-        SeekBarPreference seekBarPreference = (SeekBarPreference)findPreference(Constant.psie);
+        SeekBarPreference seekBarPreference = (SeekBarPreference)findPreference("status_image_max_edge");
         //seekBarPreference.setmMaxValue(10240);
-        seekBarPreference.setTitle(Constant.stimsize);
-        seekBarPreference.setSummary(Constant.stimsizes);
+        seekBarPreference.setTitle(getResID("stims", "string"));
+        seekBarPreference.setSummary(getResID("stimssum", "string"));
         seekBarPreference.setDefaultValue(1024);
     }
 
     private void stvidd()
     {
-        SeekBarPreference seekBarPreference = (SeekBarPreference)findPreference(Constant.psvd);
+        SeekBarPreference seekBarPreference = (SeekBarPreference)findPreference("status_video_max_duration");
         //seekBarPreference.setmMaxValue(900);
-        seekBarPreference.setTitle(Constant.stvid);
-        seekBarPreference.setSummary(Constant.stvids);
+        seekBarPreference.setTitle(getResID("stvid", "string"));
+        seekBarPreference.setSummary(getResID("stvidsum", "string"));
         seekBarPreference.setDefaultValue(45);
     }
 
     private void imgsize()
     {
-        SeekBarPreference seekBarPreference = (SeekBarPreference)findPreference(Constant.pimk);
+        SeekBarPreference seekBarPreference = (SeekBarPreference)findPreference("image_max_kbytes");
         //seekBarPreference.setmMaxValue(10240);
-        seekBarPreference.setTitle(Constant.imsize);
-        seekBarPreference.setSummary(Constant.imsizes);
+        seekBarPreference.setTitle(getResID("imsize", "string"));
+        seekBarPreference.setSummary(getResID("imsizesum", "string"));
         seekBarPreference.setDefaultValue(1024);
     }
 
     private void imgq()
     {
-        SeekBarPreference seekBarPreference = (SeekBarPreference)findPreference(Constant.piq);
+        SeekBarPreference seekBarPreference = (SeekBarPreference)findPreference("image_quality");
         //seekBarPreference.setmMaxValue(100);
-        seekBarPreference.setTitle(Constant.imgqty);
-        seekBarPreference.setSummary(Constant.imgqtys);
+        seekBarPreference.setTitle(getResID("imgqty", "string"));
+        seekBarPreference.setSummary(getResID("imgqtysum", "string"));
         seekBarPreference.setDefaultValue(80);
     }
 
     private void imgres()
     {
-        SeekBarPreference seekBarPreference = (SeekBarPreference)findPreference(Constant.pime);
+        SeekBarPreference seekBarPreference = (SeekBarPreference)findPreference("image_max_edge");
         //seekBarPreference.setmMaxValue(3840);
-        seekBarPreference.setTitle(Constant.imgres);
-        seekBarPreference.setSummary(Constant.imgress);
+        seekBarPreference.setTitle(getResID("imgres", "string"));
+        seekBarPreference.setSummary(getResID("imgressum", "string"));
         seekBarPreference.setDefaultValue(1280);
     }
 
-    private int getResID(String name)
+    private int getResID(String name, String type)
     {
-        return getResources().getIdentifier(name,"drawable",getPackageName());
+        return getResources().getIdentifier(name,type,getPackageName());
     }
 
 }

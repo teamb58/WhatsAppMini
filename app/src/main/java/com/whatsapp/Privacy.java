@@ -1,5 +1,6 @@
 package com.whatsapp;
 
+import android.annotation.SuppressLint;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -10,10 +11,8 @@ import android.widget.LinearLayout;
 
 import androidx.appcompat.widget.SwitchCompat;
 
-import com.b58works.whatsapp.R;
-
 public class Privacy extends LinearLayout implements View.OnClickListener {
-    private Dialog dialog = new Dialog(getContext());
+    private final Dialog dialog = new Dialog(getContext());
     private SharedPreferences.Editor edit;
 
     public Privacy(final Context context) {
@@ -34,6 +33,7 @@ public class Privacy extends LinearLayout implements View.OnClickListener {
 
     }
 
+    @SuppressLint("CommitPrefEdits")
     private void init() {
         edit = WhatsApp.sharedPreferences.edit();
         this.setOnClickListener( this);

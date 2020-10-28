@@ -12,8 +12,6 @@ import android.view.ViewParent;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
-import com.b58works.whatsapp.R;
-
 public class SeekBarPreference extends Preference implements SeekBar.OnSeekBarChangeListener {
 
     private final String TAG = getClass().getName();
