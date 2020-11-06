@@ -8,7 +8,7 @@
     <string name="backup">Backup</string>
     <string name="backupsum">Click to create a backup from your data.</string>
     <string name="hseen">Hide Last Seen</string>
-    <string name="hseensum">Pause your last seen and stop being shown online. \nNote\: You cannot see your contact's last seen.</string>
+    <string name="hseensum">Pause your last seen and stop being shown online. \nNote\: You cannot see your contact\'s last seen.</string>
     <string name="bor">Blue Tick on Reply</string>
     <string name="borsum">Show sender that you read the message only after you reply. \nNote: You need to enable Hide Blue Tick first.</string>
     <string name="ar">Anti Revoke</string>

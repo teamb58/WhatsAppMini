@@ -56,14 +56,14 @@ public class Main {
             if (getPrivacyB(s)) {
                 return getPrivacyB(s + Constant.crecord);
             }
-            return getPrivacyB(GetType(jabber) + Constant.hrec);
+            return getPrivacyB(GetType(jabber) + Constant.crecord);
         }
         else
         {
             if (getPrivacyB(s)) {
                 return getPrivacyB(s + Constant.ccompose);
             }
-            return getPrivacyB(GetType(jabber) + Constant.hc);
+            return getPrivacyB(GetType(jabber) + Constant.ccompose);
         }
     }
 
@@ -74,7 +74,7 @@ public class Main {
         if (getPrivacyB(jid)) {
             return getPrivacyB(jid + Constant.cplay);
         }
-        return getPrivacyB(GetType(jabber) + Constant.hp);
+        return getPrivacyB(GetType(jabber) + Constant.cplay);
     }
 
     public static int HideForward(int i) {
@@ -90,7 +90,7 @@ public class Main {
         if (getPrivacyB(jid)) {
             return getPrivacyB(jid + Constant.creceipt);
         }
-        return getPrivacyB(GetType(jabber) + Constant.hrc);
+        return getPrivacyB(GetType(jabber) + Constant.creceipt);
     }
 
     public static boolean HideSeen() {
@@ -104,9 +104,9 @@ public class Main {
         Log.d(Constant.pref,s);
         String jid = strip(jabber);
         if (!getPrivacyB(jid)) {
-            return !getPrivacyB(Constant.hst);
+            return !getPrivacyB(jid + Constant.cstatus);
         }
-        return !getPrivacyB(jid + Constant.cstatus);
+        return !getPrivacyB(Constant.hst);
     }
 
     static Intent OpenChat(String str, Context homeActivity) {

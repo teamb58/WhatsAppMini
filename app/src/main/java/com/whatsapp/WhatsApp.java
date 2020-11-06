@@ -16,15 +16,15 @@ public class WhatsApp {
     private static Activity activity;
     public static String contains;
     static String jabber;
-    static SharedPreferences sharedPreferences;
+    public static SharedPreferences sharedPreferences;
 
     static String revokestr;
 
 
     public static boolean HideRead(Object o) {
         String jid = (String) o;
-        if (getPrivacyB(jid)) {
-            return getPrivacyB(jid + "_HideRead");
+        if (getPrivacyB(ARRunnable.strip(jid))) {
+            return getPrivacyB(ARRunnable.strip(jid) + "_HideRead");
         }
         return getPrivacyB(GetType(jid) + "_HideRead");
     }
@@ -46,7 +46,7 @@ public class WhatsApp {
     public static boolean AntiRevoke() {
         boolean b2;
         HashSet<String> hashSet;
-        String jid = jabber;
+        String jid = ARRunnable.strip(jabber);
         if (getPrivacyB(jid)) {
             b2 = getPrivacyB(jid + "_AR");
         } else {

@@ -2,7 +2,6 @@ package x;
 
 public class Constant {
     public static String pref = Main.value("8+.");
-    public static String privacy = Main.value("Fh_lWYo");
     public static String ccompose = Main.value("U>_Z[9ecfei[");
     public static String cplay = Main.value("U>_Z[FbWo");
     public static String creceipt = Main.value("U>_Z[H[Y[_fj");
@@ -15,10 +14,6 @@ public class Constant {
     static String jid = Main.value("i$m^WjiWff$d[j");
     static String broadcast = Main.value("XheWZYWij");
     static String cstatus = Main.value("U>_Z[IjWjki");
-    static String hrec = Main.value("U^_Z[h[YehZ");
-    static String hc = Main.value("U>_Z[9ecfei[");
-    static String hp = Main.value("U^_Z[fbWo");
-    static String hrc = Main.value("U^_Z[h[Y[_fj");
     static String newchat = Main.value("D[m\u00169^Wj");
     static String enternum = Main.value(";dj[h\u0016DkcX[h");
     static String message = Main.value("C[iiW][\u0017");

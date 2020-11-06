@@ -76,7 +76,7 @@ public class SettingsPreference extends PreferenceActivity implements SharedPref
     {
         Preference backupPref =  findPreference("backup");
         //backupPref.setIcon(R.drawable.backup);
-        backupPref.setIcon(getResID("backup", "string"));
+        backupPref.setIcon(getResID("backup", "drawable"));
         backupPref.setTitle(getResID("backup", "string"));
         backupPref.setSummary(getResID("backupsum", "string"));
         backupPref.setOnPreferenceClickListener(new BackupPref(this));
@@ -177,8 +177,8 @@ public class SettingsPreference extends PreferenceActivity implements SharedPref
         Preference preference = findPreference("G_HideRead");
         //preference.setIcon(R.drawable.message_got_read_receipt_from_target);
         preference.setIcon(getResID("message_got_read_receipt_from_target", "drawable"));
-        preference.setTitle(getResID("hblue", "string"));
-        preference.setSummary(getResID("hbluesum", "string"));
+        preference.setTitle(getResID("hread", "string"));
+        preference.setSummary(getResID("hreadsum", "string"));
     }
 
     private void gdouble()
@@ -186,8 +186,8 @@ public class SettingsPreference extends PreferenceActivity implements SharedPref
         Preference preference = findPreference("G_HideReceipt");
         //preference.setIcon(R.drawable.message_got_receipt_from_target);
         preference.setIcon(getResID("message_got_receipt_from_target", "drawable"));
-        preference.setTitle(getResID("hdouble", "string"));
-        preference.setSummary(getResID("hdoublesum", "string"));
+        preference.setTitle(getResID("hreceipt", "string"));
+        preference.setSummary(getResID("hreceiptsum", "string"));
     }
 
     private void gplay()
