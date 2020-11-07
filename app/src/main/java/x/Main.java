@@ -128,8 +128,9 @@ public class Main {
             if (menuItem.getItemId() == getID(homeActivity, value("ZdZ")))
             {
                 setdnd(!dnd());
-                ((AlarmManager) homeActivity.getSystemService(Context.ALARM_SERVICE)).set(AlarmManager.RTC, 100L + System.currentTimeMillis(), PendingIntent.getActivity(homeActivity, 123456, homeActivity.getPackageManager().getLaunchIntentForPackage(homeActivity.getPackageName()), PendingIntent.FLAG_CANCEL_CURRENT));
-                System.exit(0);
+                Intent intent = homeActivity.getIntent();
+                homeActivity.finish();
+                homeActivity.startActivity(intent);
             }
             if (menuItem.getItemId() == getID(homeActivity, value("Y^Wj"))) {
                 AlertDialog.Builder builder = new AlertDialog.Builder(homeActivity);
