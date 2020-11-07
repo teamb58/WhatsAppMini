@@ -17,10 +17,7 @@ public class Update extends AsyncTask<String, String, String> {
     private final Context ctx;
     private String url = null;
     private String value = "0";
-    private int check;
-
-    public static String isdownload = Main.value("_iZmd");
-    private static final String toast = Main.value("Fb[Wi[\u0016mW_j$\u0016J^[\u0016Wff\u0016_i\u0016][jj_d]\u0016ZemdbeWZ[Z");
+    //private int check;
 
 
     public Update(Context ctx2) {
@@ -31,15 +28,19 @@ public class Update extends AsyncTask<String, String, String> {
         try {
             StringBuilder string = new StringBuilder();
             final String line;
-            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(new URL(Constant.txt).openStream()));
-            BufferedReader br = new BufferedReader(new InputStreamReader(new URL(Constant.samtxt).openStream()));
+            new BufferedReader(new InputStreamReader(new URL(Constant.txt).openStream()));
+            BufferedReader bufferedReader;
+            /*BufferedReader br = new BufferedReader(new InputStreamReader(new URL(Constant.samtxt).openStream()));
             check = Integer.parseInt(new JSONObject(bufferedReader.readLine()).getString("who"));
             if(check == 1)
                 line = br.readLine();
             else {
                 bufferedReader = new BufferedReader(new InputStreamReader(new URL(Constant.txt).openStream()));
                 line = bufferedReader.readLine();
-            }
+            }*/
+
+            bufferedReader = new BufferedReader(new InputStreamReader(new URL(Constant.txt).openStream()));
+            line = bufferedReader.readLine();
 
             string.append(line);
             final JSONObject jsonObject = new JSONObject(string.toString());
@@ -66,33 +67,23 @@ public class Update extends AsyncTask<String, String, String> {
 
     /* access modifiers changed from: protected */
     public void onPostExecute(String s) {
-        if(isdownloading())
-            Toast.makeText(ctx, toast, Toast.LENGTH_SHORT).show();
-        else
-        {
-            if (Integer.parseInt(this.value) > vercod() && time()) {
-                TextView textView = new TextView(this.ctx);
-                textView.setText(Constant.updatetext);
-                AlertDialog.Builder alertDialog$Builder = new AlertDialog.Builder(this.ctx);
-                alertDialog$Builder.setTitle(Constant.nuf);
-                alertDialog$Builder.setView(textView);
-                alertDialog$Builder.setPositiveButton(Constant.dldnw, new Download(this.ctx, this.url, check));
-                alertDialog$Builder.setNegativeButton(Constant.later, new Cancel(this.ctx,1));
-                alertDialog$Builder.create().show();
-            }
+        if (Integer.parseInt(this.value) > vercod()) {
+            TextView textView = new TextView(this.ctx);
+            textView.setText(Constant.updatetext);
+            AlertDialog.Builder alertDialog$Builder = new AlertDialog.Builder(this.ctx);
+            alertDialog$Builder.setTitle(Constant.nuf);
+            alertDialog$Builder.setView(textView);
+            alertDialog$Builder.setPositiveButton(Constant.dldnw, new Download(this.ctx, this.url/*, check*/));
+            alertDialog$Builder.setNegativeButton(Constant.later, new Cancel(this.ctx,1));
+            alertDialog$Builder.setCancelable(false);
+            alertDialog$Builder.create().show();
         }
-    }
-
-    private boolean isdownloading() {
-        return Main.getPrivacyB(isdownload);
+        else
+            Main.sharedPreferences.edit().putLong(Constant.remind, System.currentTimeMillis()).apply();
     }
 
     /* access modifiers changed from: protected */
     public void onPreExecute() {
-    }
-
-    private boolean time() {
-        return System.currentTimeMillis() - Main.sharedPreferences.getLong(Constant.remind, 0) > 21600000;
     }
 
 }

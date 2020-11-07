@@ -28,7 +28,7 @@ class Cancel implements DialogInterface.OnClickListener {
 
     private void remind() {
         Main.sharedPreferences.edit().putLong(Constant.remind, System.currentTimeMillis()).apply();
-        Toast.makeText(this.context, Constant.remind_later, 0).show();
+        Toast.makeText(this.context, Constant.remind_later, Toast.LENGTH_SHORT).show();
     }
 
 

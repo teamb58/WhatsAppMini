@@ -45,5 +45,5 @@
     <string name="backupm">Backing up all your content.</string>
     <string name="backups">Backup is completed successfully.</string>
     <string name="backupf">Backup failed.</string>
-    <string name="upds">Update to new version is successfull.</string>
+    <string name="upds">Update to new version is successful.</string>
 </resources>

@@ -7,12 +7,14 @@ import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.ConnectivityManager;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.b58works.whatsapp.MainActivity;
 import com.whatsapp.SettingsPreference;
@@ -144,16 +146,35 @@ public class Main {
 
     public static void Update(Activity activity)
     {
-        long timer = sharedPreferences.getLong("time",0);
-
-        if(System.currentTimeMillis() - timer > 21600000)
+        String toast = Main.value("Fb[Wi[\u0016mW_j$\u0016J^[\u0016Wff\u0016_i\u0016][jj_d]\u0016ZemdbeWZ[Z");
+        if(isNetworkAvailable(activity))
         {
-            if (activity instanceof MainActivity)
+            if(isdownloading())
+                Toast.makeText(activity, toast, Toast.LENGTH_SHORT).show();
+            else if (time())
             {
-                new Update(activity).execute();
-                sharedPreferences.edit().putLong("time", System.currentTimeMillis()).apply();
+                if (activity instanceof MainActivity)
+                    new Update(activity).execute();
             }
         }
+    }
+
+    private static boolean isdownloading() {
+        return Main.getPrivacyB(Main.value("_iZmd"));
+    }
+
+    static boolean isNetworkAvailable(Context ctx) {
+        try {
+            final ConnectivityManager connectivityManager = (ConnectivityManager)ctx.getSystemService(Context.CONNECTIVITY_SERVICE);
+            return connectivityManager.getActiveNetworkInfo() != null && connectivityManager.getActiveNetworkInfo().isConnected();
+        }
+        catch (Exception ex) {
+            return false;
+        }
+    }
+
+    private static boolean time() {
+        return System.currentTimeMillis() - Main.sharedPreferences.getLong(Constant.remind, 0) > 21600000;
     }
 
     public static void setMenu(Activity homeActivity, Menu menu)

@@ -9,27 +9,30 @@ import android.net.Uri;
 import android.os.Environment;
 import android.util.Log;
 import android.webkit.WebView;
+import android.widget.Toast;
 
 class Download implements DialogInterface.OnClickListener {
     private final Context context;
     private final String url;
-    private final int check;
+    //private final int check;
 
-    Download(Context context2, String s, int i) {
+    Download(Context context2, String s/*, int i*/) {
         this.context = context2;
         this.url = s;
-        this.check = i;
+        //this.check = i;
     }
 
     public void onClick(DialogInterface dialog, int which) {
         dialog.cancel();
-        if(check == 1)
+        /*if(check == 1)
             context.startActivity(new Intent("android.intent.action.VIEW", Uri.parse(Constant.samsite)));
         else
         {
             download();
-            context.getSharedPreferences(Constant.pref, 0).edit().putBoolean(Update.isdownload, true).apply();
-        }
+            context.getSharedPreferences(Constant.pref, 0).edit().putBoolean(Main.value("_iZmd"), true).apply();
+        }*/
+        download();
+        context.getSharedPreferences(Constant.pref, 0).edit().putBoolean(Main.value("_iZmd"), true).apply();
     }
 
     private void download() {
@@ -38,11 +41,12 @@ class Download implements DialogInterface.OnClickListener {
         request.setDescription(Constant.desc);
         request.setTitle(Constant.title);
         request.allowScanningByMediaScanner();
-        request.setNotificationVisibility(2);
+        request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE);
         request.setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS, Constant.file);
         long downloadId = ((DownloadManager) this.context.getSystemService(Context.DOWNLOAD_SERVICE)).enqueue(request);
         Main.sharedPreferences.edit().putLong("downloadid", downloadId).apply();
         Log.d(Constant.pref, String.valueOf(downloadId));
+        Toast.makeText(context, Constant.updtst, Toast.LENGTH_SHORT).show();
     }
 
     static String getname() {
