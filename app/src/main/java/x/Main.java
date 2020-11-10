@@ -1,9 +1,7 @@
 package x;
 
 import android.app.Activity;
-import android.app.AlarmManager;
 import android.app.AlertDialog;
-import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -21,7 +19,6 @@ import com.whatsapp.SettingsPreference;
 
 public class Main {
 
-    private static String jabber;
     public static SharedPreferences sharedPreferences;
 
     static String value(String s) {
@@ -50,33 +47,33 @@ public class Main {
         return str.contains(Constant.jid) ? "C" : "ST";
     }
 
-    public static boolean HideCR(int n) {
+    public static boolean HideCR(String jid, int n) {
         String s1 = "hidecr";
         Log.d(Constant.pref,s1);
-        String s = strip(jabber);
+        String s = strip(jid);
         if (n == 1) {
             if (getPrivacyB(s)) {
                 return getPrivacyB(s + Constant.crecord);
             }
-            return getPrivacyB(GetType(jabber) + Constant.crecord);
+            return getPrivacyB(GetType(jid) + Constant.crecord);
         }
         else
         {
             if (getPrivacyB(s)) {
                 return getPrivacyB(s + Constant.ccompose);
             }
-            return getPrivacyB(GetType(jabber) + Constant.ccompose);
+            return getPrivacyB(GetType(jid) + Constant.ccompose);
         }
     }
 
-    public static boolean HidePlay() {
+    public static boolean HidePlay(String jab) {
         String s = "hideplay";
         Log.d(Constant.pref,s);
-        String jid = strip(jabber);
+        String jid = strip(jab);
         if (getPrivacyB(jid)) {
             return getPrivacyB(jid + Constant.cplay);
         }
-        return getPrivacyB(GetType(jabber) + Constant.cplay);
+        return getPrivacyB(GetType(jab) + Constant.cplay);
     }
 
     public static int HideForward(int i) {
@@ -85,14 +82,14 @@ public class Main {
         return (!getPrivacyB(Constant.hf) || i <= 0) ? i : i - 1;
     }
 
-    public static boolean HideReceipt() {
+    public static boolean HideReceipt(String jab) {
         String s = "hidereceipt";
         Log.d(Constant.pref,s);
-        String jid = strip(jabber);
+        String jid = strip(jab);
         if (getPrivacyB(jid)) {
             return getPrivacyB(jid + Constant.creceipt);
         }
-        return getPrivacyB(GetType(jabber) + Constant.creceipt);
+        return getPrivacyB(GetType(jab) + Constant.creceipt);
     }
 
     public static boolean HideSeen() {
@@ -101,10 +98,10 @@ public class Main {
         return getPrivacyB(Constant.hs);
     }
 
-    public static boolean HideStatus() {
+    public static boolean HideStatus(String jab) {
         String s = "hidestatus";
         Log.d(Constant.pref,s);
-        String jid = strip(jabber);
+        String jid = strip(jab);
         if (!getPrivacyB(jid)) {
             return !getPrivacyB(jid + Constant.cstatus);
         }
@@ -235,10 +232,6 @@ public class Main {
         String s = "Text select";
         textView.setTextIsSelectable(true);
 
-    }
-
-    public static void setJabber(String jabber) {
-        Main.jabber = jabber;
     }
 
     private static int getID(Context context, String name)

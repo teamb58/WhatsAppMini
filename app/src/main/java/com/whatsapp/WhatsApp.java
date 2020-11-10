@@ -15,7 +15,6 @@ public class WhatsApp {
     private static HashSet<String> b = null;
     private static Activity activity;
     public static String contains;
-    static String jabber;
     public static SharedPreferences sharedPreferences;
 
     static String revokestr;
@@ -43,10 +42,10 @@ public class WhatsApp {
         return str.contains("s.whatsapp.net") ? "C" : "ST";
     }
 
-    public static boolean AntiRevoke() {
+    public static boolean AntiRevoke(String s) {
         boolean b2;
         HashSet<String> hashSet;
-        String jid = ARRunnable.strip(jabber);
+        String jid = ARRunnable.strip(s);
         if (getPrivacyB(jid)) {
             b2 = getPrivacyB(jid + "_AR");
         } else {
@@ -54,14 +53,14 @@ public class WhatsApp {
         }
         if (b2) {
             try {
-                AsyncTask.THREAD_POOL_EXECUTOR.execute(new ARRunnable());
+                AsyncTask.THREAD_POOL_EXECUTOR.execute(new ARRunnable(s));
             } catch (Exception e) {
                 e.printStackTrace();
             }
             final Activity activity1 = WhatsApp.activity;
             if (activity1 != null) {
                 if (activity1.hasWindowFocus()) {
-                    String[] ba = ARRunnable.b(ARRunnable.strip(jabber));
+                    String[] ba = ARRunnable.b(ARRunnable.strip(s));
                     if (!(ba == null || (hashSet = b) == null)) {
                         Collections.addAll(hashSet, ba);
                     }
@@ -77,9 +76,9 @@ public class WhatsApp {
         return b2;
     }
 
-    public static void isMrevoked(final TextView textView, final Context context) {
+    public static void isMrevoked(final TextView textView, final Context context, String s) {
         boolean bo = false;
-        String value = sharedPreferences.getString(ARRunnable.strip(jabber) + "_revoked", "");
+        String value = sharedPreferences.getString(ARRunnable.strip(s) + "_revoked", "");
 
         String[] arr = null; HashSet<String> hashSet;
         if (!value.equals("")) arr = ARRunnable.StringToStringArray(value);
@@ -97,11 +96,11 @@ public class WhatsApp {
         }
     }
 
-    public static void onStart(Activity conversation) {
+    public static void onStart(Activity conversation, String s) {
         HashSet<String> hashSet;
         b = new HashSet<>();
         activity = conversation;
-        String[] b2 = ARRunnable.b(ARRunnable.strip(jabber));
+        String[] b2 = ARRunnable.b(ARRunnable.strip(s));
         if (b2 != null && (hashSet = b) != null) {
             Collections.addAll(hashSet, b2);
         }

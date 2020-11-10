@@ -4,11 +4,16 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashSet;
 
-import static com.whatsapp.WhatsApp.jabber;
 import static com.whatsapp.WhatsApp.revokestr;
 import static com.whatsapp.WhatsApp.sharedPreferences;
 
 class ARRunnable implements Runnable {
+
+    private final String jabber;
+    public ARRunnable(String s) {
+        jabber = s;
+    }
+
     public void run() {
         a();
     }
@@ -17,7 +22,7 @@ class ARRunnable implements Runnable {
         return (str.contains("g.us") || str.contains("s.whatsapp.net") || str.contains("broadcast")) ? str.substring(0, str.indexOf("@")) : str;
     }
 
-    private static void a() {
+    private void a() {
         String str = strip(jabber);
         String str3 = strip(jabber);
         String str2 = revokestr;
