@@ -56,17 +56,19 @@ public class Main {
         Log.d(Constant.pref,s1);
         String s = strip(jid);
         if (n == 1) {
-            if (getPrivacyB(s)) {
+            if (!getPrivacyB(s))
+                return getPrivacyB(GetType(jid) + Constant.crecord);
+            else
                 return getPrivacyB(s + Constant.crecord);
-            }
-            return getPrivacyB(GetType(jid) + Constant.crecord);
+
         }
         else
         {
-            if (getPrivacyB(s)) {
+            if (getPrivacyB(s))
+                return getPrivacyB(GetType(jid) + Constant.ccompose);
+            else
                 return getPrivacyB(s + Constant.ccompose);
-            }
-            return getPrivacyB(GetType(jid) + Constant.ccompose);
+
         }
     }
 
@@ -74,10 +76,11 @@ public class Main {
         String s = "hideplay";
         Log.d(Constant.pref,s);
         String jid = strip(jab);
-        if (getPrivacyB(jid)) {
+        if (!getPrivacyB(jid))
+            return getPrivacyB(GetType(jab) + Constant.cplay);
+        else
             return getPrivacyB(jid + Constant.cplay);
-        }
-        return getPrivacyB(GetType(jab) + Constant.cplay);
+
     }
 
     public static int HideForward(int i) {
@@ -90,10 +93,11 @@ public class Main {
         String s = "hidereceipt";
         Log.d(Constant.pref,s);
         String jid = strip(jab);
-        if (getPrivacyB(jid)) {
+        if (!getPrivacyB(jid))
+            return getPrivacyB(GetType(jab) + Constant.creceipt);
+        else
             return getPrivacyB(jid + Constant.creceipt);
-        }
-        return getPrivacyB(GetType(jab) + Constant.creceipt);
+
     }
 
     public static boolean HideSeen() {
@@ -106,10 +110,11 @@ public class Main {
         String s = "hidestatus";
         Log.d(Constant.pref,s);
         String jid = strip(jab);
-        if (!getPrivacyB(jid)) {
+        if (getPrivacyB(jid))
+            return !getPrivacyB(Constant.hst);
+        else
             return !getPrivacyB(jid + Constant.cstatus);
-        }
-        return !getPrivacyB(Constant.hst);
+
     }
 
     static Intent OpenChat(String str, Context homeActivity) {
