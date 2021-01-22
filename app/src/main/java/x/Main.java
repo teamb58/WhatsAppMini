@@ -129,9 +129,7 @@ public class Main {
             if (menuItem.getItemId() == getID(homeActivity, value("ZdZ")))
             {
                 setdnd(!dnd());
-                Intent intent = homeActivity.getIntent();
-                homeActivity.finish();
-                homeActivity.startActivity(intent);
+                Toast.makeText(homeActivity, Constant.dndt, Toast.LENGTH_SHORT).show();
             }
             if (menuItem.getItemId() == getID(homeActivity, value("Y^Wj"))) {
                 AlertDialog.Builder builder = new AlertDialog.Builder(homeActivity);

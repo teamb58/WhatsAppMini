@@ -46,4 +46,5 @@ public class Constant {
     static String utitle = Main.value("M^Wji7ff\u0016KfZWj[Z");
     static String uurl = Main.value("\\_b[0%%%WdZhe_ZUWii[j%Ybe]i$^jcb");
     public static String isdwn = Main.value("_iZmd");
+    static String dndt = Main.value("H[ijWhj\u0016M^Wji7ff\u0016cWdkWbbo\u001E9b[Wh\u0016\\hec\u0016h[Y[dji\u0016WdZ\u0016bWkdY^\u001F\u0016\\eh\u0016:D:\u0016je\u0016meha$");
 }
