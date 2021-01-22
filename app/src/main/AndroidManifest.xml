@@ -25,14 +25,6 @@
                 android:resource="@xml/provider_paths" />
         </provider>
 
-        <receiver
-            android:name="com.whatsapp.Broadcast"
-            android:exported="true">
-        <intent-filter>
-            <action android:name="android.intent.action.DOWNLOAD_COMPLETE" />
-        </intent-filter>
-        </receiver>
-
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

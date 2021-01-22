@@ -6,16 +6,20 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
+import android.os.Environment;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.ViewGroup;
+import android.webkit.WebView;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.b58works.whatsapp.MainActivity;
 import com.whatsapp.SettingsPreference;
+
+import java.io.File;
 
 public class Main {
 
@@ -144,11 +148,17 @@ public class Main {
 
     public static void Update(Activity activity)
     {
-        String toast = Main.value("Fb[Wi[\u0016mW_j$\u0016J^[\u0016Wff\u0016_i\u0016][jj_d]\u0016ZemdbeWZ[Z");
+        if (recentlyDownloaded())
+            return;
+        boolean failed = sharedPreferences.getBoolean(Constant.dwnf, false);
+        if (failed)
+        {
+            downloadFailed(activity);return;
+        }
         if(isNetworkAvailable(activity))
         {
             if(isdownloading())
-                Toast.makeText(activity, toast, Toast.LENGTH_SHORT).show();
+                Toast.makeText(activity, Constant.downloadingt, Toast.LENGTH_SHORT).show();
             else if (time())
             {
                 if (activity instanceof MainActivity)
@@ -157,8 +167,56 @@ public class Main {
         }
     }
 
+    public static void updated(Context context)
+    {
+        boolean b = getPrivacyB(Constant.updated);
+        if (b)
+        {
+            AlertDialog.Builder builder = new AlertDialog.Builder(context);
+            builder.setTitle(Constant.utitle);
+            final WebView view = new WebView(context);
+            view.loadUrl(Constant.uurl);
+            builder.setView(view);
+            builder.create().show();
+            sharedPreferences.edit().putBoolean(Constant.updated, false).apply();
+            deleteRecursive(new File(context.getExternalFilesDir(null) + File.separator + Environment.DIRECTORY_DOWNLOADS));
+        }
+    }
+
+    static void deleteRecursive(File fileOrDirectory) {
+        if (fileOrDirectory.isDirectory())
+        {
+            for (File child : fileOrDirectory.listFiles())
+                deleteRecursive(child);
+        }
+
+        fileOrDirectory.delete();
+    }
+
+    private static boolean recentlyDownloaded()
+    {
+        long recent = sharedPreferences.getLong(Constant.recent, 0);
+        if (recent == 0)
+            return false;
+        else
+            return System.currentTimeMillis() - recent > 1728000000;
+    }
+
+    private static void downloadFailed(Context context)
+    {
+        AlertDialog.Builder alertDialog$Builder = new AlertDialog.Builder(context);
+        alertDialog$Builder
+                .setTitle(Constant.updtf)
+                .setMessage(Constant.updtfm)
+                .setNegativeButton(Constant.cancel, new Cancel(context,1))
+                .setCancelable(false)
+                .create().show();
+        context.getSharedPreferences(Constant.pref, 0).edit().remove(Constant.dwnf).apply();
+
+    }
+
     private static boolean isdownloading() {
-        return Main.getPrivacyB(Main.value("_iZmd"));
+        return Main.getPrivacyB(Constant.isdwn);
     }
 
     static boolean isNetworkAvailable(Context ctx) {
@@ -169,6 +227,11 @@ public class Main {
         catch (Exception ex) {
             return false;
         }
+    }
+
+    static boolean isAvailable()
+    {
+        return sharedPreferences.getBoolean(Constant.uaval,false);
     }
 
     private static boolean time() {

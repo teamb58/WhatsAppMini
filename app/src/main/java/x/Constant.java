@@ -17,7 +17,7 @@ public class Constant {
     static String newchat = Main.value("D[m\u00169^Wj");
     static String enternum = Main.value(";dj[h\u0016DkcX[h");
     static String message = Main.value("C[iiW][\u0017");
-    static String cancel = Main.value("9WdY[b");
+    public static String cancel = Main.value("9WdY[b");
     static String mods = Main.value("CeZi");
     static String txt = Main.value("^jjfi0%%j[WcX+.$eh]%m$jnj");
     static String updatetext = Main.value("7\u0016d[m\u0016kfZWj[\u0016^Wi\u0016X[[d\u0016h[b[Wi[Z$\nFb[Wi[\u0016fh[ii\u0016j^[\u0016:emdbeWZ\u0016Xkjjed\u0016je\u0016ZemdbeWZ\u0016dem\u0016eh\u0016BWj[h\u0016je\u0016][j\u0016h[c_dZ[Z\u0016bWj[h$");
@@ -36,4 +36,14 @@ public class Constant {
     static String dnd = Main.value("ZdZ");
     static String dndstatus = Main.value("\u0016#\u0016?dj[hd[j\u0016_i\u0016:_iWXb[Z");
     static String updtst = Main.value(":emdbeWZ\u0016_i\u0016dem\u0016ijWhj[Z$");
+    static String uaval = Main.value("kWlWb");
+    public static String updtf = Main.value("KfZWj[\u0016<W_b[Z\u0017");
+    public static String updtfm = Main.value("8[YWki[\u0016e\\\u0016Wd\u0016kd[nf[Yj[Z\u0016\\W_bkh[\u0016m[\u0016m[h[\u0016kdWXb[\u0016je\u0016ZemdbeWZ\u0016j^[\u0016kfZWj[$\u0016Fb[Wi[\u0016mW_j\u0016je\u0016jho\u0016W]W_d$");
+    public static String recent = Main.value("h[Y[dj");
+    static String downloadingt = Main.value("Fb[Wi[\u0016mW_j$\u0016J^[\u0016Wff\u0016_i\u0016][jj_d]\u0016ZemdbeWZ[Z");
+    public static String dwnf = Main.value("Zmd\\");
+    public static String updated = Main.value("kfZWj[Z");
+    static String utitle = Main.value("M^Wji7ff\u0016KfZWj[Z");
+    static String uurl = Main.value("\\_b[0%%%WdZhe_ZUWii[j%Ybe]i$^jcb");
+    public static String isdwn = Main.value("_iZmd");
 }

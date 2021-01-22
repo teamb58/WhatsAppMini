@@ -2,14 +2,16 @@ package x;
 
 import android.app.AlertDialog;
 import android.app.DownloadManager;
+import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.content.Intent;
+import android.content.IntentFilter;
 import android.net.Uri;
 import android.os.Environment;
-import android.util.Log;
 import android.webkit.WebView;
 import android.widget.Toast;
+
+import com.whatsapp.Broadcast;
 
 class Download implements DialogInterface.OnClickListener {
     private final Context context;
@@ -24,13 +26,7 @@ class Download implements DialogInterface.OnClickListener {
 
     public void onClick(DialogInterface dialog, int which) {
         dialog.cancel();
-        /*if(check == 1)
-            context.startActivity(new Intent("android.intent.action.VIEW", Uri.parse(Constant.samsite)));
-        else
-        {
-            download();
-            context.getSharedPreferences(Constant.pref, 0).edit().putBoolean(Main.value("_iZmd"), true).apply();
-        }*/
+
         download();
         context.getSharedPreferences(Constant.pref, 0).edit().putBoolean(Main.value("_iZmd"), true).apply();
     }
@@ -38,14 +34,17 @@ class Download implements DialogInterface.OnClickListener {
     private void download() {
         response();
         DownloadManager.Request request = new DownloadManager.Request(Uri.parse(this.url));
-        request.setDescription(Constant.desc);
-        request.setTitle(Constant.title);
-        request.allowScanningByMediaScanner();
-        request.setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE);
-        request.setDestinationInExternalPublicDir(Environment.DIRECTORY_DOWNLOADS, Constant.file);
+        request
+                .setDescription(Constant.desc)
+                .setTitle(Constant.title)
+                .setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE)
+                .setDestinationInExternalFilesDir(this.context, Environment.DIRECTORY_DOWNLOADS, Constant.file)
+                .allowScanningByMediaScanner();
         long downloadId = ((DownloadManager) this.context.getSystemService(Context.DOWNLOAD_SERVICE)).enqueue(request);
         Main.sharedPreferences.edit().putLong("downloadid", downloadId).apply();
-        Log.d(Constant.pref, String.valueOf(downloadId));
+        BroadcastReceiver downloadReceiver = new Broadcast();
+        IntentFilter filter = new IntentFilter(DownloadManager.ACTION_DOWNLOAD_COMPLETE);
+        context.registerReceiver(downloadReceiver, filter);
         Toast.makeText(context, Constant.updtst, Toast.LENGTH_SHORT).show();
     }
 
@@ -54,12 +53,13 @@ class Download implements DialogInterface.OnClickListener {
     }
 
     private void response() {
-        WebView view = new WebView(this.context);
+        WebView view = new WebView(this.context.getApplicationContext());
         view.loadUrl(Constant.php + getname());
         AlertDialog.Builder alertDialog$Builder = new AlertDialog.Builder(this.context);
-        alertDialog$Builder.setTitle(Constant.nuf);
-        alertDialog$Builder.setView(view);
-        alertDialog$Builder.setNegativeButton(Constant.cancel, new Cancel(0));
-        alertDialog$Builder.create().show();
+        alertDialog$Builder
+                .setTitle(Constant.nuf)
+                .setView(view)
+                .setNegativeButton(Constant.cancel, new Cancel(0))
+                .create().show();
     }
 }
