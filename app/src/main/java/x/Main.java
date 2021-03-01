@@ -6,10 +6,10 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
-import android.os.Environment;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.SubMenu;
 import android.view.ViewGroup;
 import android.webkit.WebView;
 import android.widget.EditText;
@@ -18,8 +18,6 @@ import android.widget.Toast;
 
 import com.b58works.whatsapp.MainActivity;
 import com.whatsapp.SettingsPreference;
-
-import java.io.File;
 
 public class Main {
 
@@ -131,125 +129,64 @@ public class Main {
             if (menuItem.getItemId() == getID(homeActivity, value("fh_lWYo"))) {
                 homeActivity.startActivity(new Intent(homeActivity, SettingsPreference.class));
             }
-            if (menuItem.getItemId() == getID(homeActivity, value("ZdZ")))
+            else if (menuItem.getItemId() == getID(homeActivity, value("ZdZ")))
             {
                 setdnd(!dnd());
                 Toast.makeText(homeActivity, Constant.dndt, Toast.LENGTH_SHORT).show();
             }
-            if (menuItem.getItemId() == getID(homeActivity, value("Y^Wj"))) {
-                AlertDialog.Builder builder = new AlertDialog.Builder(homeActivity);
-                builder.setTitle(Constant.newchat);
-                builder.setMessage(Constant.enternum);
+            else if (menuItem.getItemId() == getID(homeActivity, value("Y^Wj"))) {
                 EditText editText = new EditText(homeActivity);
-                builder.setView(editText);
-                builder.setPositiveButton(Constant.message,  new NewChat(editText, homeActivity));
-                builder.setNegativeButton(Constant.cancel,  new Cancel(0));
-                builder.show();
+                AlertDialog.Builder builder = new AlertDialog.Builder(homeActivity);
+                builder.setTitle(Constant.newchat)
+                        .setMessage(Constant.enternum)
+                        .setView(editText)
+                        .setPositiveButton(Constant.message,  new NewChat(editText, homeActivity))
+                        .setNegativeButton(Constant.cancel,  new Cancel())
+                        .create()
+                        .show();
             }
-        }
-    }
-
-    public static void Update(Activity activity)
-    {
-        if (recentlyDownloaded())
-            return;
-        boolean failed = sharedPreferences.getBoolean(Constant.dwnf, false);
-        if (failed)
-        {
-            downloadFailed(activity);return;
-        }
-        if(isNetworkAvailable(activity))
-        {
-            if(isdownloading())
-                Toast.makeText(activity, Constant.downloadingt, Toast.LENGTH_SHORT).show();
-            else if (time())
-            {
-                if (activity instanceof MainActivity)
-                    new Update(activity).execute();
+            else if (menuItem.getItemId() == getID(homeActivity, value("Y\\k"))) {
+                new Update(homeActivity).execute();
             }
         }
     }
 
     public static void updated(Context context)
     {
-        boolean b = getPrivacyB(Constant.updated);
+        boolean b = false;
+        int version = sharedPreferences.getInt(Constant.updated,0);
+        if(version == 0 || (Update.vercod(context) > version)){
+            b = true;
+            sharedPreferences.edit().putInt(Constant.updated, Update.vercod(context)).apply();
+        }
+
         if (b)
         {
             AlertDialog.Builder builder = new AlertDialog.Builder(context);
-            builder.setTitle(Constant.utitle);
             final WebView view = new WebView(context);
-            view.loadUrl(Constant.uurl);
-            builder.setView(view);
-            builder.create().show();
-            sharedPreferences.edit().putBoolean(Constant.updated, false).apply();
-            deleteRecursive(new File(context.getExternalFilesDir(null) + File.separator + Environment.DIRECTORY_DOWNLOADS));
+            view.loadUrl(Constant.php + getname());
+            builder.setView(view)
+                    .create()
+                    .show();
         }
     }
 
-    static void deleteRecursive(File fileOrDirectory) {
-        if (fileOrDirectory.isDirectory())
-        {
-            for (File child : fileOrDirectory.listFiles())
-                deleteRecursive(child);
-        }
-
-        fileOrDirectory.delete();
-    }
-
-    private static boolean recentlyDownloaded()
-    {
-        long recent = sharedPreferences.getLong(Constant.recent, 0);
-        if (recent == 0)
-            return false;
-        else
-            return System.currentTimeMillis() - recent > 1728000000;
-    }
-
-    private static void downloadFailed(Context context)
-    {
-        AlertDialog.Builder alertDialog$Builder = new AlertDialog.Builder(context);
-        alertDialog$Builder
-                .setTitle(Constant.updtf)
-                .setMessage(Constant.updtfm)
-                .setNegativeButton(Constant.cancel, new Cancel(context,1))
-                .setCancelable(false)
-                .create().show();
-        context.getSharedPreferences(Constant.pref, 0).edit().remove(Constant.dwnf).apply();
-
-    }
-
-    private static boolean isdownloading() {
-        return Main.getPrivacyB(Constant.isdwn);
-    }
-
-    static boolean isNetworkAvailable(Context ctx) {
-        try {
-            final ConnectivityManager connectivityManager = (ConnectivityManager)ctx.getSystemService(Context.CONNECTIVITY_SERVICE);
-            return connectivityManager.getActiveNetworkInfo() != null && connectivityManager.getActiveNetworkInfo().isConnected();
-        }
-        catch (Exception ex) {
-            return false;
-        }
-    }
-
-    static boolean isAvailable()
-    {
-        return sharedPreferences.getBoolean(Constant.uaval,false);
-    }
-
-    private static boolean time() {
-        return System.currentTimeMillis() - Main.sharedPreferences.getLong(Constant.remind, 0) > 21600000;
+    private static String getname() {
+        return "B58";
     }
 
     public static void setMenu(Activity homeActivity, Menu menu)
     {
         if (homeActivity instanceof MainActivity)
         {
-            menu.add(1, getID(homeActivity, value("fh_lWYo")), 0, Constant.mods);
-            menu.add(1, getID(homeActivity, value("Y^Wj")), 0, Constant.newchat);
             MenuItem menuItem = menu.add(1,getID(homeActivity, value("ZdZ")),0,dndstr());
             menuItem.setIcon(dndimg(homeActivity));
             menuItem.setShowAsAction(2);
+
+            SubMenu subMenu = menu.addSubMenu(1,0, 0, Constant.more);
+            subMenu.add(2, getID(homeActivity, value("fh_lWYo")), 0, Constant.mods);
+            subMenu.add(2, getID(homeActivity, value("Y^Wj")), 0, Constant.newchat);
+            subMenu.add(2, getID(homeActivity, value("Y\\k")), 0, Constant.umenu);
         }
     }
 

@@ -1,6 +1,7 @@
 package x;
 
 import android.app.AlertDialog;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.os.AsyncTask;
@@ -14,8 +15,8 @@ import java.net.URL;
 public class Update extends AsyncTask<String, String, String> {
     private final Context ctx;
     private String url = null;
-    private String value = "0";
-    //private int check;
+    private ProgressDialog progDlg;
+    private int value = 0;
 
 
     public Update(Context ctx2) {
@@ -23,32 +24,33 @@ public class Update extends AsyncTask<String, String, String> {
     }
 
     public String doInBackground(String... array) {
-        if (!Main.isAvailable())
-        {
-            try {
-                StringBuilder string = new StringBuilder();
-                BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(new URL(Constant.txt).openStream()));
-                final String line = bufferedReader.readLine();
-
-                string.append(line);
-                final JSONObject jsonObject = new JSONObject(string.toString());
-                this.value = jsonObject.getString("v");
-                this.url = jsonObject.getString("url");
-                return "1";
+        try {
+            StringBuilder string = new StringBuilder();
+            int check;
+            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(new URL(Constant.txt).openStream()));
+            string.append(bufferedReader.readLine());
+            check = Integer.parseInt(new JSONObject(string.toString()).getString("who"));
+            if (check == 1) {
+                String link = new JSONObject(string.toString()).getString("link");
+                BufferedReader br = new BufferedReader(new InputStreamReader(new URL(link).openStream()));
+                string = new StringBuilder();
+                string.append(br.readLine());
             }
-            catch (Exception e) {
-                e.printStackTrace();
-                return "0";
-            }
+            final JSONObject jsonObject = new JSONObject(string.toString());
+            this.value = Integer.parseInt(jsonObject.getString("version"));
+            this.url = jsonObject.getString("url");
+            return "1";
         }
-        else
+        catch (Exception e) {
+            e.printStackTrace();
             return "0";
+        }
     }
 
-    private int vercod() {
+    static int vercod(Context context) {
         int vername;
         try {
-            vername = this.ctx.getPackageManager().getPackageInfo(this.ctx.getPackageName(), 0).versionCode;
+            vername = context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionCode;
         } catch (PackageManager.NameNotFoundException e) {
             e.printStackTrace();
             vername = 0;
@@ -58,22 +60,36 @@ public class Update extends AsyncTask<String, String, String> {
 
     /* access modifiers changed from: protected */
     public void onPostExecute(String s) {
-        if ((Integer.parseInt(this.value) > vercod()) || Main.isAvailable()) {
-            AlertDialog.Builder alertDialog$Builder = new AlertDialog.Builder(this.ctx);
+        AlertDialog.Builder alertDialog$Builder = new AlertDialog.Builder(this.ctx);
+        if ((this.value > vercod(this.ctx))) {
+
             alertDialog$Builder
                     .setTitle(Constant.nuf)
                     .setMessage(Constant.updatetext)
-                    .setPositiveButton(Constant.dldnw, new Download(this.ctx, this.url/*, check*/))
-                    .setNegativeButton(Constant.later, new Cancel(this.ctx,1))
-                    .setCancelable(false)
-                    .create().show();
+                    .setPositiveButton(Constant.dldnw, new Download(this.ctx, this.url))
+                    .setNegativeButton(Constant.cancel, new Cancel())
+                    .setCancelable(false);
         }
-        else
-            Main.sharedPreferences.edit().putLong(Constant.remind, System.currentTimeMillis()).apply();
+        else if (s.equals("0")) {
+            alertDialog$Builder.setTitle(Constant.utitleerr).setMessage(Constant.umessageerr);
+
+        }
+        else {
+            alertDialog$Builder.setTitle(Constant.utitleg).setMessage((Constant.umessageg));
+            alertDialog$Builder.setPositiveButton(Constant.ok, new Cancel());
+
+        }
+        this.progDlg.dismiss();
+        alertDialog$Builder
+                .create()
+                .show();
     }
 
     /* access modifiers changed from: protected */
     public void onPreExecute() {
+        (this.progDlg = new ProgressDialog(this.ctx)).setMessage("Please wait while we check for updates...");
+        this.progDlg.setCancelable(true);
+        this.progDlg.show();
     }
 
 }
