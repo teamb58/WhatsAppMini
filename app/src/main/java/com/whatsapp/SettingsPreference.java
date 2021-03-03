@@ -8,8 +8,6 @@ import android.preference.PreferenceManager;
 import android.preference.SwitchPreference;
 import android.preference.TwoStatePreference;
 
-import x.Main;
-
 public class SettingsPreference extends PreferenceActivity implements SharedPreferences.OnSharedPreferenceChangeListener{
 
     @Override

@@ -28,7 +28,6 @@ class ARRunnable2 implements Runnable {
         Drawable drawable = context.getDrawable(getDrawble(context));
 
         if (drawable != null) {
-
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
                 drawable.setColorFilter(new BlendModeColorFilter(Color.parseColor("#cc0000"), BlendMode.DST));
             }

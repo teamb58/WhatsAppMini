@@ -12,13 +12,11 @@ import java.util.HashSet;
 
 public class WhatsApp {
 
-    private static HashSet<String> b = null;
-    private static Activity activity;
     public static String contains;
     public static SharedPreferences sharedPreferences;
-
     static String revokestr;
-
+    private static HashSet<String> b = null;
+    private static Activity activity;
 
     public static boolean HideRead(Object o) {
         String jid = (String) o;

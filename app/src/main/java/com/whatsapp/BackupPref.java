@@ -8,7 +8,7 @@ import java.io.File;
 
 public class BackupPref extends Preference implements Preference.OnPreferenceClickListener {
 
-    private Context context;
+    private final Context context;
     BackupPref(Context context) {
         super(context);
         this.context = context;

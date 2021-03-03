@@ -11,7 +11,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 
 public class CopyingTask extends AsyncTask<File, Integer, Integer> {
-    private Context ctx;
+    private final Context ctx;
     private final ProgressDialog dialog;
     private boolean done = false;
     private int i = 0;

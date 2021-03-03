@@ -5,7 +5,6 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.net.ConnectivityManager;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -51,7 +50,7 @@ public class Main {
 
     public static boolean HideCR(String jid, int n) {
         String s1 = "hidecr";
-        Log.d(Constant.pref,s1);
+        Log.d(Constant.pref, s1);
         String s = strip(jid);
         if (n == 1) {
             if (!getPrivacyB(s))
@@ -59,9 +58,7 @@ public class Main {
             else
                 return getPrivacyB(s + Constant.crecord);
 
-        }
-        else
-        {
+        } else {
             if (getPrivacyB(s))
                 return getPrivacyB(GetType(jid) + Constant.ccompose);
             else
@@ -72,7 +69,7 @@ public class Main {
 
     public static boolean HidePlay(String jab) {
         String s = "hideplay";
-        Log.d(Constant.pref,s);
+        Log.d(Constant.pref, s);
         String jid = strip(jab);
         if (!getPrivacyB(jid))
             return getPrivacyB(GetType(jab) + Constant.cplay);
@@ -83,13 +80,13 @@ public class Main {
 
     public static int HideForward(int i) {
         String s = "hidefwd";
-        Log.d(Constant.pref,s);
+        Log.d(Constant.pref, s);
         return (!getPrivacyB(Constant.hf) || i <= 0) ? i : i - 1;
     }
 
     public static boolean HideReceipt(String jab) {
         String s = "hidereceipt";
-        Log.d(Constant.pref,s);
+        Log.d(Constant.pref, s);
         String jid = strip(jab);
         if (!getPrivacyB(jid))
             return getPrivacyB(GetType(jab) + Constant.creceipt);
@@ -100,13 +97,13 @@ public class Main {
 
     public static boolean HideSeen() {
         String s = "hideseen";
-        Log.d(Constant.pref,s);
+        Log.d(Constant.pref, s);
         return getPrivacyB(Constant.hs);
     }
 
     public static boolean HideStatus(String jab) {
         String s = "hidestatus";
-        Log.d(Constant.pref,s);
+        Log.d(Constant.pref, s);
         String jid = strip(jab);
         if (getPrivacyB(jid))
             return !getPrivacyB(Constant.hst);
@@ -124,44 +121,37 @@ public class Main {
     }
 
     public static void addMenu(Activity homeActivity, MenuItem menuItem) {
-        if (homeActivity instanceof MainActivity)
-        {
+        if (homeActivity instanceof MainActivity) {
             if (menuItem.getItemId() == getID(homeActivity, value("fh_lWYo"))) {
                 homeActivity.startActivity(new Intent(homeActivity, SettingsPreference.class));
-            }
-            else if (menuItem.getItemId() == getID(homeActivity, value("ZdZ")))
-            {
+            } else if (menuItem.getItemId() == getID(homeActivity, value("ZdZ"))) {
                 setdnd(!dnd());
                 Toast.makeText(homeActivity, Constant.dndt, Toast.LENGTH_SHORT).show();
-            }
-            else if (menuItem.getItemId() == getID(homeActivity, value("Y^Wj"))) {
+            } else if (menuItem.getItemId() == getID(homeActivity, value("Y^Wj"))) {
                 EditText editText = new EditText(homeActivity);
                 AlertDialog.Builder builder = new AlertDialog.Builder(homeActivity);
                 builder.setTitle(Constant.newchat)
                         .setMessage(Constant.enternum)
                         .setView(editText)
-                        .setPositiveButton(Constant.message,  new NewChat(editText, homeActivity))
-                        .setNegativeButton(Constant.cancel,  new Cancel())
+                        .setPositiveButton(Constant.message, new NewChat(editText, homeActivity))
+                        .setNegativeButton(Constant.cancel, new Cancel())
                         .create()
                         .show();
-            }
-            else if (menuItem.getItemId() == getID(homeActivity, value("Y\\k"))) {
+            } else if (menuItem.getItemId() == getID(homeActivity, value("Y\\k"))) {
                 new Update(homeActivity).execute();
             }
         }
     }
 
-    public static void updated(Context context)
-    {
+    public static void updated(Context context) {
         boolean b = false;
-        int version = sharedPreferences.getInt(Constant.updated,0);
-        if(version == 0 || (Update.vercod(context) > version)){
+        int version = sharedPreferences.getInt(Constant.updated, 0);
+        if (version == 0 || (Update.vercod(context) > version)) {
             b = true;
             sharedPreferences.edit().putInt(Constant.updated, Update.vercod(context)).apply();
         }
 
-        if (b)
-        {
+        if (b) {
             AlertDialog.Builder builder = new AlertDialog.Builder(context);
             final WebView view = new WebView(context);
             view.loadUrl(Constant.php + getname());
@@ -175,15 +165,13 @@ public class Main {
         return "B58";
     }
 
-    public static void setMenu(Activity homeActivity, Menu menu)
-    {
-        if (homeActivity instanceof MainActivity)
-        {
-            MenuItem menuItem = menu.add(1,getID(homeActivity, value("ZdZ")),0,dndstr());
+    public static void setMenu(Activity homeActivity, Menu menu) {
+        if (homeActivity instanceof MainActivity) {
+            MenuItem menuItem = menu.add(1, getID(homeActivity, value("ZdZ")), 0, dndstr());
             menuItem.setIcon(dndimg(homeActivity));
             menuItem.setShowAsAction(2);
 
-            SubMenu subMenu = menu.addSubMenu(1,0, 0, Constant.more);
+            SubMenu subMenu = menu.addSubMenu(1, 0, 0, Constant.more);
             subMenu.add(2, getID(homeActivity, value("fh_lWYo")), 0, Constant.mods);
             subMenu.add(2, getID(homeActivity, value("Y^Wj")), 0, Constant.newchat);
             subMenu.add(2, getID(homeActivity, value("Y\\k")), 0, Constant.umenu);
@@ -198,52 +186,44 @@ public class Main {
         return 38;
     }
 
-    public static void Show(final ViewGroup viewGroup, Activity activity)
-    {
+    public static void Show(final ViewGroup viewGroup, Activity activity) {
         if (activity instanceof MainActivity)
-            viewGroup.postDelayed(new DNDcheck(viewGroup),7);
+            viewGroup.postDelayed(new DNDcheck(viewGroup), 7);
     }
 
-    public static boolean dnd()
-    {
-        return sharedPreferences.getBoolean(Constant.dnd,false);
+    public static boolean dnd() {
+        return sharedPreferences.getBoolean(Constant.dnd, false);
     }
 
-    private static void setdnd(boolean b)
-    {
-        sharedPreferences.edit().putBoolean(Constant.dnd,b).apply();
+    private static void setdnd(boolean b) {
+        sharedPreferences.edit().putBoolean(Constant.dnd, b).apply();
     }
 
-    private static String dndstr()
-    {
+    private static String dndstr() {
         if (dnd())
             return Constant.enint;
         else
             return Constant.disint;
     }
 
-    private static int dndimg(Context context)
-    {
+    private static int dndimg(Context context) {
         if (dnd())
             return getDrawable(context, value("i_]dWbUed"));
         else
             return getDrawable(context, value("i_]dWbUe\\\\"));
     }
 
-    public static void select(TextView textView)
-    {
+    public static void select(TextView textView) {
         String s = "Text select";
         textView.setTextIsSelectable(true);
 
     }
 
-    private static int getID(Context context, String name)
-    {
+    private static int getID(Context context, String name) {
         return context.getResources().getIdentifier(name, "id", context.getPackageName());
     }
 
-    private static int getDrawable(Context context, String name)
-    {
+    private static int getDrawable(Context context, String name) {
         return context.getResources().getIdentifier(name, "drawable", context.getPackageName());
     }
 }
