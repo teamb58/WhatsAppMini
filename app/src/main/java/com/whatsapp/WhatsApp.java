@@ -48,7 +48,7 @@ public class WhatsApp {
         if (!getPrivacyB(jid))
             b2 = getPrivacyB("Antirevoke");
         else
-            b2 = getPrivacyB(jid + "_AR");
+            b2 = getPrivacyB(jid + "_Antirevoke");
         if (b2) {
             try {
                 AsyncTask.THREAD_POOL_EXECUTOR.execute(new ARRunnable(s));
