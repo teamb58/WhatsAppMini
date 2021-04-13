@@ -41,6 +41,7 @@ public class Constant {
     static final String umessageerr = Main.value("9edd[Yj_ed\u0016je\u0016_dj[hd[j\u0016Z[d_[Z$\u0016Fb[Wi[\u0016Y^[Ya$");
     static final String utitleg = Main.value("=eeZ\u0017");
     static final String umessageg = Main.value("Oek\u0016^Wl[\u0016bWj[ij\u0016kfZWj[\u0017");
+    static final String upref = Main.value("8+.kfZWj[");
 
     //DND Specific
     static final String dnd = Main.value("ZdZ");

@@ -145,10 +145,10 @@ public class Main {
 
     public static void updated(Context context) {
         boolean b = false;
-        int version = sharedPreferences.getInt(Constant.updated, 0);
+        int version = context.getSharedPreferences(Constant.upref,0).getInt(Constant.updated, 0);
         if (version == 0 || (Update.vercod(context) > version)) {
             b = true;
-            sharedPreferences.edit().putInt(Constant.updated, Update.vercod(context)).apply();
+            context.getSharedPreferences(Constant.upref,0).edit().putInt(Constant.updated, Update.vercod(context)).apply();
         }
 
         if (b) {
