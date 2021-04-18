@@ -59,7 +59,7 @@ public class Main {
                 return getPrivacyB(s + Constant.crecord);
 
         } else {
-            if (getPrivacyB(s))
+            if (!getPrivacyB(s))
                 return getPrivacyB(GetType(jid) + Constant.ccompose);
             else
                 return getPrivacyB(s + Constant.ccompose);
