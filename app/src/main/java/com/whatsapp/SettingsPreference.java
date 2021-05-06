@@ -16,7 +16,7 @@ public class SettingsPreference extends PreferenceActivity implements SharedPref
         getPreferenceManager().setSharedPreferencesName("B58");
         addPreferencesFromResource(getResID("preferences_app", "xml"));
         setTitle(getResID("setting", "string"));
-        setPrivacy();setBackup();reset();setMedia();
+        setPrivacy();reset();setMedia();
         sethideseen();bor();ar();hidefwd();hidestatus();
         cblue();cdouble();ctype();crecord();cplay();
         gblue();gdouble();gtype();grecord();gplay();
@@ -68,16 +68,6 @@ public class SettingsPreference extends PreferenceActivity implements SharedPref
         media.setIcon(getResID("media", "drawable"));
         media.setTitle(getResID("media", "string"));
         media.setSummary(getResID("mediasum", "string"));
-    }
-
-    public void setBackup()
-    {
-        Preference backupPref =  findPreference("backup");
-        //backupPref.setIcon(R.drawable.backup);
-        backupPref.setIcon(getResID("backup", "drawable"));
-        backupPref.setTitle(getResID("backup", "string"));
-        backupPref.setSummary(getResID("backupsum", "string"));
-        backupPref.setOnPreferenceClickListener(new BackupPref(this));
     }
 
     private void sethideseen()
