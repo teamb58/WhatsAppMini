@@ -16,12 +16,10 @@ public class SettingsPreference extends PreferenceActivity implements SharedPref
         getPreferenceManager().setSharedPreferencesName("B58");
         addPreferencesFromResource(getResID("preferences_app", "xml"));
         setTitle(getResID("setting", "string"));
-        setPrivacy();reset();setMedia();
+        setPrivacy();reset();
         sethideseen();bor();ar();hidefwd();hidestatus();
         cblue();cdouble();ctype();crecord();cplay();
         gblue();gdouble();gtype();grecord();gplay();
-        stimq();stimsize();stvidd();imgq();imgres();imgsize();
-
     }
 
     @Override
@@ -29,8 +27,6 @@ public class SettingsPreference extends PreferenceActivity implements SharedPref
         Preference p = findPreference(key);
         if ((p instanceof SwitchPreference))
             WhatsApp.sharedPreferences.edit().putBoolean(key, ((TwoStatePreference) p).isChecked()).apply();
-        else if ((p instanceof SeekBarPreference))
-            PreferenceManager.getDefaultSharedPreferences(getApplicationContext()).edit().putInt(key,((SeekBarPreference) p).getmCurrentValue()).apply();
         onStart();
     }
 
@@ -59,15 +55,6 @@ public class SettingsPreference extends PreferenceActivity implements SharedPref
         priv.setIcon(getResID("privacy", "drawable"));
         priv.setTitle(getResID("priv", "string"));
         priv.setSummary(getResID("privsum", "string"));
-    }
-
-    public void setMedia()
-    {
-        Preference media = findPreference("media");
-        //media.setIcon(R.drawable.media);
-        media.setIcon(getResID("media", "drawable"));
-        media.setTitle(getResID("media", "string"));
-        media.setSummary(getResID("mediasum", "string"));
     }
 
     private void sethideseen()
@@ -211,60 +198,6 @@ public class SettingsPreference extends PreferenceActivity implements SharedPref
         preference.setTitle(getResID("resetp", "string"));
         preference.setSummary(getResID("resetpsum", "string"));
         preference.setOnPreferenceClickListener(new PrivClick(getApplicationContext()));
-    }
-
-    private void stimq()
-    {
-        SeekBarPreference seekBarPreference = (SeekBarPreference)findPreference("status_image_quality");
-        //seekBarPreference.setmMaxValue(100);
-        seekBarPreference.setTitle(getResID("stimq", "string"));
-        seekBarPreference.setSummary(getResID("stimqsum", "string"));
-        seekBarPreference.setDefaultValue(50);
-    }
-
-    private void stimsize()
-    {
-        SeekBarPreference seekBarPreference = (SeekBarPreference)findPreference("status_image_max_edge");
-        //seekBarPreference.setmMaxValue(10240);
-        seekBarPreference.setTitle(getResID("stims", "string"));
-        seekBarPreference.setSummary(getResID("stimssum", "string"));
-        seekBarPreference.setDefaultValue(1024);
-    }
-
-    private void stvidd()
-    {
-        SeekBarPreference seekBarPreference = (SeekBarPreference)findPreference("status_video_max_duration");
-        //seekBarPreference.setmMaxValue(900);
-        seekBarPreference.setTitle(getResID("stvid", "string"));
-        seekBarPreference.setSummary(getResID("stvidsum", "string"));
-        seekBarPreference.setDefaultValue(45);
-    }
-
-    private void imgsize()
-    {
-        SeekBarPreference seekBarPreference = (SeekBarPreference)findPreference("image_max_kbytes");
-        //seekBarPreference.setmMaxValue(10240);
-        seekBarPreference.setTitle(getResID("imsize", "string"));
-        seekBarPreference.setSummary(getResID("imsizesum", "string"));
-        seekBarPreference.setDefaultValue(1024);
-    }
-
-    private void imgq()
-    {
-        SeekBarPreference seekBarPreference = (SeekBarPreference)findPreference("image_quality");
-        //seekBarPreference.setmMaxValue(100);
-        seekBarPreference.setTitle(getResID("imgqty", "string"));
-        seekBarPreference.setSummary(getResID("imgqtysum", "string"));
-        seekBarPreference.setDefaultValue(80);
-    }
-
-    private void imgres()
-    {
-        SeekBarPreference seekBarPreference = (SeekBarPreference)findPreference("image_max_edge");
-        //seekBarPreference.setmMaxValue(3840);
-        seekBarPreference.setTitle(getResID("imgres", "string"));
-        seekBarPreference.setSummary(getResID("imgressum", "string"));
-        seekBarPreference.setDefaultValue(1280);
     }
 
     private int getResID(String name, String type)

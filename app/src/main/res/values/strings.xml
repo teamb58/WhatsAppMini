@@ -3,8 +3,6 @@
     <string name="setting">MODs</string>
     <string name="priv">Privacy</string>
     <string name="privsum">Click to modify your privacy preferences.</string>
-    <string name="media">Media MODs</string>
-    <string name="mediasum">Click to modify your media preferences.</string>
     <string name="hseen">Hide Last Seen</string>
     <string name="hseensum">Pause your last seen and stop being shown online. \nNote\: You cannot see your contact\'s last seen.</string>
     <string name="bor">Blue Tick on Reply</string>
@@ -28,17 +26,5 @@
     <string name="resetp">Reset Privacy</string>
     <string name="resetpsum">Click to clear all privacy preferences and reset to default.</string>
     <string name="resett">All Privacy preferences are cleared now.</string>
-    <string name="stimq">Status Image Quality</string>
-    <string name="stimqsum">Set the compression ratio for the media you upload in status.</string>
-    <string name="stims">Maximum Status Image Size</string>
-    <string name="stimssum">Choose the maximum image size you can upload.</string>
-    <string name="stvid">Status Video Maximum Duration</string>
-    <string name="stvidsum">Choose the maximum duration of video you can upload. Normal users can see only up to 45 seconds.</string>
-    <string name="imsize">Maximum Image Size</string>
-    <string name="imsizesum">Choose the maximum size of image you can send.</string>
-    <string name="imgqty">Image Quality</string>
-    <string name="imgqtysum">Choose the compression level for media you send.</string>
-    <string name="imgres">Maximum Image Resolution</string>
-    <string name="imgressum">Choose the maximum resolution for images you send.</string>
     <string name="upds">Update to new version is successful.</string>
 </resources>

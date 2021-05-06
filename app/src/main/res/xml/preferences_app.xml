@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:robobunny="http://robobunny.com">
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
     <PreferenceCategory android:title="General MODs" >
         <PreferenceScreen android:key="privacy" >
             <PreferenceCategory android:title="General" >
@@ -26,20 +25,6 @@
             </PreferenceCategory>
             <PreferenceCategory android:title="Reset">
                 <Preference android:key="reset" />
-            </PreferenceCategory>
-        </PreferenceScreen>
-    </PreferenceCategory>
-    <PreferenceCategory android:title="Media MODs" >
-        <PreferenceScreen  android:key="media">
-            <PreferenceCategory android:title="Status" >
-                <com.whatsapp.SeekBarPreference android:key="status_image_quality" android:max="100" robobunny:min="50" robobunny:unitsLeft="" robobunny:unitsRight="%" />
-                <com.whatsapp.SeekBarPreference android:key="status_image_max_edge" android:max="10240" robobunny:min="1024" robobunny:unitsLeft="" robobunny:unitsRight=" KB" />
-                <com.whatsapp.SeekBarPreference android:key="status_video_max_duration" android:max="900" robobunny:min="45" robobunny:unitsLeft="" robobunny:unitsRight=" Seconds" />
-            </PreferenceCategory>
-            <PreferenceCategory android:title="Image/Video" >
-                <com.whatsapp.SeekBarPreference android:key="image_max_kbytes" android:max="10240" robobunny:min="1024" robobunny:unitsLeft="" robobunny:unitsRight="KB" />
-                <com.whatsapp.SeekBarPreference android:key="image_quality" android:max="100" robobunny:min="80" robobunny:unitsLeft="" robobunny:unitsRight="%" />
-                <com.whatsapp.SeekBarPreference android:key="image_max_edge" android:max="3840" robobunny:min="1280" robobunny:unitsLeft="" robobunny:unitsRight="PX" />
             </PreferenceCategory>
         </PreferenceScreen>
     </PreferenceCategory>
