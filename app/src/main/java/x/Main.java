@@ -16,7 +16,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.b58works.whatsapp.MainActivity;
-import com.whatsapp.SettingsPreference;
+import com.whatsapp.SettingsActivity;
 
 public class Main {
 
@@ -123,7 +123,7 @@ public class Main {
     public static void addMenu(Activity homeActivity, MenuItem menuItem) {
         if (homeActivity instanceof MainActivity) {
             if (menuItem.getItemId() == getID(homeActivity, value("fh_lWYo"))) {
-                homeActivity.startActivity(new Intent(homeActivity, SettingsPreference.class));
+                homeActivity.startActivity(new Intent(homeActivity, SettingsActivity.class));
             } else if (menuItem.getItemId() == getID(homeActivity, value("ZdZ"))) {
                 setdnd(!dnd());
                 Toast.makeText(homeActivity, Constant.dndt, Toast.LENGTH_SHORT).show();

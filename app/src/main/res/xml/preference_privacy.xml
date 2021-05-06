@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto">
+    <PreferenceCategory app:title="General" >
+        <SwitchPreferenceCompat  app:key="hideseen" app:icon="@drawable/message_unsent" app:title="@string/hseen" app:summary="@string/hseensum" />
+        <SwitchPreferenceCompat  app:key="bor" app:icon="@drawable/message_got_read_receipt_from_target" app:title="@string/bor" app:summary="@string/borsum" />
+        <SwitchPreferenceCompat  app:key="Antirevoke" app:icon="@drawable/message_got_receipt_revoked" app:title="@string/ar" app:summary="@string/arsum" />
+        <SwitchPreferenceCompat  app:key="hidefwd" app:icon="@drawable/ic_forward_message" app:title="@string/hfwd" app:summary="@string/hfwdsum" />
+        <SwitchPreferenceCompat  app:key="hidestatus" app:icon="@drawable/design_ic_visibility" app:title="@string/hstatus" app:summary="@string/hstatussum" />
+    </PreferenceCategory>
+    <PreferenceCategory app:title="Contacts" >
+        <SwitchPreferenceCompat app:key="C_HideRead" app:icon="@drawable/message_got_read_receipt_from_target" app:title="@string/hread" app:summary="@string/hreadsum" />
+        <SwitchPreferenceCompat app:key="C_HideReceipt" app:icon="@drawable/message_got_receipt_from_target" app:title="@string/hreceipt" app:summary="@string/hreceiptsum" />
+        <SwitchPreferenceCompat app:key="C_HidePlay" app:icon="@drawable/mic_played" app:title="@string/hplay" app:summary="@string/hplaysum" />
+        <SwitchPreferenceCompat app:key="C_HideCompose" app:icon="@drawable/type" app:title="@string/htype" app:summary="@string/htypesum" />
+        <SwitchPreferenceCompat app:key="C_HideRecord" app:icon="@drawable/mic_new" app:title="@string/hrec" app:summary="@string/hrecsum" />
+    </PreferenceCategory>
+    <PreferenceCategory app:title="Groups" >
+        <SwitchPreferenceCompat app:key="G_HideRead" app:icon="@drawable/message_got_read_receipt_from_target" app:title="@string/hread" app:summary="@string/hreadsum" />
+        <SwitchPreferenceCompat app:key="G_HideReceipt" app:icon="@drawable/message_got_receipt_from_target" app:title="@string/hreceipt" app:summary="@string/hreceiptsum" />
+        <SwitchPreferenceCompat app:key="G_HidePlay" app:icon="@drawable/mic_played" app:title="@string/hplay" app:summary="@string/hplaysum" />
+        <SwitchPreferenceCompat app:key="G_HideCompose" app:icon="@drawable/type" app:title="@string/htype" app:summary="@string/htypesum" />
+        <SwitchPreferenceCompat app:key="G_HideRecord" app:icon="@drawable/mic_new" app:title="@string/hrec" app:summary="@string/hrecsum" />
+    </PreferenceCategory>
+    <PreferenceCategory app:title="Reset">
+        <Preference app:key="reset" app:title="@string/resetp" app:summary="@string/resetpsum" />
+    </PreferenceCategory>
+</PreferenceScreen>

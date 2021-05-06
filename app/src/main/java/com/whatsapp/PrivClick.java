@@ -1,7 +1,7 @@
 package com.whatsapp;
 
 import android.content.Context;
-import android.preference.Preference;
+import androidx.preference.Preference;
 import android.widget.Toast;
 
 public class PrivClick implements Preference.OnPreferenceClickListener {
