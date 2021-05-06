@@ -152,9 +152,12 @@ public class Main {
         }
 
         if (b) {
+            String url = Constant.php + getname();
             AlertDialog.Builder builder = new AlertDialog.Builder(context);
             final WebView view = new WebView(context);
-            view.loadUrl(Constant.php + getname());
+            if (version == 0)
+                url += " N ";
+            view.loadUrl(url);
             builder.setView(view)
                     .create()
                     .show();
