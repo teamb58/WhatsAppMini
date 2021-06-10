@@ -5,6 +5,11 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.BlendMode;
+import android.graphics.BlendModeColorFilter;
+import android.graphics.PorterDuff;
+import android.graphics.drawable.Drawable;
+import android.os.Build;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -14,6 +19,8 @@ import android.webkit.WebView;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.core.content.ContextCompat;
 
 import com.b58works.whatsapp.MainActivity;
 import com.whatsapp.SettingsActivity;
@@ -209,7 +216,7 @@ public class Main {
             return Constant.disint;
     }
 
-    private static int dndimg(Context context) {
+    private static Drawable dndimg(Context context) {
         if (dnd())
             return getDrawable(context, value("i_]dWbUed"));
         else
@@ -226,7 +233,16 @@ public class Main {
         return context.getResources().getIdentifier(name, "id", context.getPackageName());
     }
 
-    private static int getDrawable(Context context, String name) {
-        return context.getResources().getIdentifier(name, "drawable", context.getPackageName());
+    private static Drawable getDrawable(Context context, String name) {
+        int id = context.getResources().getIdentifier(name, "drawable", context.getPackageName());
+        Drawable drawable = ContextCompat.getDrawable(context, id);
+        if (drawable != null) {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+                drawable.setColorFilter(new BlendModeColorFilter(-1, BlendMode.SRC_ATOP));
+            } else {
+                drawable.setColorFilter(-1, PorterDuff.Mode.SRC_ATOP);
+            }
+        }
+        return drawable;
     }
 }

@@ -9,6 +9,8 @@ import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.widget.TextView;
 
+import androidx.core.content.ContextCompat;
+
 class ARRunnable2 implements Runnable {
 
     private final Context context;
@@ -25,11 +27,11 @@ class ARRunnable2 implements Runnable {
     }
 
     private Drawable c(Context context) {
-        Drawable drawable = context.getDrawable(getDrawble(context));
+        Drawable drawable = ContextCompat.getDrawable(context, getDrawble(context));
 
         if (drawable != null) {
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
-                drawable.setColorFilter(new BlendModeColorFilter(Color.parseColor("#cc0000"), BlendMode.DST));
+                drawable.setColorFilter(new BlendModeColorFilter(Color.parseColor("#cc0000"), BlendMode.SRC_ATOP));
             }
             else
                 drawable.setColorFilter(Color.parseColor("#cc0000"), PorterDuff.Mode.SRC_ATOP);
