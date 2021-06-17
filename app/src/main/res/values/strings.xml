@@ -27,4 +27,8 @@
     <string name="resetpsum">Click to clear all privacy preferences and reset to default.</string>
     <string name="resett">All Privacy preferences are cleared now.</string>
     <string name="upds">Update to new version is successful.</string>
+    <string name="cat_general">General</string>
+    <string name="cat_contacts">Contacts</string>
+    <string name="cat_Groups">Groups</string>
+    <string name="cat_reset">Reset</string>
 </resources>

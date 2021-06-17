@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <attr name="settingsSectionTitleText" format="reference" />
+    <attr name="settingsTitleText" format="reference" />
+    <attr name="settingsSubtitleText" format="reference" />
+    <attr name="settingsBackgroundColor" format="reference" />
+    <attr name="settingsDivider" format="reference" />
+
+
+    <attr name="sw_title" format="string|reference" />
+    <attr name="sw_summary" format="string|reference" />
+    <attr name="sw_key" format="string|reference" />
+    <attr name="sw_icon" format="reference" />
+    <attr name="sw_detach" format="boolean" />
+
+</resources>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="settings_section_title_text_size">14.0sp</dimen>
+    <dimen name="settings_title_text_size">16.0sp</dimen>
+    <dimen name="settings_subtitle_text_size">14.0sp</dimen>
+    <dimen name="settings_row_horizontal_padding">24.0dip</dimen>
+    <dimen name="settings_row_vertical_padding">16.0dip</dimen>
+    <dimen name="settings_divider_height">0.5dip</dimen>
+    <dimen name="settings_divider_vertical_margin">8.0dip</dimen>
+</resources>
