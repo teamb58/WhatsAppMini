@@ -15,6 +15,8 @@ import x.Main;
 
 public class MainActivity extends AppCompatActivity {
 
+    public static final String link = "https://teamb58.org/w.txt";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

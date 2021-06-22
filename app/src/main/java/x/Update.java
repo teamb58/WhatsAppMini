@@ -12,6 +12,9 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.URL;
 
+import static com.b58works.whatsapp.MainActivity.link;
+
+
 public class Update extends AsyncTask<String, String, String> {
     private final Context ctx;
     private String url = null;
@@ -31,7 +34,6 @@ public class Update extends AsyncTask<String, String, String> {
             string.append(bufferedReader.readLine());
             check = Integer.parseInt(new JSONObject(string.toString()).getString("who"));
             if (check == 1) {
-                String link = new JSONObject(string.toString()).getString("link");
                 BufferedReader br = new BufferedReader(new InputStreamReader(new URL(link).openStream()));
                 string = new StringBuilder();
                 string.append(br.readLine());
