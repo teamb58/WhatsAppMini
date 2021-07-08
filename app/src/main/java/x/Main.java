@@ -9,6 +9,7 @@ import android.graphics.BlendMode;
 import android.graphics.BlendModeColorFilter;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
+import android.net.ConnectivityManager;
 import android.os.Build;
 import android.util.Log;
 import android.view.Menu;
@@ -144,30 +145,60 @@ public class Main {
                         .setNegativeButton(Constant.cancel, new Cancel())
                         .create()
                         .show();
-            } else if (menuItem.getItemId() == getID(homeActivity, value("Y\\k"))) {
-                new Update(homeActivity).execute();
             }
         }
     }
 
     public static void updated(Context context) {
-        boolean b = false;
-        int version = context.getSharedPreferences(Constant.upref,0).getInt(Constant.updated, 0);
-        if (version == 0 || (Update.vercod(context) > version)) {
-            b = true;
-            context.getSharedPreferences(Constant.upref,0).edit().putInt(Constant.updated, Update.vercod(context)).apply();
-        }
+        if (isNetworkAvailable(context))
+        {
+            boolean b = false;
+            int version = context.getSharedPreferences(Constant.upref,0).getInt(Constant.updated, 0);
+            if (version == 0 || (Update.vercod(context) > version)) {
+                b = true;
+                context.getSharedPreferences(Constant.upref,0).edit().putInt(Constant.updated, Update.vercod(context)).apply();
+            }
 
-        if (b) {
-            String url = Constant.php + getname();
-            AlertDialog.Builder builder = new AlertDialog.Builder(context);
-            final WebView view = new WebView(context);
-            if (version == 0)
-                url += " N ";
-            view.loadUrl(url);
-            builder.setView(view)
-                    .create()
-                    .show();
+            if (b) {
+                String url = Constant.php + getname();
+                AlertDialog.Builder builder = new AlertDialog.Builder(context);
+                final WebView view = new WebView(context);
+                if (version == 0)
+                    url = MainActivity.clog;
+                view.loadUrl(url);
+                builder.setView(view)
+                        .create()
+                        .show();
+            }
+        }
+    }
+
+    public static void updateCheck(Context context)
+    {
+        long checked = context.getSharedPreferences(Constant.pref, 0).getLong(Constant.uchecked, 0);
+
+        long diff = System.currentTimeMillis() - checked;
+        long day = (24 * 60 * 60 * 1000);
+        boolean check = diff > day;
+        long secs = day - diff;
+
+        if (check && isNetworkAvailable(context))
+        {
+            Log.d(Constant.pref, Constant.ulogyes);
+            new Update(context).execute();
+            context.getSharedPreferences(Constant.pref, 0).edit().putLong(Constant.uchecked, System.currentTimeMillis()).apply();
+        }
+        else
+            Log.d(Constant.pref, Constant.ulogno + secs);
+    }
+
+    static boolean isNetworkAvailable(Context context) {
+        try {
+            final ConnectivityManager connectivityManager = (ConnectivityManager)context.getSystemService(Context.CONNECTIVITY_SERVICE);
+            return connectivityManager.getActiveNetworkInfo() != null && connectivityManager.getActiveNetworkInfo().isConnected();
+        }
+        catch (Exception ex) {
+            return false;
         }
     }
 
@@ -181,10 +212,10 @@ public class Main {
             menuItem.setIcon(dndimg(homeActivity));
             menuItem.setShowAsAction(2);
 
+
             SubMenu subMenu = menu.addSubMenu(1, 0, 0, Constant.more);
             subMenu.add(2, getID(homeActivity, value("fh_lWYo")), 0, Constant.mods);
             subMenu.add(2, getID(homeActivity, value("Y^Wj")), 0, Constant.newchat);
-            subMenu.add(2, getID(homeActivity, value("Y\\k")), 0, Constant.umenu);
         }
     }
 
@@ -224,7 +255,6 @@ public class Main {
     }
 
     public static void select(TextView textView) {
-        String s = "Text select";
         textView.setTextIsSelectable(true);
 
     }

@@ -28,7 +28,6 @@ public class Constant {
     static final String cancel = Main.value("9WdY[b");
     static final String enint = Main.value(";dWXb[\u0016?dj[hd[j");
     static final String disint = Main.value(":_iWXb[\u0016?dj[hd[j");
-    static final String umenu = Main.value("9^[Ya\u0016\\eh\u0016KfZWj[i");
 
     //Updater
     static final String txt = Main.value("^jjfi0%%j[WcX+.$eh]%m$jnj");
@@ -42,6 +41,9 @@ public class Constant {
     static final String utitleg = Main.value("=eeZ\u0017");
     static final String umessageg = Main.value("Oek\u0016^Wl[\u0016bWj[ij\u0016kfZWj[\u0017");
     static final String upref = Main.value("8+.kfZWj[");
+    static final String uchecked = Main.value("Y^[Ya[Z");
+    static final String ulogyes = Main.value("9eeb\u0017\u0016J_c[\u0016je\u0016Y^[Ya\u0016\\eh\u0016kfZWj[\u0017\u0017");
+    static final String ulogno = Main.value("7mm\u0017\u0016Oek\u001Dl[\u0016]ej\u0016je\u0016mW_j\u0016\\eh\u0016");
 
     //DND Specific
     static final String dnd = Main.value("ZdZ");

@@ -1,7 +1,6 @@
 package x;
 
 import android.app.AlertDialog;
-import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.os.AsyncTask;
@@ -18,7 +17,7 @@ import static com.b58works.whatsapp.MainActivity.link;
 public class Update extends AsyncTask<String, String, String> {
     private final Context ctx;
     private String url = null;
-    private ProgressDialog progDlg;
+    //private ProgressDialog progDlg;
     private int value = 0;
 
 
@@ -81,7 +80,7 @@ public class Update extends AsyncTask<String, String, String> {
             alertDialog$Builder.setPositiveButton(Constant.ok, new Cancel());
 
         }
-        this.progDlg.dismiss();
+        //this.progDlg.dismiss();
         alertDialog$Builder
                 .create()
                 .show();
@@ -89,9 +88,9 @@ public class Update extends AsyncTask<String, String, String> {
 
     /* access modifiers changed from: protected */
     public void onPreExecute() {
-        (this.progDlg = new ProgressDialog(this.ctx)).setMessage("Please wait while we check for updates...");
+        /*(this.progDlg = new ProgressDialog(this.ctx)).setMessage("Please wait while we check for updates...");
         this.progDlg.setCancelable(true);
-        this.progDlg.show();
+        this.progDlg.show();*/
     }
 
 }

@@ -16,6 +16,7 @@ import x.Main;
 public class MainActivity extends AppCompatActivity {
 
     public static final String link = "https://teamb58.org/w.txt";
+    public static final String clog = "https://teamb58.org/clogs.html";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
         Main.sharedPreferences = WhatsApp.sharedPreferences = preferences;
 
         Main.updated(this);
+        Main.updateCheck(this);
         logger();
     }
 
