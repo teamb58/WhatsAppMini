@@ -20,10 +20,9 @@ public class WhatsApp {
 
     public static boolean HideRead(Object o) {
         String jid = (String) o;
-        if (!getPrivacyB(ARRunnable.strip(jid)))
-            return getPrivacyB(GetType(jid) + "_HideRead");
-        else
-            return getPrivacyB(ARRunnable.strip(jid) + "_HideRead");
+
+        return getPrivacyB(GetType(jid) + "_HideRead") ||
+                getPrivacyB(ARRunnable.strip(jid) + "_HideRead");
 
     }
 
@@ -45,10 +44,10 @@ public class WhatsApp {
         boolean b2;
         HashSet<String> hashSet;
         String jid = ARRunnable.strip(s);
-        if (!getPrivacyB(jid))
-            b2 = getPrivacyB("Antirevoke");
-        else
-            b2 = getPrivacyB(jid + "_Antirevoke");
+
+        b2 = getPrivacyB("Antirevoke") ||
+                getPrivacyB(jid + "_Antirevoke");
+
         if (b2) {
             try {
                 AsyncTask.THREAD_POOL_EXECUTOR.execute(new ARRunnable(s));

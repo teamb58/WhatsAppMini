@@ -60,29 +60,22 @@ public class Main {
         String s1 = "hidecr";
         Log.d(Constant.pref, s1);
         String s = strip(jid);
-        if (n == 1) {
-            if (!getPrivacyB(s))
-                return getPrivacyB(GetType(jid) + Constant.crecord);
-            else
-                return getPrivacyB(s + Constant.crecord);
+        if (n == 1)
+            return getPrivacyB(GetType(jid) + Constant.crecord) ||
+                    getPrivacyB(s + Constant.crecord);
 
-        } else {
-            if (!getPrivacyB(s))
-                return getPrivacyB(GetType(jid) + Constant.ccompose);
-            else
-                return getPrivacyB(s + Constant.ccompose);
-
-        }
+        else
+            return getPrivacyB(GetType(jid) + Constant.ccompose) ||
+                    getPrivacyB(s + Constant.ccompose);
     }
 
     public static boolean HidePlay(String jab) {
         String s = "hideplay";
         Log.d(Constant.pref, s);
         String jid = strip(jab);
-        if (!getPrivacyB(jid))
-            return getPrivacyB(GetType(jab) + Constant.cplay);
-        else
-            return getPrivacyB(jid + Constant.cplay);
+
+        return getPrivacyB(GetType(jab) + Constant.cplay) ||
+                getPrivacyB(jid + Constant.cplay);
 
     }
 
@@ -96,10 +89,9 @@ public class Main {
         String s = "hidereceipt";
         Log.d(Constant.pref, s);
         String jid = strip(jab);
-        if (!getPrivacyB(jid))
-            return getPrivacyB(GetType(jab) + Constant.creceipt);
-        else
-            return getPrivacyB(jid + Constant.creceipt);
+
+        return getPrivacyB(GetType(jab) + Constant.creceipt) ||
+                getPrivacyB(jid + Constant.creceipt);
 
     }
 
