@@ -76,8 +76,9 @@ public class Update extends AsyncTask<String, String, String> {
 
         }
         else {
-            alertDialog$Builder.setTitle(Constant.utitleg).setMessage((Constant.umessageg));
-            alertDialog$Builder.setPositiveButton(Constant.ok, new Cancel());
+            /*alertDialog$Builder.setTitle(Constant.utitleg).setMessage((Constant.umessageg));
+            alertDialog$Builder.setPositiveButton(Constant.ok, new Cancel());*/
+            return;
 
         }
         //this.progDlg.dismiss();
