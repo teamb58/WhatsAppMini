@@ -112,6 +112,14 @@
             app:sw_title="@string/hrec"
             app:sw_summary="@string/hrecsum" />
 
+        <com.whatsapp.CustomSwitchPreference
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            app:sw_key="C_ViewOnce"
+            app:sw_icon="@drawable/design_ic_visibility"
+            app:sw_title="@string/dview"
+            app:sw_summary="@string/dviewsum" />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -161,6 +169,14 @@
             app:sw_icon="@drawable/mic_new"
             app:sw_title="@string/hrec"
             app:sw_summary="@string/hrecsum" />
+
+        <com.whatsapp.CustomSwitchPreference
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            app:sw_key="G_ViewOnce"
+            app:sw_icon="@drawable/design_ic_visibility"
+            app:sw_title="@string/dview"
+            app:sw_summary="@string/dviewsum" />
 
 
         <TextView

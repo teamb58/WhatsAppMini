@@ -51,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void logger()
     {
-        String s = Main.HideCR("B58",0) + String.valueOf(Main.HideForward(0)) + Main.HidePlay("b58") + Main.HideReceipt("b58")
+        String s = Main.HideCR("B58",0) + String.valueOf(Main.HideForward(0)) + Main.HidePlay("b58") + Main.HideReceipt("b58") + Main.ViewOnce("b58")
                 + Main.HideSeen() + Main.HideStatus("b58") + Main.hashvalue() + WhatsApp.AntiRevoke("b58") + WhatsApp.HideRead(null);
 
         Main.select(null);

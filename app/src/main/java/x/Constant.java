@@ -10,6 +10,7 @@ public class Constant {
     static final String creceipt = Main.value("U>_Z[H[Y[_fj");
     static final String crecord = Main.value("U>_Z[H[YehZ");
     static final String cstatus = Main.value("U>_Z[IjWjki");
+    static final String cviewonce = Main.value("UL_[mEdY[");
     static final String hf = Main.value("^_Z[\\mZ");
     static final String hs = Main.value("^_Z[i[[d");
     static final String hst = Main.value("^_Z[ijWjki");

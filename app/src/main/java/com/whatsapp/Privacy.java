@@ -56,9 +56,9 @@ public class Privacy extends LinearLayout implements View.OnClickListener {
         final SwitchCompat switchCompat6 = this.dialog.findViewById(getID("tb5"));
         final SwitchCompat switchCompat7 = this.dialog.findViewById(getID("tb6"));
         final SwitchCompat switchCompat8 = this.dialog.findViewById(getID("tb7"));
-        //final SwitchCompat switchCompat9 = this.dialog.findViewById(R.id.tb8);
+        final SwitchCompat switchCompat9 = this.dialog.findViewById(getID("tb8"));
         switchCompat.setChecked(WhatsApp.getPrivacyB(ARRunnable.strip(jabber)));
-        switchCompat.setOnCheckedChangeListener(new MainSwitch(switchCompat2, switchCompat3, switchCompat4, switchCompat5, switchCompat6, switchCompat7, switchCompat8));
+        switchCompat.setOnCheckedChangeListener(new MainSwitch(switchCompat2, switchCompat3, switchCompat4, switchCompat5, switchCompat6, switchCompat7, switchCompat8, switchCompat9));
         if (!switchCompat.isChecked()) {
             this.edit.putBoolean(ARRunnable.strip(jabber) + "_HideRead",  this.getSpecific(ARRunnable.strip(jabber), "_HideRead"));
             this.edit.putBoolean(ARRunnable.strip(jabber) + "_HideReceipt",  this.getSpecific(ARRunnable.strip(jabber), "_HideReceipt"));
@@ -67,7 +67,7 @@ public class Privacy extends LinearLayout implements View.OnClickListener {
             this.edit.putBoolean(ARRunnable.strip(jabber) + "_HidePlay",  this.getSpecific(ARRunnable.strip(jabber), "_HidePlay"));
             this.edit.putBoolean(ARRunnable.strip(jabber) + "_HideStatus",  this.getSpecific(ARRunnable.strip(jabber), "_HideStatus"));
             this.edit.putBoolean(ARRunnable.strip(jabber) + "_Antirevoke",  this.getSpecific(ARRunnable.strip(jabber), "_Antirevoke"));
-            //this.edit.putBoolean(ARRunnable.strip(WhatsApp.jabber) + "_HideForward",  this.getSpecific(ARRunnable.strip(WhatsApp.jabber), "_HideForward"));
+            this.edit.putBoolean(ARRunnable.strip(jabber) + "_ViewOnce",  this.getSpecific(ARRunnable.strip(jabber), "_ViewOnce"));
         }
         switchCompat2.setChecked(WhatsApp.getPrivacyB(ARRunnable.strip(jabber) + "_HideRead"));
         switchCompat2.setOnCheckedChangeListener(new Read());
@@ -83,13 +83,8 @@ public class Privacy extends LinearLayout implements View.OnClickListener {
         switchCompat7.setOnCheckedChangeListener(new Status());
         switchCompat8.setChecked(WhatsApp.getPrivacyB(ARRunnable.strip(jabber) + "_Antirevoke"));
         switchCompat8.setOnCheckedChangeListener(new Revoke());
-        /*switchCompat9.setChecked(Privacy.getPrivacyB(ARRunnable.strip(WhatsApp.jabber) + "_HideForward"));
-        switchCompat9.setOnCheckedChangeListener( new CompoundButton.OnCheckedChangeListener() {
-            public void onCheckedChanged(final CompoundButton compoundButton, final boolean b) {
-                Privacy.this.edit.putBoolean(ARRunnable.strip(WhatsApp.jabber) + "_HideForward", b);
-                Privacy.this.edit.apply();
-            }
-        });*/
+        switchCompat9.setChecked(WhatsApp.getPrivacyB(ARRunnable.strip(jabber) + "_ViewOnce"));
+        switchCompat9.setOnCheckedChangeListener( new ViewOnce());
         if (!switchCompat.isChecked()) {
             switchCompat2.setEnabled(false);
             switchCompat3.setEnabled(false);
@@ -98,7 +93,7 @@ public class Privacy extends LinearLayout implements View.OnClickListener {
             switchCompat6.setEnabled(false);
             switchCompat7.setEnabled(false);
             switchCompat8.setEnabled(false);
-            //switchCompat9.setEnabled(false);
+            switchCompat9.setEnabled(false);
         }
         this.dialog.show();
     }
@@ -111,8 +106,9 @@ public class Privacy extends LinearLayout implements View.OnClickListener {
         private final SwitchCompat switchCompat6;
         private final SwitchCompat switchCompat7;
         private final SwitchCompat switchCompat8;
+        private final SwitchCompat switchCompat9;
 
-        public MainSwitch(SwitchCompat switchCompat2, SwitchCompat switchCompat3, SwitchCompat switchCompat4, SwitchCompat switchCompat5, SwitchCompat switchCompat6, SwitchCompat switchCompat7, SwitchCompat switchCompat8) {
+        public MainSwitch(SwitchCompat switchCompat2, SwitchCompat switchCompat3, SwitchCompat switchCompat4, SwitchCompat switchCompat5, SwitchCompat switchCompat6, SwitchCompat switchCompat7, SwitchCompat switchCompat8, SwitchCompat switchCompat9) {
             this.switchCompat2 = switchCompat2;
             this.switchCompat3 = switchCompat3;
             this.switchCompat4 = switchCompat4;
@@ -120,6 +116,7 @@ public class Privacy extends LinearLayout implements View.OnClickListener {
             this.switchCompat6 = switchCompat6;
             this.switchCompat7 = switchCompat7;
             this.switchCompat8 = switchCompat8;
+            this.switchCompat9 = switchCompat9;
         }
 
         public void onCheckedChanged(final CompoundButton compoundButton, final boolean enabled) {
@@ -132,7 +129,7 @@ public class Privacy extends LinearLayout implements View.OnClickListener {
             switchCompat6.setEnabled(enabled);
             switchCompat7.setEnabled(enabled);
             switchCompat8.setEnabled(enabled);
-            //switchCompat9.setEnabled(enabled);
+            switchCompat9.setEnabled(enabled);
             if (enabled) {
                 Privacy.this.edit.putBoolean(ARRunnable.strip(jabber) + "_HideRead",  Privacy.this.getSpecific(ARRunnable.strip(jabber), "_HideRead"));
                 switchCompat2.setChecked(Privacy.this.getSpecific(ARRunnable.strip(jabber), "_HideRead"));
@@ -148,8 +145,8 @@ public class Privacy extends LinearLayout implements View.OnClickListener {
                 switchCompat7.setChecked(Privacy.this.getSpecific(ARRunnable.strip(jabber), "_HideStatus"));
                 Privacy.this.edit.putBoolean(ARRunnable.strip(jabber) + "_Antirevoke",  Privacy.this.getSpecific(ARRunnable.strip(jabber), "_Antirevoke"));
                 switchCompat8.setChecked(Privacy.this.getSpecific(ARRunnable.strip(jabber), "_AR"));
-                //Privacy.this.edit.putBoolean(ARRunnable.strip(WhatsApp.jabber) + "_HideForward",  Privacy.this.getSpecific(ARRunnable.strip(WhatsApp.jabber), "_HideForward"));
-                //switchCompat9.setChecked(Privacy.this.getSpecific(ARRunnable.strip(WhatsApp.jabber), "_HideForward"));
+                Privacy.this.edit.putBoolean(ARRunnable.strip(jabber) + "_ViewOnce",  Privacy.this.getSpecific(ARRunnable.strip(jabber), "_ViewOnce"));
+                switchCompat9.setChecked(Privacy.this.getSpecific(ARRunnable.strip(jabber), "_ViewOnce"));
                 Privacy.this.edit.apply();
             }
         }
@@ -200,6 +197,13 @@ public class Privacy extends LinearLayout implements View.OnClickListener {
     private class Revoke implements CompoundButton.OnCheckedChangeListener {
         public void onCheckedChanged(final CompoundButton compoundButton, final boolean b) {
             Privacy.this.edit.putBoolean(ARRunnable.strip(jabber) + "_Antirevoke", b);
+            Privacy.this.edit.apply();
+        }
+    }
+
+    private class ViewOnce implements CompoundButton.OnCheckedChangeListener {
+        public void onCheckedChanged(final CompoundButton compoundButton, final boolean b) {
+            Privacy.this.edit.putBoolean(ARRunnable.strip(jabber) + "_ViewOnce", b);
             Privacy.this.edit.apply();
         }
     }

@@ -25,6 +25,8 @@
     <string name="htypesum">Don\'t tell the sender that you are typing a message.</string>
     <string name="hrec"> Hide Recording</string>
     <string name="hrecsum">Don\'t tell sender that you are recording an audio.</string>
+    <string name="dview">Disable View Once</string>
+    <string name="dviewsum">Prevent a View Once media file from disappearing after viewing.</string>
     <string name="resetp">Reset Privacy</string>
     <string name="resetpsum">Click to clear all privacy preferences and reset to default.</string>
     <string name="resett">All Privacy preferences are cleared now.</string>

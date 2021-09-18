@@ -112,6 +112,17 @@ public class Main {
 
     }
 
+    public static boolean ViewOnce(String jab)
+    {
+        String s = "viewonce";
+        Log.d(Constant.pref, s);
+        String jid = strip(jab);
+
+        return getPrivacyB(GetType(jid) + Constant.cviewonce) ||
+                getPrivacyB(jid + Constant.cviewonce);
+
+    }
+
     static Intent OpenChat(String str, Context homeActivity) {
         try {
             return new Intent(homeActivity, MainActivity.class).putExtra("jid", str).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
