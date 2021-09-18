@@ -16,14 +16,20 @@ class ARRunnable2 implements Runnable {
     private final Context context;
     private final TextView textView;
 
-    ARRunnable2(Context context, TextView textView) {
+    private final boolean revoked;
+
+    public ARRunnable2(Context context, TextView textView, boolean revoked) {
         this.context = context;
         this.textView = textView;
+        this.revoked = revoked;
     }
 
     @Override
     public void run() {
-        textView.setCompoundDrawablesWithIntrinsicBounds(c(context), null, null, null);
+        if (revoked)
+            textView.setCompoundDrawablesWithIntrinsicBounds(c(context), null, null, null);
+        else
+            textView.setCompoundDrawablesWithIntrinsicBounds(null, null, null, null);
     }
 
     private Drawable c(Context context) {

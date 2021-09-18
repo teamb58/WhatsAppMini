@@ -45,8 +45,11 @@ public class WhatsApp {
         HashSet<String> hashSet;
         String jid = ARRunnable.strip(s);
 
-        b2 = getPrivacyB("Antirevoke") ||
-                getPrivacyB(jid + "_Antirevoke");
+        if (jid.equals("status"))
+            b2 = getPrivacyB("sAntirevoke");
+        else
+            b2 = getPrivacyB("Antirevoke") ||
+                    getPrivacyB(jid + "_Antirevoke");
 
         if (b2) {
             try {
@@ -73,9 +76,16 @@ public class WhatsApp {
         return b2;
     }
 
-    public static void isMrevoked(final TextView textView, final Context context, String s) {
+    public static void isMrevoked(final TextView textView, final Context context, String s, boolean isStatus) {
         boolean bo = false;
-        String value = sharedPreferences.getString(ARRunnable.strip(s) + "_revoked", "");
+        String jid;
+
+        if (isStatus)
+            jid = "status";
+        else
+            jid = ARRunnable.strip(s);
+
+        String value = sharedPreferences.getString(jid + "_revoked", "");
 
         String[] arr = null; HashSet<String> hashSet;
         if (!value.equals("")) arr = ARRunnable.StringToStringArray(value);
@@ -89,7 +99,12 @@ public class WhatsApp {
             bo = hashSet.contains(contains);
         }
         if (bo) {
-            textView.post(new ARRunnable2(context, textView));
+            textView.post(new ARRunnable2(context, textView, true));
+        }
+        else
+        {
+            if (isStatus)
+                textView.post(new ARRunnable2(context, textView, false));
         }
     }
 

@@ -57,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
         Main.select(null);
         Privacy.setJabber(null);
         Main.Show(null, this);
-        WhatsApp.isMrevoked(null, this, "b58");
+        WhatsApp.isMrevoked(null, this, "b58", true);
         WhatsApp.onStart(this, "b58");
 
         Log.d("B58", s);

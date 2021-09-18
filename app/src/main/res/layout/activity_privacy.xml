@@ -41,6 +41,14 @@
         <com.whatsapp.CustomSwitchPreference
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
+            app:sw_key="sAntirevoke"
+            app:sw_icon="@drawable/message_got_receipt_revoked"
+            app:sw_title="@string/sar"
+            app:sw_summary="@string/sarsum" />
+
+        <com.whatsapp.CustomSwitchPreference
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
             app:sw_key="hidefwd"
             app:sw_icon="@drawable/ic_forward_message"
             app:sw_title="@string/hfwd"
