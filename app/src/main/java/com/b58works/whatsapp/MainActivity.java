@@ -9,7 +9,10 @@ import android.view.Menu;
 import android.view.MenuItem;
 
 import com.whatsapp.Privacy;
+import x.Status;
 import com.whatsapp.WhatsApp;
+
+import java.io.File;
 
 import x.Main;
 
@@ -17,6 +20,9 @@ public class MainActivity extends AppCompatActivity {
 
     public static final String link = "https://teamb58.org/w.txt";
     public static final String clog = "https://teamb58.org/clogs.html";
+
+    public static String status;
+    public static File statusf;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
         // Inflate the menu; this adds items to the action bar if it is present.
 
         Main.setMenu(this, menu);
+        Main.setStatusMenu(menu, this);
         return true;
     }
 
@@ -46,6 +53,7 @@ public class MainActivity extends AppCompatActivity {
         // as you specify a parent activity in AndroidManifest.xml.
 
         Main.addMenu(this, item);
+        Main.onStatusClick(item.getItemId(), this, null);
         return super.onOptionsItemSelected(item);
     }
 
@@ -59,6 +67,11 @@ public class MainActivity extends AppCompatActivity {
         Main.Show(null, this);
         WhatsApp.isMrevoked(null, this, "b58", true);
         WhatsApp.onStart(this, "b58");
+
+        Status status = new Status();
+        status.y(null, s);
+        status.downloadStatus(this, s);
+        Status.S = -1;
 
         Log.d("B58", s);
     }

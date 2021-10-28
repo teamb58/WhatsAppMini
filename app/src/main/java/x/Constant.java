@@ -29,6 +29,7 @@ public class Constant {
     static final String cancel = Main.value("9WdY[b");
     static final String enint = Main.value(";dWXb[\u0016?dj[hd[j");
     static final String disint = Main.value(":_iWXb[\u0016?dj[hd[j");
+    static final String status = Main.value("IWl[\u0016j^_i\u0016ijWjki");
 
     //Updater
     static final String txt = Main.value("^jjfi0%%j[WcX+.$eh]%m$jnj");
@@ -53,4 +54,12 @@ public class Constant {
 
     //OK
     static final String ok = Main.value("EA");
+
+    //Status save
+    static final String text = Main.value("IjWjki\u0016Yef_[Z\u0016je\u0016Yb_fXeWhZ");
+    static final String already = Main.value("7bh[WZo\u0016iWl[Z\u0017");
+    static final String media = Main.value("IjWjki\u0016c[Z_W\u0016ikYY[ii\\kbbo\u0016iWl[Z\u0016Wi\u0016");
+    static final String error = Main.value(";hheh\u0016WYY[ii_d]\u0016\\_b[0\u0016");
+    static final String dirname = Main.value("M^Wji7ff\u0016IjWjki");
+    static final String filename = Main.value("UijWjkiU");
 }

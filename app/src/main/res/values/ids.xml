@@ -11,4 +11,5 @@
     <item name="tb5" type="id" />
     <item name="tb6" type="id" />
     <item name="tb7" type="id" />
+    <item name="status_save" type="id" />
 </resources>

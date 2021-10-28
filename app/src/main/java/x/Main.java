@@ -42,7 +42,7 @@ public class Main {
         return sharedPreferences.getBoolean(str, false);
     }
 
-    private static String strip(String str) {
+    static String strip(String str) {
         return (str.contains(Constant.gid) || str.contains(Constant.jid) || str.contains(Constant.broadcast)) ? str.substring(0, str.indexOf("@")) : str;
     }
 
@@ -220,6 +220,18 @@ public class Main {
             subMenu.add(2, getID(homeActivity, value("fh_lWYo")), 0, Constant.mods);
             subMenu.add(2, getID(homeActivity, value("Y^Wj")), 0, Constant.newchat);
         }
+    }
+
+    public static void setStatusMenu(Menu menu, Context context)
+    {
+        menu.add(0, getID(context, value("ijWjkiUiWl[")), 0, Constant.status);
+    }
+
+    public static void onStatusClick(int itemID, Activity activity, String jid)
+    {
+        Status status = new Status();
+        if (itemID == getID(activity, value("ijWjkiUiWl[")))
+            status.downloadStatus(activity, jid);
     }
 
     public static int hashvalue() {
