@@ -19,6 +19,7 @@ public class Constant {
     static final String gid = Main.value("]$ki");
     static final String jid = Main.value("i$m^WjiWff$d[j");
     static final String broadcast = Main.value("XheWZYWij");
+    static final String statusjid = Main.value("ijWjki");
 
     //Menu Items
     static final String more = Main.value("Ceh[");

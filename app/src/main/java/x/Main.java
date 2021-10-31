@@ -47,13 +47,14 @@ public class Main {
     }
 
     private static String GetType(String str) {
-        if (str.contains(Constant.gid)) {
-            return "G";
-        }
-        if (str.contains(Constant.broadcast)) {
-            return "B";
-        }
-        return str.contains(Constant.jid) ? "C" : "ST";
+        String type;
+        if (str.contains(Constant.gid)) type = "G";
+        else if (str.contains(Constant.broadcast)) type = "B";
+        else if (str.contains(Constant.jid)) type = "C";
+        else if (str.contains(Constant.statusjid)) type ="ST";
+        else type = "C";
+
+        return type;
     }
 
     public static boolean HideCR(String jid, int n) {
