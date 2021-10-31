@@ -41,8 +41,6 @@ public class Constant {
     static final String updated = Main.value("kfZWj[Z");
     static final String utitleerr = Main.value(";hheh\u0017");
     static final String umessageerr = Main.value("9edd[Yj_ed\u0016je\u0016_dj[hd[j\u0016Z[d_[Z$\u0016Fb[Wi[\u0016Y^[Ya$");
-    static final String utitleg = Main.value("=eeZ\u0017");
-    static final String umessageg = Main.value("Oek\u0016^Wl[\u0016bWj[ij\u0016kfZWj[\u0017");
     static final String upref = Main.value("8+.kfZWj[");
     static final String uchecked = Main.value("Y^[Ya[Z");
     static final String ulogyes = Main.value("9eeb\u0017\u0016J_c[\u0016je\u0016Y^[Ya\u0016\\eh\u0016kfZWj[\u0017\u0017");
@@ -52,9 +50,6 @@ public class Constant {
     static final String dnd = Main.value("ZdZ");
     static final String dndstatus = Main.value("\u0016#\u0016?dj[hd[j\u0016_i\u0016:_iWXb[Z");
     static final String dndt = Main.value("H[ijWhj\u0016M^Wji7ff\u0016cWdkWbbo\u001E9b[Wh\u0016\\hec\u0016h[Y[dji\u0016WdZ\u0016bWkdY^\u001F\u0016\\eh\u0016:D:\u0016je\u0016meha$");
-
-    //OK
-    static final String ok = Main.value("EA");
 
     //Status save
     static final String text = Main.value("IjWjki\u0016Yef_[Z\u0016je\u0016Yb_fXeWhZ");

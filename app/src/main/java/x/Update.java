@@ -17,7 +17,6 @@ import static com.b58works.whatsapp.MainActivity.link;
 public class Update extends AsyncTask<String, String, String> {
     private final Context ctx;
     private String url = null;
-    //private ProgressDialog progDlg;
     private int value = 0;
 
 
@@ -59,7 +58,6 @@ public class Update extends AsyncTask<String, String, String> {
         return vername;
     }
 
-    /* access modifiers changed from: protected */
     public void onPostExecute(String s) {
         AlertDialog.Builder alertDialog$Builder = new AlertDialog.Builder(this.ctx);
         if ((this.value > vercod(this.ctx))) {
@@ -75,23 +73,15 @@ public class Update extends AsyncTask<String, String, String> {
             alertDialog$Builder.setTitle(Constant.utitleerr).setMessage(Constant.umessageerr);
 
         }
-        else {
-            /*alertDialog$Builder.setTitle(Constant.utitleg).setMessage((Constant.umessageg));
-            alertDialog$Builder.setPositiveButton(Constant.ok, new Cancel());*/
-            return;
-
-        }
+        else return;
         //this.progDlg.dismiss();
         alertDialog$Builder
                 .create()
                 .show();
     }
 
-    /* access modifiers changed from: protected */
     public void onPreExecute() {
-        /*(this.progDlg = new ProgressDialog(this.ctx)).setMessage("Please wait while we check for updates...");
-        this.progDlg.setCancelable(true);
-        this.progDlg.show();*/
+
     }
 
 }
