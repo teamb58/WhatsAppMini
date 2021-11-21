@@ -14,7 +14,7 @@ public class WhatsApp {
 
     public static String contains;
     public static SharedPreferences sharedPreferences;
-    static String revokestr;
+    public static String revokestr;
     private static HashSet<String> b = null;
     private static Activity activity;
 
@@ -26,7 +26,7 @@ public class WhatsApp {
 
     }
 
-    static boolean getPrivacyB(String str) {
+    public static boolean getPrivacyB(String str) {
         return sharedPreferences.getBoolean(str, false);
     }
 
