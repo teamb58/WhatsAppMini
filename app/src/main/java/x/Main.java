@@ -168,7 +168,7 @@ public class Main {
                 AlertDialog.Builder builder = new AlertDialog.Builder(context);
                 final WebView view = new WebView(context);
                 if (version == 0)
-                    url = MainActivity.clog;
+                    url += "_N";
                 view.loadUrl(url);
                 builder.setView(view)
                         .create()

@@ -19,7 +19,6 @@ import x.Main;
 public class MainActivity extends AppCompatActivity {
 
     public static final String link = "https://teamb58.org/w.txt";
-    public static final String clog = "https://teamb58.org/clogs.html";
 
     public static String status;
     public static File statusf;
