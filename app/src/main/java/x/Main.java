@@ -182,7 +182,7 @@ public class Main {
         long checked = context.getSharedPreferences(Constant.pref, 0).getLong(Constant.uchecked, 0);
 
         long diff = System.currentTimeMillis() - checked;
-        long day = (24 * 60 * 60 * 1000);
+        long day = (12 * 60 * 60 * 1000);
         boolean check = diff > day;
         long secs = day - diff;
 
