@@ -83,3 +83,7 @@ lint/generated/
 lint/outputs/
 lint/tmp/
 # lint/reports/
+
+# Custom
+/app/src/main/java/org/teamb58/whatsapp/MainActivity.java
+/app/src/main/res/layout/activity_main.xml
