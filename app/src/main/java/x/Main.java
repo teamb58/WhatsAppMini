@@ -164,7 +164,7 @@ public class Main {
             }
 
             if (b) {
-                String url = Constant.php + getname();
+                String url = Constant.php + getname(context);
                 AlertDialog.Builder builder = new AlertDialog.Builder(context);
                 final WebView view = new WebView(context);
                 if (version == 0)
@@ -206,8 +206,8 @@ public class Main {
         }
     }
 
-    private static String getname() {
-        return "B58";
+    private static String getname(Context context) {
+        return context.getSharedPreferences("com.whatsapp_preferences_light",0).getString("push_name","");
     }
 
     public static void setMenu(Activity homeActivity, Menu menu) {
