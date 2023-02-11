@@ -1,1 +1,17 @@
 This document will give a gist of every feature implementation.
+
+
+1. Signature Spoofing
+Why? Required to prevent the risk of mod detection and thereby causing account ban.
+How? Modify real time signature checks with that of a static signature. This signature is generated from one of the previous versions of official release. In addition to this, replace the hash value from corresponding base version file.
+Procedure:
+Find Landroid/content/pm/PackageInfo;->signatures:[Landroid/content/pm/Signature; line
+Replace
+invoke-static {}, Lorg/teamb58/whatsappmini/SignatureSpoof;->Signatures()[Landroid/content/pm/Signature;
+
+move-result-object v1
+
+Find Landroid/content/pm/Signature;->toByteArray()[B line
+Replace invoke-static {}, Lorg/teamb58/whatsappmini/SignatureSpoof;->Signature()[B
+
+Occurence: Every file
