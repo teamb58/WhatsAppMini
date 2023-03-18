@@ -13,7 +13,7 @@
 #}
 
 -keep class com.whatsapp.*
--keep class !x.** { *; }
+-keep class !org.teamb58.whatsapp.x.** { *; }
 -keep class androidx.** { *; }
 -keep class android.** { *; }
 

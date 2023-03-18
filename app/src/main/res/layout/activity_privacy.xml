@@ -14,7 +14,7 @@
             android:text="@string/cat_general"
             style="?attr/settingsSectionTitleText"/>
         <View style="?attr/settingsDivider"/>
-        <com.whatsapp.CustomSwitchPreference
+        <org.teamb58.whatsapp.CustomSwitchPreference
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             app:sw_key="hideseen"
@@ -22,7 +22,7 @@
             app:sw_title="@string/hseen"
             app:sw_summary="@string/hseensum" />
 
-        <com.whatsapp.CustomSwitchPreference
+        <org.teamb58.whatsapp.CustomSwitchPreference
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             app:sw_key="bor"
@@ -30,7 +30,7 @@
             app:sw_title="@string/bor"
             app:sw_summary="@string/borsum" />
 
-        <com.whatsapp.CustomSwitchPreference
+        <org.teamb58.whatsapp.CustomSwitchPreference
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             app:sw_key="Antirevoke"
@@ -38,7 +38,7 @@
             app:sw_title="@string/ar"
             app:sw_summary="@string/arsum" />
 
-        <com.whatsapp.CustomSwitchPreference
+        <org.teamb58.whatsapp.CustomSwitchPreference
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             app:sw_key="sAntirevoke"
@@ -46,7 +46,7 @@
             app:sw_title="@string/sar"
             app:sw_summary="@string/sarsum" />
 
-        <com.whatsapp.CustomSwitchPreference
+        <org.teamb58.whatsapp.CustomSwitchPreference
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             app:sw_key="hidefwd"
@@ -54,7 +54,7 @@
             app:sw_title="@string/hfwd"
             app:sw_summary="@string/hfwdsum" />
 
-        <com.whatsapp.CustomSwitchPreference
+        <org.teamb58.whatsapp.CustomSwitchPreference
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             app:sw_key="hidestatus"
@@ -72,7 +72,7 @@
             style="?attr/settingsSectionTitleText"/>
         <View style="?attr/settingsDivider"/>
 
-        <com.whatsapp.CustomSwitchPreference
+        <org.teamb58.whatsapp.CustomSwitchPreference
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             app:sw_key="C_HideRead"
@@ -80,7 +80,7 @@
             app:sw_title="@string/hread"
             app:sw_summary="@string/hreadsum" />
 
-        <com.whatsapp.CustomSwitchPreference
+        <org.teamb58.whatsapp.CustomSwitchPreference
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             app:sw_key="C_HideReceipt"
@@ -88,7 +88,7 @@
             app:sw_title="@string/hreceipt"
             app:sw_summary="@string/hreceiptsum" />
 
-        <com.whatsapp.CustomSwitchPreference
+        <org.teamb58.whatsapp.CustomSwitchPreference
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             app:sw_key="C_HidePlay"
@@ -96,7 +96,7 @@
             app:sw_title="@string/hplay"
             app:sw_summary="@string/hplaysum" />
 
-        <com.whatsapp.CustomSwitchPreference
+        <org.teamb58.whatsapp.CustomSwitchPreference
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             app:sw_key="C_HideCompose"
@@ -104,7 +104,7 @@
             app:sw_title="@string/htype"
             app:sw_summary="@string/htypesum" />
 
-        <com.whatsapp.CustomSwitchPreference
+        <org.teamb58.whatsapp.CustomSwitchPreference
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             app:sw_key="C_HideRecord"
@@ -112,7 +112,7 @@
             app:sw_title="@string/hrec"
             app:sw_summary="@string/hrecsum" />
 
-        <com.whatsapp.CustomSwitchPreference
+        <org.teamb58.whatsapp.CustomSwitchPreference
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             app:sw_key="C_ViewOnce"
@@ -130,7 +130,7 @@
             style="?attr/settingsSectionTitleText"/>
         <View style="?attr/settingsDivider"/>
 
-        <com.whatsapp.CustomSwitchPreference
+        <org.teamb58.whatsapp.CustomSwitchPreference
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             app:sw_key="G_HideRead"
@@ -138,7 +138,7 @@
             app:sw_title="@string/hread"
             app:sw_summary="@string/hreadsum" />
 
-        <com.whatsapp.CustomSwitchPreference
+        <org.teamb58.whatsapp.CustomSwitchPreference
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             app:sw_key="G_HideReceipt"
@@ -146,7 +146,7 @@
             app:sw_title="@string/hreceipt"
             app:sw_summary="@string/hreceiptsum" />
 
-        <com.whatsapp.CustomSwitchPreference
+        <org.teamb58.whatsapp.CustomSwitchPreference
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             app:sw_key="G_HidePlay"
@@ -154,7 +154,7 @@
             app:sw_title="@string/hplay"
             app:sw_summary="@string/hplaysum" />
 
-        <com.whatsapp.CustomSwitchPreference
+        <org.teamb58.whatsapp.CustomSwitchPreference
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             app:sw_key="G_HideCompose"
@@ -162,7 +162,7 @@
             app:sw_title="@string/htype"
             app:sw_summary="@string/htypesum" />
 
-        <com.whatsapp.CustomSwitchPreference
+        <org.teamb58.whatsapp.CustomSwitchPreference
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             app:sw_key="G_HideRecord"
@@ -170,7 +170,7 @@
             app:sw_title="@string/hrec"
             app:sw_summary="@string/hrecsum" />
 
-        <com.whatsapp.CustomSwitchPreference
+        <org.teamb58.whatsapp.CustomSwitchPreference
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             app:sw_key="G_ViewOnce"

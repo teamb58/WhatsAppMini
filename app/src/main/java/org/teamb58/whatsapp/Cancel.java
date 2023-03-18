@@ -1,4 +1,4 @@
-package x;
+package org.teamb58.whatsapp;
 
 import android.content.DialogInterface;
 

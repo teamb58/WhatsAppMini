@@ -1,4 +1,4 @@
-package x;
+package org.teamb58.whatsapp;
 
 import android.app.Activity;
 import android.content.ClipData;
@@ -7,8 +7,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.widget.Toast;
-
-import com.b58works.whatsapp.MainActivity;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -19,7 +17,7 @@ import java.io.OutputStream;
 import java.util.HashMap;
 import java.util.List;
 
-import static x.Main.strip;
+import static org.teamb58.whatsapp.Main.strip;
 
 public class Status {
 

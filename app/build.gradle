@@ -3,7 +3,7 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion 33
     defaultConfig {
-        applicationId "com.b58works.whatsapp"
+        applicationId "org.teamb58.whatsapp"
         minSdkVersion 22
         targetSdkVersion 33
         versionCode 1

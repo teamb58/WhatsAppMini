@@ -1,4 +1,4 @@
-package x;
+package org.teamb58.whatsapp;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -22,9 +22,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.core.content.ContextCompat;
-
-import com.b58works.whatsapp.MainActivity;
-import com.whatsapp.PrivacyActivity;
 
 public class Main {
 

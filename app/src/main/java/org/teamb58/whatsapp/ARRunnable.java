@@ -1,11 +1,8 @@
-package com.whatsapp;
+package org.teamb58.whatsapp;
 
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashSet;
-
-import static com.whatsapp.WhatsApp.revokestr;
-import static com.whatsapp.WhatsApp.sharedPreferences;
 
 class ARRunnable implements Runnable {
 
@@ -25,7 +22,7 @@ class ARRunnable implements Runnable {
     private void a() {
         String str = strip(jabber);
         String str3 = strip(jabber);
-        String str2 = revokestr;
+        String str2 = WhatsApp.revokestr;
         String str4;
         String[] b2 = b(str);
         if (b2 != null) {
@@ -37,13 +34,13 @@ class ARRunnable implements Runnable {
             str4 = "[" + str2 + "]";
         }
         if (str4 != null) {
-            sharedPreferences.edit().putString(str3 + "_revoked", str4).apply();
+            WhatsApp.sharedPreferences.edit().putString(str3 + "_revoked", str4).apply();
         }
     }
 
     static String[] b(String str) {
         try {
-            String str2 = sharedPreferences.getString(str + "_revoked", "");
+            String str2 = WhatsApp.sharedPreferences.getString(str + "_revoked", "");
             if (!str2.equals("")) {
                 return StringToStringArray(str2);
             }

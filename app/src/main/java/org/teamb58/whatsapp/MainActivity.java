@@ -1,4 +1,4 @@
-package com.b58works.whatsapp;
+package org.teamb58.whatsapp;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -8,13 +8,7 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import com.whatsapp.Privacy;
-import x.Status;
-import com.whatsapp.WhatsApp;
-
 import java.io.File;
-
-import x.Main;
 
 public class MainActivity extends AppCompatActivity {
 

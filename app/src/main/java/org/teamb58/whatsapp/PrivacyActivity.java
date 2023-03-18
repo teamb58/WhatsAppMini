@@ -1,4 +1,4 @@
-package com.whatsapp;
+package org.teamb58.whatsapp;
 
 import android.os.Bundle;
 import android.widget.RelativeLayout;

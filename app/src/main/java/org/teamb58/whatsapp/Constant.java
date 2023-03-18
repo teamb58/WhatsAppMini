@@ -1,4 +1,4 @@
-package x;
+package org.teamb58.whatsapp;
 
 public class Constant {
     //Preference file name

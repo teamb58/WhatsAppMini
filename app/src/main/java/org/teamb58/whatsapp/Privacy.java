@@ -1,4 +1,4 @@
-package com.whatsapp;
+package org.teamb58.whatsapp;
 
 import android.annotation.SuppressLint;
 import android.app.Dialog;
