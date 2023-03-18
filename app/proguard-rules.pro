@@ -12,20 +12,10 @@
 #   public *;
 #}
 
--keep class com.whatsapp.*
--keep class !org.teamb58.whatsapp.x.** { *; }
--keep class androidx.** { *; }
--keep class android.** { *; }
-
--printmapping map.txt
-
 # Uncomment this to preserve the line number information for
 # debugging stack traces.
 #-keepattributes SourceFile,LineNumberTable
 
 # If you keep the line number information, uncomment this to
 # hide the original source file name.
--renamesourcefileattribute
-
--classobfuscationdictionary class1.txt
--packageobfuscationdictionary package-dictionary.txt
+#-renamesourcefileattribute SourceFile
