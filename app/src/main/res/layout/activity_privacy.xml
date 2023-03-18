@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="?attr/settingsBackgroundColor"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <LinearLayout android:orientation="vertical" android:paddingTop="8dp" android:paddingBottom="8dp" android:layout_width="match_parent" android:layout_height="wrap_content">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/settings_row_horizontal_padding"
+            android:layout_marginTop="14dp"
+            android:layout_marginRight="@dimen/settings_row_horizontal_padding"
+            android:text="@string/cat_general"
+            style="?attr/settingsSectionTitleText"/>
+        <View style="?attr/settingsDivider"/>
+        <com.whatsapp.CustomSwitchPreference
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            app:sw_key="hideseen"
+            app:sw_icon="@drawable/message_unsent"
+            app:sw_title="@string/hseen"
+            app:sw_summary="@string/hseensum" />
+
+        <com.whatsapp.CustomSwitchPreference
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            app:sw_key="bor"
+            app:sw_icon="@drawable/message_got_read_receipt_from_target"
+            app:sw_title="@string/bor"
+            app:sw_summary="@string/borsum" />
+
+        <com.whatsapp.CustomSwitchPreference
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            app:sw_key="Antirevoke"
+            app:sw_icon="@drawable/message_got_receipt_revoked"
+            app:sw_title="@string/ar"
+            app:sw_summary="@string/arsum" />
+
+        <com.whatsapp.CustomSwitchPreference
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            app:sw_key="sAntirevoke"
+            app:sw_icon="@drawable/message_got_receipt_revoked"
+            app:sw_title="@string/sar"
+            app:sw_summary="@string/sarsum" />
+
+        <com.whatsapp.CustomSwitchPreference
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            app:sw_key="hidefwd"
+            app:sw_icon="@drawable/ic_forward_message"
+            app:sw_title="@string/hfwd"
+            app:sw_summary="@string/hfwdsum" />
+
+        <com.whatsapp.CustomSwitchPreference
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            app:sw_key="hidestatus"
+            app:sw_icon="@drawable/design_ic_visibility"
+            app:sw_title="@string/hstatus"
+            app:sw_summary="@string/hstatussum" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/settings_row_horizontal_padding"
+            android:layout_marginTop="14dp"
+            android:layout_marginRight="@dimen/settings_row_horizontal_padding"
+            android:text="@string/cat_contacts"
+            style="?attr/settingsSectionTitleText"/>
+        <View style="?attr/settingsDivider"/>
+
+        <com.whatsapp.CustomSwitchPreference
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            app:sw_key="C_HideRead"
+            app:sw_icon="@drawable/message_got_read_receipt_from_target"
+            app:sw_title="@string/hread"
+            app:sw_summary="@string/hreadsum" />
+
+        <com.whatsapp.CustomSwitchPreference
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            app:sw_key="C_HideReceipt"
+            app:sw_icon="@drawable/message_got_receipt_from_target"
+            app:sw_title="@string/hreceipt"
+            app:sw_summary="@string/hreceiptsum" />
+
+        <com.whatsapp.CustomSwitchPreference
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            app:sw_key="C_HidePlay"
+            app:sw_icon="@drawable/mic_played"
+            app:sw_title="@string/hplay"
+            app:sw_summary="@string/hplaysum" />
+
+        <com.whatsapp.CustomSwitchPreference
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            app:sw_key="C_HideCompose"
+            app:sw_icon="@drawable/type"
+            app:sw_title="@string/htype"
+            app:sw_summary="@string/htypesum" />
+
+        <com.whatsapp.CustomSwitchPreference
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            app:sw_key="C_HideRecord"
+            app:sw_icon="@drawable/mic_new"
+            app:sw_title="@string/hrec"
+            app:sw_summary="@string/hrecsum" />
+
+        <com.whatsapp.CustomSwitchPreference
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            app:sw_key="C_ViewOnce"
+            app:sw_icon="@drawable/design_ic_visibility"
+            app:sw_title="@string/dview"
+            app:sw_summary="@string/dviewsum" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/settings_row_horizontal_padding"
+            android:layout_marginTop="14dp"
+            android:layout_marginRight="@dimen/settings_row_horizontal_padding"
+            android:text="@string/cat_Groups"
+            style="?attr/settingsSectionTitleText"/>
+        <View style="?attr/settingsDivider"/>
+
+        <com.whatsapp.CustomSwitchPreference
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            app:sw_key="G_HideRead"
+            app:sw_icon="@drawable/message_got_read_receipt_from_target"
+            app:sw_title="@string/hread"
+            app:sw_summary="@string/hreadsum" />
+
+        <com.whatsapp.CustomSwitchPreference
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            app:sw_key="G_HideReceipt"
+            app:sw_icon="@drawable/message_got_receipt_from_target"
+            app:sw_title="@string/hreceipt"
+            app:sw_summary="@string/hreceiptsum" />
+
+        <com.whatsapp.CustomSwitchPreference
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            app:sw_key="G_HidePlay"
+            app:sw_icon="@drawable/mic_played"
+            app:sw_title="@string/hplay"
+            app:sw_summary="@string/hplaysum" />
+
+        <com.whatsapp.CustomSwitchPreference
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            app:sw_key="G_HideCompose"
+            app:sw_icon="@drawable/type"
+            app:sw_title="@string/htype"
+            app:sw_summary="@string/htypesum" />
+
+        <com.whatsapp.CustomSwitchPreference
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            app:sw_key="G_HideRecord"
+            app:sw_icon="@drawable/mic_new"
+            app:sw_title="@string/hrec"
+            app:sw_summary="@string/hrecsum" />
+
+        <com.whatsapp.CustomSwitchPreference
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            app:sw_key="G_ViewOnce"
+            app:sw_icon="@drawable/design_ic_visibility"
+            app:sw_title="@string/dview"
+            app:sw_summary="@string/dviewsum" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/settings_row_horizontal_padding"
+            android:layout_marginTop="14dp"
+            android:layout_marginRight="@dimen/settings_row_horizontal_padding"
+            android:text="@string/cat_reset"
+            style="?attr/settingsSectionTitleText"/>
+        <View style="?attr/settingsDivider"/>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/settings_row_horizontal_padding"
+            android:id="@+id/reset" >
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/resett"
+                android:text="@string/resetp"
+                android:textAppearance="?android:attr/textAppearanceListItem"
+                android:textSize="16sp" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/resett"
+                android:text="@string/resetpsum"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textSize="14sp" />
+        </RelativeLayout>
+
+    </LinearLayout>
+</ScrollView>
