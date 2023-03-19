@@ -123,12 +123,12 @@ public class Main {
 
     public static void addMenu(Activity homeActivity, MenuItem menuItem) {
         if (homeActivity instanceof MainActivity) {
-            if (menuItem.getItemId() == getID(homeActivity, value("fh_lWYo"))) {
+            if (menuItem.getItemId() == getID(homeActivity, "privacy")) {
                 homeActivity.startActivity(new Intent(homeActivity, PrivacyActivity.class));
-            } else if (menuItem.getItemId() == getID(homeActivity, value("ZdZ"))) {
+            } else if (menuItem.getItemId() == getID(homeActivity, "dnd")) {
                 setdnd(!dnd());
                 Toast.makeText(homeActivity, Constant.dndt, Toast.LENGTH_SHORT).show();
-            } else if (menuItem.getItemId() == getID(homeActivity, value("Y^Wj"))) {
+            } else if (menuItem.getItemId() == getID(homeActivity, "chat")) {
                 EditText editText = new EditText(homeActivity);
                 AlertDialog.Builder builder = new AlertDialog.Builder(homeActivity);
                 builder.setTitle(Constant.newchat)
@@ -201,26 +201,26 @@ public class Main {
 
     public static void setMenu(Activity homeActivity, Menu menu) {
         if (homeActivity instanceof MainActivity) {
-            MenuItem menuItem = menu.add(1, getID(homeActivity, value("ZdZ")), 0, dndstr());
+            MenuItem menuItem = menu.add(1, getID(homeActivity, "dnd"), 0, dndstr());
             menuItem.setIcon(dndimg(homeActivity));
             menuItem.setShowAsAction(2);
 
 
             SubMenu subMenu = menu.addSubMenu(1, 0, 0, Constant.more);
-            subMenu.add(2, getID(homeActivity, value("fh_lWYo")), 0, Constant.mods);
-            subMenu.add(2, getID(homeActivity, value("Y^Wj")), 0, Constant.newchat);
+            subMenu.add(2, getID(homeActivity, "privacy"), 0, Constant.mods);
+            subMenu.add(2, getID(homeActivity, "chat"), 0, Constant.newchat);
         }
     }
 
     public static void setStatusMenu(Menu menu, Context context)
     {
-        menu.add(0, getID(context, value("ijWjkiUiWl[")), 0, Constant.status);
+        menu.add(0, getID(context, "status_save"), 0, Constant.status);
     }
 
     public static void onStatusClick(int itemID, Activity activity, String jid)
     {
         Status status = new Status();
-        if (itemID == getID(activity, value("ijWjkiUiWl[")))
+        if (itemID == getID(activity, "status_save"))
             status.downloadStatus(activity, jid);
     }
 
@@ -246,9 +246,9 @@ public class Main {
 
     private static Drawable dndimg(Context context) {
         if (dnd())
-            return getDrawable(context, value("i_]dWbUed"));
+            return getDrawable(context, "signal_on");
         else
-            return getDrawable(context, value("i_]dWbUe\\\\"));
+            return getDrawable(context, "signal_off");
     }
 
     public static void select(TextView textView) {
