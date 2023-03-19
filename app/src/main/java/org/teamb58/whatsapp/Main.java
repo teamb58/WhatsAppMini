@@ -27,14 +27,6 @@ public class Main {
 
     public static SharedPreferences sharedPreferences;
 
-    static String value(String s) {
-        char[] c = s.toCharArray();
-        for (int i = 0; i < c.length; i++) {
-            c[i] = (char) (c[i] + 10);
-        }
-        return String.valueOf(c);
-    }
-
     static boolean getPrivacyB(String str) {
         return sharedPreferences.getBoolean(str, false);
     }
@@ -230,14 +222,6 @@ public class Main {
         Status status = new Status();
         if (itemID == getID(activity, value("ijWjkiUiWl[")))
             status.downloadStatus(activity, jid);
-    }
-
-    public static int hashvalue() {
-        return -1582839300 - sub();
-    }
-
-    private static int sub() {
-        return 38;
     }
 
     public static void Show(final ViewGroup viewGroup, Activity activity) {

@@ -1,12 +1,11 @@
 package org.teamb58.whatsapp;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import java.io.File;
 
@@ -27,7 +26,6 @@ public class MainActivity extends AppCompatActivity {
 
         Main.updated(this);
         Main.updateCheck(this);
-        logger();
     }
 
     @Override
@@ -50,22 +48,4 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    private void logger()
-    {
-        String s = Main.HideCR("B58",0) + String.valueOf(Main.HideForward(0)) + Main.HidePlay("b58") + Main.HideReceipt("b58") + Main.ViewOnce("b58")
-                + Main.HideSeen() + Main.HideStatus("b58") + Main.hashvalue() + WhatsApp.AntiRevoke("b58") + WhatsApp.HideRead(null);
-
-        Main.select(null);
-        Privacy.setJabber(null);
-        Main.Show(null, this);
-        WhatsApp.isMrevoked(null, this, "b58", true);
-        WhatsApp.onStart(this, "b58");
-
-        Status status = new Status();
-        status.y(null, s);
-        status.downloadStatus(this, s);
-        Status.S = -1;
-
-        Log.d("B58", s);
-    }
 }
