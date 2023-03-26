@@ -127,15 +127,15 @@ public class Main {
                 homeActivity.startActivity(new Intent(homeActivity, PrivacyActivity.class));
             } else if (menuItem.getItemId() == getID(homeActivity, "dnd")) {
                 setdnd(!dnd());
-                Toast.makeText(homeActivity, Constant.dndt, Toast.LENGTH_SHORT).show();
+                Toast.makeText(homeActivity, getString(homeActivity, "dndt"), Toast.LENGTH_SHORT).show();
             } else if (menuItem.getItemId() == getID(homeActivity, "chat")) {
                 EditText editText = new EditText(homeActivity);
                 AlertDialog.Builder builder = new AlertDialog.Builder(homeActivity);
-                builder.setTitle(Constant.newchat)
-                        .setMessage(Constant.enternum)
+                builder.setTitle(getString(homeActivity, "newchat"))
+                        .setMessage(getString(homeActivity, "enternum"))
                         .setView(editText)
-                        .setPositiveButton(Constant.message, new NewChat(editText, homeActivity))
-                        .setNegativeButton(Constant.cancel, new Cancel())
+                        .setPositiveButton(getString(homeActivity, "message"), new NewChat(editText, homeActivity))
+                        .setNegativeButton(getString(homeActivity, "cancel"), new Cancel())
                         .create()
                         .show();
             }
@@ -201,20 +201,20 @@ public class Main {
 
     public static void setMenu(Activity homeActivity, Menu menu) {
         if (homeActivity instanceof MainActivity) {
-            MenuItem menuItem = menu.add(1, getID(homeActivity, "dnd"), 0, dndstr());
+            MenuItem menuItem = menu.add(1, getID(homeActivity, "dnd"), 0, dndstr(homeActivity));
             menuItem.setIcon(dndimg(homeActivity));
             menuItem.setShowAsAction(2);
 
 
-            SubMenu subMenu = menu.addSubMenu(1, 0, 0, Constant.more);
-            subMenu.add(2, getID(homeActivity, "privacy"), 0, Constant.mods);
-            subMenu.add(2, getID(homeActivity, "chat"), 0, Constant.newchat);
+            SubMenu subMenu = menu.addSubMenu(1, 0, 0, getString(homeActivity, "more"));
+            subMenu.add(2, getID(homeActivity, "privacy"), 0, getString(homeActivity, "priv"));
+            subMenu.add(2, getID(homeActivity, "chat"), 0, getString(homeActivity, "newchat"));
         }
     }
 
     public static void setStatusMenu(Menu menu, Context context)
     {
-        menu.add(0, getID(context, "status_save"), 0, Constant.status);
+        menu.add(0, getID(context, "status_save"), 0, getString(context, "status"));
     }
 
     public static void onStatusClick(int itemID, Activity activity, String jid)
@@ -226,7 +226,7 @@ public class Main {
 
     public static void Show(final ViewGroup viewGroup, Activity activity) {
         if (activity instanceof MainActivity)
-            viewGroup.postDelayed(new DNDcheck(viewGroup), 7);
+            viewGroup.postDelayed(new DNDcheck(viewGroup, activity), 7);
     }
 
     public static boolean dnd() {
@@ -237,11 +237,11 @@ public class Main {
         sharedPreferences.edit().putBoolean(Constant.dnd, b).apply();
     }
 
-    private static String dndstr() {
+    private static String dndstr(Context context) {
         if (dnd())
-            return Constant.enint;
+            return context.getString(getString(context, "enint"));
         else
-            return Constant.disint;
+            return context.getString(getString(context, "disint"));
     }
 
     private static Drawable dndimg(Context context) {
@@ -258,6 +258,11 @@ public class Main {
 
     private static int getID(Context context, String name) {
         return context.getResources().getIdentifier(name, "id", context.getPackageName());
+    }
+
+    static int getString(Context context, String name)
+    {
+        return context.getResources().getIdentifier(name, "string", context.getPackageName());
     }
 
     private static Drawable getDrawable(Context context, String name) {

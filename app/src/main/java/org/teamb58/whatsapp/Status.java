@@ -43,7 +43,7 @@ public class Status {
         if (status != null) {
             ((ClipboardManager) activity.getSystemService(Context.CLIPBOARD_SERVICE))
                     .setPrimaryClip(ClipData.newPlainText("textlabel", status));
-            Toast.makeText(activity, Constant.text, Toast.LENGTH_SHORT).show();
+            Toast.makeText(activity, Main.getString(activity, "text"), Toast.LENGTH_SHORT).show();
         }
         // Save media file
         else if (file != null)
@@ -63,14 +63,14 @@ public class Status {
             if (destFile == null) {
                 throw new IOException();
             } else if (new File(destFile).exists()) {
-                Toast.makeText(context, Constant.already, Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, Main.getString(context, "already"), Toast.LENGTH_SHORT).show();
             } else {
                 copyFile(file, new File(destFile));
                 context.sendBroadcast(new Intent("android.intent.action.MEDIA_SCANNER_SCAN_FILE", Uri.fromFile(new File(destFile))));
-                Toast.makeText(context, Constant.media + destFile, Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, Main.getString(context, "media") + destFile, Toast.LENGTH_SHORT).show();
             }
         } catch (Exception e2) {
-            Toast.makeText(context, Constant.error + e2.getMessage(), Toast.LENGTH_SHORT).show();
+            Toast.makeText(context, Main.getString(context, "error") + e2.getMessage(), Toast.LENGTH_SHORT).show();
         }
     }
 

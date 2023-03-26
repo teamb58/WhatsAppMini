@@ -63,14 +63,16 @@ public class Update extends AsyncTask<String, String, String> {
         if ((this.value > vercod(this.ctx))) {
 
             alertDialog$Builder
-                    .setTitle(Constant.nuf)
-                    .setMessage(Constant.updatetext)
-                    .setPositiveButton(Constant.dldnw, new Download(this.ctx, this.url))
-                    .setNegativeButton(Constant.cancel, new Cancel())
+                    .setTitle(Main.getString(this.ctx, "nuf"))
+                    .setMessage(Main.getString(this.ctx, "updatetext"))
+                    .setPositiveButton(Main.getString(this.ctx, "dldnw"), new Download(this.ctx, this.url))
+                    .setNegativeButton(Main.getString(this.ctx, "cancel"), new Cancel())
                     .setCancelable(false);
         }
         else if (s.equals("0")) {
-            alertDialog$Builder.setTitle(Constant.utitleerr).setMessage(Constant.umessageerr);
+            alertDialog$Builder
+                    .setTitle(Main.getString(this.ctx, "utitleerr"))
+                    .setMessage(Main.getString(this.ctx,"umessageerr"));
 
         }
         else return;
